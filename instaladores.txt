@@ -1,0 +1,46 @@
+npm install --save-dev @faker-js/faker
+npm install styled-components
+npm install @types/styled-components
+npx create-react-app my-app --template typescript
+npm install react-bootstrap bootstrap
+npm install json-server --save-dev
+npm install styled-normalize
+npm install react-router-dom
+npm install dompurify 
+npm install marked
+npm install react-icons --save
+npm install axios
+
+
+instalação para os componentes de estilização
+npm install styled-components
+npm install @types/styled-components
+Axios
+npm install axios
+npm i @types/axios
+Routers
+npm install react-router-dom
+
+
+
+Criar novo Projeto REACT
+npx create-react-app nomedoarquivo --template typescript
+
+instalação para os componentes de estilização (STYLED)
+npm install styled-components
+npm install @types/styled-components
+
+intalar json server
+npm install json-server - - save -dev
+
+instalar axios(servidor de json)
+npm install axios
+
+instalar bootstrap
+npm install react-bootstrap bootstrap
+
+rodar api
+npm run api
+
+biblioteca de rotas de paginas(Route)
+npm install react-router-dom
