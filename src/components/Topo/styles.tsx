@@ -1,10 +1,11 @@
 import styled from 'styled-components'
+import { colors } from '../../theme'
 
 export const TopoStyles = styled.div`
   position: fixed;
-  padding: 0 30px;
+  padding: 0 22px;
   right: 0;
-  width: calc(100% - 271px);
+  width: 84.9vw;
   height: 90px;
   display: flex;
   justify-content: space-between;
@@ -26,6 +27,12 @@ export const TopoStyles = styled.div`
   }
 
   .sanduiche {
+    cursor: pointer;
+  }
+
+  button {
+    background-color: ${colors.white};
+    border: none;
     cursor: pointer;
   }
 `

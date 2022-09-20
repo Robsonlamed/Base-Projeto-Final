@@ -4,36 +4,12 @@ import { TituloCardTabela } from '../TituloTabela'
 import { ContainerStatus, ContainerTabela, TabelaProdutoStyle } from './styles'
 import { FacialCleanser } from '../../assets/icons/FacialCleanser'
 
-type IconTabelaProps = {
-  icon: ReactNode
+type TabelaProdutoProps = {
+  children: ReactNode
+  headers: string[]
 }
 
-const TitleTabela = ['ID', 'Produto', 'Percentual', ' ']
-
-const TabelaDadosAPI = [
-  {
-    id: '001',
-    produto: 'Papel Higiênico',
-    percentual: '+72%',
-  },
-  {
-    id: '002',
-    produto: 'Sabonete',
-    percentual: '+72%',
-  },
-  {
-    id: '003',
-    produto: 'Alcool em gel',
-    percentual: '+72%',
-  },
-  {
-    id: '004',
-    produto: 'Detergente',
-    percentual: '+72%',
-  },
-]
-
-export function TabelaProduto({ icon }: IconTabelaProps) {
+export function TabelaProduto({ children, headers }: TabelaProdutoProps) {
   return (
     <ContainerTabela>
       <ContainerStatus>
@@ -47,21 +23,22 @@ export function TabelaProduto({ icon }: IconTabelaProps) {
             <th>Produto</th>
             <th>Percentual</th>
             <th> </th> */}
-            {TitleTabela.map(titulo => (
+            {headers.map(titulo => (
               <th>{titulo}</th>
             ))}
           </tr>
         </thead>
         {/* </div> */}
         <tbody>
-          {TabelaDadosAPI.map(dadosAPI => (
+          {/* {TabelaDadosAPI.map(dadosAPI => (
             <tr>
-              <td>{dadosAPI.id}</td>
-              <td>{dadosAPI.produto}</td>
-              <td>{dadosAPI.percentual}</td>
-              <td>{icon}</td>
+              <td className="coluna1">{dadosAPI.id}</td>
+              <td className="coluna2">{dadosAPI.produto}</td>
+              <td className="coluna3">{dadosAPI.percentual}</td>
+              <td className="arrow">{icon}</td>
             </tr>
-          ))}
+          ))} */}
+          {children}
         </tbody>
       </TabelaProdutoStyle>
     </ContainerTabela>

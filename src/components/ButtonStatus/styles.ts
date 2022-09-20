@@ -1,23 +1,26 @@
 import styled from 'styled-components'
 import { colors } from '../../theme'
 
-export const ButtonStatusStyle = styled.button`
+export const ButtonStatusStyle = styled.button<{
+  backgroundColor: string
+  color: string
+}>`
   width: 90px;
-  height: 32px;
-  border-radius: 8px;
-  color: ${colors.white};
+  height: 24px;
+  background: ${({ backgroundColor }) => `${backgroundColor}`};
+  color: ${({ color }) => `${color}`};
+  border-radius: 5px;
   border: none;
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 400;
   cursor: pointer;
 `
 export const ContainerButtonStatus = styled.div`
   display: flex;
   justify-content: space-between;
-  background-color: whitesmoke;
-  border: 0.8px solid #e0e0e0;
+  background-color: ${colors.grey50};
+  border: 1px solid ${colors.cinza300};
   border-radius: 8px;
   width: 200px;
-  /* height: 40px; */
-  padding: 8px 7px 6px 7px;
+  padding: 7px 7px 6px 7px;
 `

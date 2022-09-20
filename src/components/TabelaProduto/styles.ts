@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { colors } from '../../theme'
 
 export const TabelaProdutoStyle = styled.table`
   width: calc(100%);
@@ -8,43 +9,54 @@ export const TabelaProdutoStyle = styled.table`
   margin-top: 32px;
 
   thead {
-    font-size: 16px;
-    color: #c5cfff;
+    font-size: 14px;
+    color: ${colors.azul4};
     font-weight: 600;
     text-align: center;
+    background-color: ${colors.primary};
+
+    tr {
+      th:nth-child(2) {
+        text-align: left;
+      }
+    }
   }
 
   tbody {
-    font-size: 16px;
-    color: #212121;
-    background-color: #fafafa;
+    font-size: 14px;
+    color: ${colors.grey900};
+    background-color: ${colors.grey50};
     font-weight: 400;
     text-align: center;
+
+    .arrow {
+      padding-right: 20px;
+    }
+
+    .coluna3,
+    .coluna1 {
+      text-align: center;
+    }
+
+    .coluna2 {
+      text-align: left;
+    }
   }
 
   td,
   th {
-    text-align: left;
     padding: 16px 0px 16px 27px;
     border-bottom: 8px solid white;
   }
 
-  thead > tr:nth-child(odd),
-  th > th:nth-child(odd) {
-    background-color: #001c98;
-  }
-
   tbody > tr:nth-child(even),
   th > th:nth-child(even) {
-    background-color: #f5f5f5;
-  }
-  .iconTabela {
-    padding-right: 30px;
+    background-color: ${colors.grey100};
   }
 `
 
 export const Cabecalho = styled.div`
-  background-color: #001c98;
+  background-color: ${colors.primary};
   border-radius: 16px 16px 0px 0px;
   width: 100%;
   height: 56px;

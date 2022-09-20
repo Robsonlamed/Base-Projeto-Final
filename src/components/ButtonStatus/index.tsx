@@ -14,22 +14,21 @@ export function ButtonStatus({ emAlta }: ButtonStatusProps) {
   return (
     <ContainerButtonStatus>
       <ButtonStatusStyle
+        color={status ? `${colors.cinza500}` : `${colors.white}`}
+        backgroundColor={status ? `${colors.white}` : `${colors.secondary}`}
         type="submit"
-        onClick={press}
-        style={{
-          backgroundColor: status ? `${colors.white}` : `${colors.secondary}`,
-          color: status ? `${colors.cinza500}` : `${colors.white}`,
+        onClick={() => {
+          if (status) press()
         }}
       >
         Em alta
       </ButtonStatusStyle>
-
       <ButtonStatusStyle
+        color={status ? `${colors.white}` : `${colors.cinza500}`}
+        backgroundColor={status ? `${colors.error}` : `${colors.white}`}
         type="submit"
-        onClick={press}
-        style={{
-          backgroundColor: status ? `${colors.error}` : `${colors.white}`,
-          color: status ? `${colors.white}` : `${colors.cinza500}`,
+        onClick={() => {
+          if (!status) press()
         }}
       >
         Em baixa

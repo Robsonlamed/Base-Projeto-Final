@@ -1,4 +1,5 @@
 import { CalendarioDashboard } from '../../components/CalendarioDashboard'
+import { CardClientes } from '../../components/CardClientes'
 import { CardDashboard } from '../../components/CardDashboard'
 import {
   ContainerCardsDashboard,
@@ -21,7 +22,7 @@ export function DashBoard() {
             tipo="produtos"
             status="em alta"
             valor={114}
-            porcentagem="11%"
+            porcentagem="81%"
             backgroundColor="#00c247"
           />
           <CardDashboard
@@ -36,7 +37,7 @@ export function DashBoard() {
             grafico={70}
             tipo="produtos"
             status="em alta"
-            valor={84}
+            valor={504}
             porcentagem="14%"
             backgroundColor="#00c247"
           />
@@ -44,12 +45,13 @@ export function DashBoard() {
             grafico={10}
             tipo="produtos"
             status="em alta"
-            valor={12}
+            valor={112}
             porcentagem="-21%"
             backgroundColor="#FF3333"
           />
         </ContainerCardsDashboard>
       </DashboardStyle>
+      <CardClientes />
     </ContainerdDashboardStyle>
   )
 }

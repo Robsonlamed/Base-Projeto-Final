@@ -8,7 +8,9 @@ export function Topo() {
   return (
     <TopoStyles>
       <div className="sanduiche">
-        <IconeMenu />
+        <button type="button">
+          <IconeMenu />
+        </button>
       </div>
       <Logado>
         <IconeUser>

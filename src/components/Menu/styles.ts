@@ -4,12 +4,16 @@ import { colors } from '../../theme'
 export const MenuStyles = styled.div`
   background-color: ${colors.primary};
   color: ${colors.white};
-  width: 271px;
-  font-size: 16px;
+  width: 14vw;
   justify-content: center;
+  position: fixed;
+  top: 0;
+  height: 100vh;
 `
 
 export const Logo = styled.img`
-  margin: 50px;
+  margin: 35px;
+  width: 126px;
+  height: 28px;
   cursor: pointer;
 `

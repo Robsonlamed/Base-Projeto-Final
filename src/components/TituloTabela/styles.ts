@@ -5,7 +5,7 @@ export const TituloTabelaStyle = styled.div`
   border-radius: 8px;
   width: 40px;
   height: 40px;
-  padding: 8px 17px 15px 8px;
+  padding: 11px 17px 15px 11px;
   margin-right: 12px;
 
   label {
