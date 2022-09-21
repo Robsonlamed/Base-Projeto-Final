@@ -10,7 +10,7 @@ type TituloProps = {
 export function Title({ texto, tamanho, color }: TituloProps) {
   return (
     <div>
-      <TitleStyle tamanho={tamanho} color={color}>
+      <TitleStyle margin="0px" tamanho={tamanho} color={color}>
         {texto}
       </TitleStyle>
     </div>

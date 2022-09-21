@@ -4,16 +4,16 @@ import { colors } from '../../theme'
 export const CardClienteStyle = styled.div`
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 
   h3 {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 600;
     color: ${colors.grey900};
   }
 
   li {
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 400;
     color: ${colors.success};
     margin-left: 20px;
@@ -30,12 +30,21 @@ export const IconeUserCliente = styled.div`
 `
 
 export const IconeChevronCliente = styled.div`
-  margin-left: 75px;
+  margin-left: 40px;
 `
 
 export const ContainerCardCliente = styled.div`
-  width: 23vw;
+  width: 19vw;
   height: auto;
-  padding: 20px;
+  padding: 16px;
   border-radius: 20px;
+  box-shadow: 0px 7px 30px rgba(0, 0, 0, 0.1);
+`
+export const ContainerCardsPredicoes = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 84.9vw;
+  margin-left: 14vw;
+  padding: 26px;
 `

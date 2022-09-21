@@ -1,16 +1,19 @@
 import styled from 'styled-components'
+import { colors } from '../../theme'
 
 export const ContainerInput = styled.div`
   position: relative;
   width: 400px;
 `
 
-export const InputStyle = styled.input`
+export const InputStyle = styled.input<{
+  border: string
+}>`
   width: 400px;
   height: 56px;
-  border: 1px solid #00c247;
+  border: 1px solid ${({ border }) => `${border}`};
   border-radius: 16px;
-  color: #212121;
+  color: ${colors.grey900};
   padding: 20px 60px 20px 20px;
   font-size: 16px;
   font-weight: 400;

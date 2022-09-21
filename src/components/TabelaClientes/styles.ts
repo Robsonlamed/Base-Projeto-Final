@@ -4,18 +4,18 @@ import { colors } from '../../theme'
 export const TabelaClienteStyle = styled.table`
   width: 100%;
   border-spacing: 0;
-  border-radius: 20px 20px 0 0;
+  border-radius: 10px;
   overflow: hidden;
 
   thead {
-    font-size: 14px;
+    font-size: 12px;
     color: ${colors.azul2};
     font-weight: 400;
     text-align: center;
   }
 
   tbody {
-    font-size: 14px;
+    font-size: 10px;
     color: ${colors.grey800};
     font-weight: 400;
     text-align: center;
@@ -40,7 +40,7 @@ export const TabelaClienteStyle = styled.table`
 `
 
 export const ContainerTabelaCliente = styled.div`
-  padding: 20px;
+  padding: 10px;
   background-color: ${colors.grey100};
   border-radius: 20px;
 `

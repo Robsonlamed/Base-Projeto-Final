@@ -25,7 +25,7 @@ export const DashboardStyle = styled.div`
   }
 `
 export const ContainerdDashboardStyle = styled.div`
-  padding: 22px;
+  padding: 22px 22px 0px 22px;
   width: 84.9vw;
   background: #ffffff;
   margin-top: 90px;

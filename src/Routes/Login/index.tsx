@@ -13,7 +13,7 @@ export function PageLogin() {
         <SubTitleStyle tamanho={20} color="#424242">
           Seja bem vindo!
         </SubTitleStyle>
-        <TitleStyle tamanho={36} color="#212121">
+        <TitleStyle margin="50px" tamanho={36} color="#212121">
           {' '}
           Realize seu login{' '}
         </TitleStyle>

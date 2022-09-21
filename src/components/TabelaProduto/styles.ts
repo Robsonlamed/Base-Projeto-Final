@@ -9,7 +9,7 @@ export const TabelaProdutoStyle = styled.table`
   margin-top: 32px;
 
   thead {
-    font-size: 14px;
+    font-size: 12px;
     color: ${colors.azul4};
     font-weight: 600;
     text-align: center;
@@ -23,7 +23,7 @@ export const TabelaProdutoStyle = styled.table`
   }
 
   tbody {
-    font-size: 14px;
+    font-size: 12px;
     color: ${colors.grey900};
     background-color: ${colors.grey50};
     font-weight: 400;

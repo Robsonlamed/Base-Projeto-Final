@@ -1,5 +1,4 @@
 import { CalendarioDashboard } from '../../components/CalendarioDashboard'
-import { CardClientes } from '../../components/CardClientes'
 import { CardDashboard } from '../../components/CardDashboard'
 import {
   ContainerCardsDashboard,
@@ -51,7 +50,6 @@ export function DashBoard() {
           />
         </ContainerCardsDashboard>
       </DashboardStyle>
-      <CardClientes />
     </ContainerdDashboardStyle>
   )
 }

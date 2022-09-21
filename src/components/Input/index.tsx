@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Eye } from '../../assets/icons/Eye'
 import { EyeOffLine } from '../../assets/icons/EyeOffLine'
+import { colors } from '../../theme'
 import { ContainerInput, EyeStyle, InputStyle, LabelStyle } from './styles'
 
 type InputProps = {
@@ -19,6 +20,7 @@ export function Input({ eye }: InputProps) {
       <form>
         <ContainerInput>
           <InputStyle
+            border={colors.secondary}
             id="user"
             // type={text}
             placeholder="Insira seu e-mail"
@@ -30,6 +32,7 @@ export function Input({ eye }: InputProps) {
         </ContainerInput>
         <ContainerInput>
           <InputStyle
+            border={colors.secondary}
             id="password"
             type={isShowing ? 'text' : 'password'}
             placeholder="Insira sua senha"
