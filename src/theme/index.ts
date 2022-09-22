@@ -18,4 +18,5 @@ export const colors = {
   cinza500: '#9E9E9E',
   cinza300: '#E0E0E0',
   cinza200: '#EEEEEE',
+  verdeClaro: '#D9FEE6',
 }

@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { colors } from '../../theme'
 
 export const TabelaProdutoStyle = styled.table`
-  width: calc(100%);
+  width: 100%;
   border-spacing: 0;
   border-radius: 20px 20px 0 0;
   overflow: hidden;
@@ -11,13 +11,25 @@ export const TabelaProdutoStyle = styled.table`
   thead {
     font-size: 12px;
     color: ${colors.azul4};
-    font-weight: 600;
+    font-weight: 400;
     text-align: center;
     background-color: ${colors.primary};
 
     tr {
       th:nth-child(2) {
         text-align: left;
+      }
+    }
+
+    tr {
+      th:nth-child(5) {
+        padding-right: 20px;
+      }
+    }
+
+    tr {
+      th:nth-child(6) {
+        padding-right: 20px;
       }
     }
   }
@@ -30,7 +42,7 @@ export const TabelaProdutoStyle = styled.table`
     text-align: center;
 
     .arrow {
-      padding-right: 20px;
+      padding-right: 16px;
     }
 
     .coluna3,
@@ -41,11 +53,14 @@ export const TabelaProdutoStyle = styled.table`
     .coluna2 {
       text-align: left;
     }
+    .onClick {
+      cursor: pointer;
+    }
   }
 
   td,
   th {
-    padding: 16px 0px 16px 27px;
+    padding: 16px 0px 16px 20px;
     border-bottom: 8px solid white;
   }
 
@@ -62,12 +77,13 @@ export const Cabecalho = styled.div`
   height: 56px;
 `
 
-export const ContainerTabela = styled.div`
+export const ContainerTabela = styled.div<{ width: string }>`
+  width: ${({ width }) => `${width}`};
   background-color: white;
   box-shadow: 0px 7px 30px rgba(0, 0, 0, 0.1);
-  width: 48.5%;
   padding: 32px 32px 32px 32px;
   border-radius: 24px;
+  margin-top: 34px;
 `
 
 export const ContainerStatus = styled.div`

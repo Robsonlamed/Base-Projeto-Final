@@ -1,33 +1,45 @@
-import { RadialBar } from '../GraficoDashbord'
+import { ReactNode } from 'react'
 import { ValorCardDashboard } from '../ValorCardDashboard'
 import { CardDashboardStyle } from './styles'
 import { TituloCard } from './titulo'
 
 type CardDashboardProps = {
-  grafico: number
-  tipo: 'produtos' | 'clientes'
-  status: 'em alta' | 'em baixa'
+  radialBar?: ReactNode
+  tipo: string
+  status: string
+  text?: string
   valor: number
   porcentagem: string
   backgroundColor: string
+  backgroundCard: string
+  color: string
+  colorTitle: string
 }
 
 export function CardDashboard({
-  grafico,
+  radialBar,
   tipo,
   status,
+  text,
   valor,
   porcentagem,
   backgroundColor,
+  backgroundCard,
+  color,
+  colorTitle,
 }: CardDashboardProps) {
   return (
-    <CardDashboardStyle>
+    <CardDashboardStyle backgroundColor={backgroundCard}>
+      <div>{radialBar}</div>
       <div>
-        <RadialBar series={grafico} />
-      </div>
-      <div>
-        <TituloCard tipo={tipo} status={status} />
+        <TituloCard
+          color={colorTitle}
+          text={text}
+          tipo={tipo}
+          status={status}
+        />
         <ValorCardDashboard
+          color={color}
           backgroundColor={backgroundColor}
           total={valor}
           porcentagem={porcentagem}

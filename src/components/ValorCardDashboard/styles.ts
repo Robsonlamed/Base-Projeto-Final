@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 import { colors } from '../../theme'
 
-export const ValorCardDashboardStyle = styled.h1`
+export const ValorCardDashboardStyle = styled.h1<{ color: string }>`
   font-weight: 600;
   font-size: 26px;
-  color: #ffffff;
+  color: ${({ color }) => `${color}`};
   margin-left: 5px;
 `
 

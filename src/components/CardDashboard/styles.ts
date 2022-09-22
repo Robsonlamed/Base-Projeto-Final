@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 import { colors } from '../../theme'
 
-export const CardDashboardStyle = styled.div`
+export const CardDashboardStyle = styled.div<{ backgroundColor: string }>`
   display: flex;
   align-items: center;
-  background: ${colors.azul3};
+  background: ${({ backgroundColor }) => `${backgroundColor}`};
   border-radius: 18px;
   width: 250px;
   height: 90px;

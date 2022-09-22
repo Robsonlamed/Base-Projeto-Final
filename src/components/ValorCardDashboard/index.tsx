@@ -8,17 +8,19 @@ type ValorCardDashboar = {
   total: number
   porcentagem: string
   backgroundColor: string
+  color: string
 }
 
 export function ValorCardDashboard({
   total,
   porcentagem,
   backgroundColor,
+  color,
 }: ValorCardDashboar) {
   return (
     <ContainerValorCardDashbord>
       <div>
-        <ValorCardDashboardStyle>{total}</ValorCardDashboardStyle>
+        <ValorCardDashboardStyle color={color}>{total}</ValorCardDashboardStyle>
       </div>
       <PorcentagemCardDashboardStyle backgroundColor={backgroundColor}>
         {porcentagem}

@@ -1,20 +1,26 @@
 import { ReactNode } from 'react'
-import { ButtonStatus } from '../ButtonStatus'
-import { TituloCardTabela } from '../TituloTabela'
 import { ContainerStatus, ContainerTabela, TabelaProdutoStyle } from './styles'
-import { FacialCleanser } from '../../assets/icons/FacialCleanser'
 
 type TabelaProdutoProps = {
   children: ReactNode
   headers: string[]
+  width: string
+  button: ReactNode
+  title: ReactNode
 }
 
-export function TabelaProduto({ children, headers }: TabelaProdutoProps) {
+export function TabelaProduto({
+  children,
+  headers,
+  width,
+  button,
+  title,
+}: TabelaProdutoProps) {
   return (
-    <ContainerTabela>
+    <ContainerTabela width={width}>
       <ContainerStatus>
-        <TituloCardTabela icon={<FacialCleanser />} titulo="Produtos" />
-        <ButtonStatus emAlta={false} />
+        <span>{title}</span>
+        <span>{button}</span>
       </ContainerStatus>
       <TabelaProdutoStyle>
         <thead>

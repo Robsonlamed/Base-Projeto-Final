@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import { colors } from '../../theme'
 
 export const ContainerInput = styled.div`
+  display: flex;
   position: relative;
   width: 400px;
 `
@@ -35,4 +36,13 @@ export const EyeStyle = styled.div`
   position: absolute;
   right: 20px;
   top: 15px;
+`
+
+export const FilterStyle = styled.div`
+  background-color: ${colors.grey100};
+  width: 56px;
+  height: 56px;
+  padding: 15px 14px 9px 14px;
+  border-radius: 12px;
+  margin-left: 16px;
 `

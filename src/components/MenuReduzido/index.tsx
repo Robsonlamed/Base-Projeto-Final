@@ -31,6 +31,7 @@ import { FacialCleanser } from '../../assets/icons/FacialCleanser'
 import { PieTwo } from '../../assets/icons/PieTwo'
 import logo from '../../assets/images/logo.svg'
 import { Wrapper } from '../../assets/Wrapper'
+import { colors } from '../../theme'
 import { LinkMenu, Logo, MenuStyles } from './styles'
 
 export function MenuReduzido() {
@@ -45,7 +46,7 @@ export function MenuReduzido() {
           <ChartLine />
         </LinkMenu>
         <LinkMenu>
-          <FacialCleanser />
+          <FacialCleanser color={colors.white} />
         </LinkMenu>
       </MenuStyles>
     </Wrapper>

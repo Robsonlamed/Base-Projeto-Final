@@ -8,7 +8,12 @@ import { Title } from '../Title'
 export function InformacoesClientes() {
   return (
     <ContainerInformacoesClientes>
-      <Title texto="Hotel Ibis" tamanho={22} color={colors.white} />
+      <Title
+        marginLeft=""
+        texto="Hotel Ibis"
+        tamanho={22}
+        color={colors.white}
+      />
       <CelEmail
         iconPhone={<Phone />}
         phone="(31) 99999-9999"

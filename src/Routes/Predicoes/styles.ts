@@ -23,14 +23,14 @@ export const CardClienteStyle = styled.div`
 export const IconeUserCliente = styled.div`
   background-color: ${colors.azul4};
   border-radius: 100%;
-  width: 56px;
-  height: 56px;
-  padding: 10px 0px 0px 12px;
+  width: 50px;
+  height: 50px;
+  padding: 8px 0px 0px 9px;
   margin-right: 15px;
 `
 
 export const IconeChevronCliente = styled.div`
-  margin-left: 40px;
+  margin-left: 50px;
 `
 
 export const ContainerCardCliente = styled.div`

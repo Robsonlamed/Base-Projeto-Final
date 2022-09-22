@@ -1,7 +1,13 @@
-import { ChevronRight } from '../assets/icons/ChevronRight'
-import { TabelaProduto } from '../components/TabelaProduto'
-import { DashBoard } from '../pages/Dashboard'
-import { ContainerTabelasStyle } from '../pages/tabelas/styles'
+import { useNavigate } from 'react-router-dom'
+import { ChevronRight } from '../../assets/icons/ChevronRight'
+import { EveryUser } from '../../assets/icons/EveryUser'
+import { FacialCleanser } from '../../assets/icons/FacialCleanser'
+import { ButtonStatus } from '../../components/ButtonStatus'
+import { TabelaProduto } from '../../components/TabelaProduto'
+import { TitleWithIcon } from '../../components/TitleWithIcon'
+import { DashBoard } from '../../pages/Dashboard'
+import { ContainerTabelasStyle } from '../../pages/tabelas/styles'
+import { colors } from '../../theme'
 
 const TitleTabela = ['ID', 'Produto', 'Percentual', ' ']
 
@@ -49,14 +55,34 @@ const TabelaDadosAPI = [
 ]
 
 export function PageDashboard() {
+  const navigate = useNavigate()
+
+  const goToPage = (url: string) => {
+    navigate(url)
+  }
   return (
     <div>
       <DashBoard />
 
-      <ContainerTabelasStyle>
-        <TabelaProduto headers={TitleTabela}>
+      <ContainerTabelasStyle margin="14vw">
+        <TabelaProduto
+          title={
+            <TitleWithIcon
+              background={colors.azul4}
+              color={colors.grey900}
+              icon={<FacialCleanser color={colors.primary} />}
+              title="Produtos"
+            />
+          }
+          button={<ButtonStatus emAlta={false} />}
+          width="49%"
+          headers={TitleTabela}
+        >
           {TabelaDadosAPI.map(dadosAPI => (
-            <tr>
+            <tr
+              className="onClick"
+              onClick={() => goToPage('/informacoesprodutos')}
+            >
               <td className="coluna1">{dadosAPI.id}</td>
               <td className="coluna2">{dadosAPI.produto}</td>
               <td className="coluna3">{dadosAPI.percentual}</td>
@@ -66,7 +92,19 @@ export function PageDashboard() {
             </tr>
           ))}
         </TabelaProduto>
-        <TabelaProduto headers={TitleTabela}>
+        <TabelaProduto
+          title={
+            <TitleWithIcon
+              background={colors.primary}
+              color={colors.grey900}
+              icon={<EveryUser />}
+              title="Clientes"
+            />
+          }
+          button={<ButtonStatus emAlta={false} />}
+          width="49%"
+          headers={TitleTabela}
+        >
           {TabelaDadosAPI.map(dadosAPI => (
             <tr>
               <td className="coluna1">{dadosAPI.id}</td>

@@ -5,6 +5,8 @@ import {
   ContainerdDashboardStyle,
   DashboardStyle,
 } from '../../components/CardDashboard/styles'
+import { RadialBar } from '../../components/GraficoDashbord'
+import { colors } from '../../theme'
 import { ContainerTituloDashboard } from './styles'
 
 export function DashBoard() {
@@ -17,36 +19,48 @@ export function DashBoard() {
         </ContainerTituloDashboard>
         <ContainerCardsDashboard>
           <CardDashboard
-            grafico={95}
+            colorTitle={colors.white}
+            radialBar={<RadialBar series={95} />}
             tipo="produtos"
             status="em alta"
             valor={114}
             porcentagem="81%"
             backgroundColor="#00c247"
+            backgroundCard={colors.azul3}
+            color={colors.white}
           />
           <CardDashboard
-            grafico={50}
+            colorTitle={colors.white}
+            radialBar={<RadialBar series={50} />}
             tipo="produtos"
             status="em alta"
             valor={60}
             porcentagem="-27%"
             backgroundColor="#FF3333"
+            backgroundCard={colors.azul3}
+            color={colors.white}
           />
           <CardDashboard
-            grafico={70}
+            colorTitle={colors.white}
+            radialBar={<RadialBar series={70} />}
             tipo="produtos"
             status="em alta"
             valor={504}
             porcentagem="14%"
             backgroundColor="#00c247"
+            backgroundCard={colors.azul3}
+            color={colors.white}
           />
           <CardDashboard
-            grafico={10}
+            colorTitle={colors.white}
+            radialBar={<RadialBar series={10} />}
             tipo="produtos"
             status="em alta"
             valor={112}
             porcentagem="-21%"
             backgroundColor="#FF3333"
+            backgroundCard={colors.azul3}
+            color={colors.white}
           />
         </ContainerCardsDashboard>
       </DashboardStyle>

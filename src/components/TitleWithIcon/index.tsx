@@ -1,17 +1,33 @@
 import { ReactNode } from 'react'
-import { colors } from '../../theme'
-import { TitleWithIconStyle } from './styles'
+import {
+  ContainerIcon,
+  ContainerWithIconStyle,
+  TitleWithIconStyle,
+} from './styles'
 
 type TitleIconProps = {
   icon: ReactNode
   title: string
+  color: string
+  background: string
+  borderRadius?: string
 }
 
-export function TitleWithIcon({ icon, title }: TitleIconProps) {
+export function TitleWithIcon({
+  icon,
+  title,
+  color,
+  background,
+  borderRadius,
+}: TitleIconProps) {
   return (
-    <TitleWithIconStyle color={colors.grey900} tamanho="16px">
-      {icon}
-      <span>{title}</span>
-    </TitleWithIconStyle>
+    <ContainerWithIconStyle>
+      <TitleWithIconStyle color={color} tamanho="16px">
+        <ContainerIcon borderRadius={borderRadius} backgroundColor={background}>
+          {icon}
+        </ContainerIcon>
+        <span>{title}</span>
+      </TitleWithIconStyle>
+    </ContainerWithIconStyle>
   )
 }

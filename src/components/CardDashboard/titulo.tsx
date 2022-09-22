@@ -1,15 +1,17 @@
 import { TituloCardDashboard } from '../TituloCardDashboard'
 
 type TituloCardProps = {
-  tipo: 'produtos' | 'clientes'
-  status: 'em alta' | 'em baixa'
+  tipo: string
+  status: string
+  text?: string
+  color: string
 }
 
-export function TituloCard({ tipo, status }: TituloCardProps) {
+export function TituloCard({ tipo, status, text, color }: TituloCardProps) {
   return (
-    <TituloCardDashboard>
+    <TituloCardDashboard color={color}>
       <span>
-        Total <strong>{tipo}</strong> {status}
+        {text} <strong>{tipo}</strong> {status}
       </span>
     </TituloCardDashboard>
   )

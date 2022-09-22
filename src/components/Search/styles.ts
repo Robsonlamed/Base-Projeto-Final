@@ -6,11 +6,18 @@ export const SearchPredicoesStyle = styled.div`
   right: 20px;
   top: 15px;
 `
-export const ContainerSearch = styled.div`
+export const ContainerSearch = styled.div<{
+  paddinLeft: string
+  boxShadow: string
+  height: string
+  marginBotton: string
+}>`
   width: 100%;
   background-color: ${colors.white};
   padding: 20px;
+  padding-left: ${({ paddinLeft }) => `${paddinLeft}`};
   border-radius: 20px;
-  height: 100px;
-  box-shadow: 0px 7px 30px rgba(0, 0, 0, 0.1);
+  height: ${({ height }) => `${height}`};
+  box-shadow: ${({ boxShadow }) => `${boxShadow}`};
+  margin-bottom: ${({ marginBotton }) => `${marginBotton}`};
 `
