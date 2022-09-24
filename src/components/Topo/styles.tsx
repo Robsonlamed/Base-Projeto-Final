@@ -5,7 +5,7 @@ export const TopoStyles = styled.div`
   position: fixed;
   padding: 0 22px;
   right: 0;
-  width: 84.9vw;
+  width: 84.8vw;
   height: 90px;
   display: flex;
   justify-content: space-between;
@@ -14,8 +14,7 @@ export const TopoStyles = styled.div`
   z-index: 1;
 
   div {
-    margin-right: 15px;
-    cursor: pointer;
+    margin-right: 10px;
   }
   p {
     font-size: 16px;
@@ -43,10 +42,24 @@ export const Logado = styled.div`
 `
 
 export const IconeUser = styled.div`
-  background-color: #001c98;
+  background-color: ${colors.primary};
   border-radius: 100%;
-  width: 56px;
-  height: 56px;
-  padding: 10px 0px 0px 12px;
+  width: 40px;
+  height: 40px;
+  padding: 7px 0px 0px 8px;
   margin-right: 10px;
+`
+export const UserStyle = styled.div`
+  p {
+    font-size: 16px;
+    font-weight: 600;
+    color: ${colors.grey900};
+    margin-bottom: -5px;
+  }
+
+  span {
+    font-size: 12px;
+    font-weight: 400;
+    color: ${colors.cinza600};
+  }
 `

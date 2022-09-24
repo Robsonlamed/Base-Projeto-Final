@@ -1,12 +1,13 @@
 import { ButtonFaleConoscoStyle } from './styles'
 
-export function ButtonFaleConosco() {
+type ButtonFaleConoscoProps = {
+  text: string
+}
+
+export function ButtonFaleConosco({ text }: ButtonFaleConoscoProps) {
   return (
     <div>
-      <ButtonFaleConoscoStyle type="submit">
-        {' '}
-        Fale Conosco{' '}
-      </ButtonFaleConoscoStyle>
+      <ButtonFaleConoscoStyle type="submit"> {text} </ButtonFaleConoscoStyle>
     </div>
   )
 }

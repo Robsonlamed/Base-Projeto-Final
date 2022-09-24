@@ -4,37 +4,25 @@ import { colors } from '../../theme'
 export const CardClienteStyle = styled.div`
   display: flex;
   align-items: center;
+  justify-content: space-between;
   margin-bottom: 10px;
-
-  h3 {
-    font-size: 14px;
-    font-weight: 600;
-    color: ${colors.grey900};
-  }
-
-  li {
-    font-size: 12px;
-    font-weight: 400;
-    color: ${colors.success};
-    margin-left: 20px;
-  }
 `
 
 export const IconeUserCliente = styled.div`
   background-color: ${colors.azul4};
   border-radius: 100%;
-  width: 50px;
-  height: 50px;
-  padding: 8px 0px 0px 9px;
+  width: 40px;
+  height: 40px;
+  padding: 7px 0px 0px 8px;
   margin-right: 15px;
 `
 
 export const IconeChevronCliente = styled.div`
-  margin-left: 50px;
+  margin-bottom: 12px;
 `
 
 export const ContainerCardCliente = styled.div`
-  width: 19vw;
+  width: 240px;
   height: auto;
   padding: 16px;
   border-radius: 20px;
@@ -42,9 +30,10 @@ export const ContainerCardCliente = styled.div`
 `
 export const ContainerCardsPredicoes = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-wrap: wrap;
   width: 84.9vw;
   margin-left: 14vw;
   padding: 26px;
+  height: 400px;
+  overflow: auto;
 `

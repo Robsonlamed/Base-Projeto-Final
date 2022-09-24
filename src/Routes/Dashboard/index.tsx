@@ -10,6 +10,7 @@ import { ContainerTabelasStyle } from '../../pages/tabelas/styles'
 import { colors } from '../../theme'
 
 const TitleTabela = ['ID', 'Produto', 'Percentual', ' ']
+const TitleTabela1 = ['ID', 'Cliente', 'Percentual', ' ']
 
 const TabelaDadosAPI = [
   {
@@ -68,6 +69,8 @@ export function PageDashboard() {
         <TabelaProduto
           title={
             <TitleWithIcon
+              marginLeft="10px"
+              fontSize="16px"
               background={colors.azul4}
               color={colors.grey900}
               icon={<FacialCleanser color={colors.primary} />}
@@ -95,6 +98,8 @@ export function PageDashboard() {
         <TabelaProduto
           title={
             <TitleWithIcon
+              marginLeft="10px"
+              fontSize="16px"
               background={colors.primary}
               color={colors.grey900}
               icon={<EveryUser />}
@@ -103,7 +108,7 @@ export function PageDashboard() {
           }
           button={<ButtonStatus emAlta={false} />}
           width="49%"
-          headers={TitleTabela}
+          headers={TitleTabela1}
         >
           {TabelaDadosAPI.map(dadosAPI => (
             <tr>

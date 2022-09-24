@@ -5,6 +5,7 @@ export const SearchPredicoesStyle = styled.div`
   position: absolute;
   right: 20px;
   top: 15px;
+  cursor: pointer;
 `
 export const ContainerSearch = styled.div<{
   paddinLeft: string

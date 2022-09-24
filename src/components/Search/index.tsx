@@ -1,8 +1,8 @@
 import { ReactNode } from 'react'
 import { Search } from '../../assets/icons/Search'
-import { ContainerInput, FilterStyle, InputStyle } from '../Input/styles'
 import { ContainerSearch, SearchPredicoesStyle } from './styles'
 import { colors } from '../../theme'
+import { ContainerInput, InputStyle } from '../Input/styles'
 
 type FilterProps = {
   icon: ReactNode
@@ -39,7 +39,7 @@ export function SerchPredicoes({
             <Search />
           </SearchPredicoesStyle>
         </div>
-        <FilterStyle>{icon}</FilterStyle>
+        {icon}
       </ContainerInput>
     </ContainerSearch>
   )

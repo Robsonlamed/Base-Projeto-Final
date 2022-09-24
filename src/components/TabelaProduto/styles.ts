@@ -83,7 +83,7 @@ export const ContainerTabela = styled.div<{ width: string }>`
   box-shadow: 0px 7px 30px rgba(0, 0, 0, 0.1);
   padding: 32px 32px 32px 32px;
   border-radius: 24px;
-  margin-top: 34px;
+  margin: 34px 0px;
 `
 
 export const ContainerStatus = styled.div`

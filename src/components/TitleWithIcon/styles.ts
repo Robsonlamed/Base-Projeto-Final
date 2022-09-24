@@ -2,15 +2,16 @@ import styled from 'styled-components'
 
 export const TitleWithIconStyle = styled.div<{
   color: string
-  tamanho: string
+  fontSize: string
+  marginLeft: string
 }>`
   display: flex;
   align-items: center;
   color: ${({ color }) => `${color}`};
-  font-size: ${({ tamanho }) => `${tamanho}`};
-  font-weight: 400;
+  font-size: ${({ fontSize }) => `${fontSize}`};
+  font-weight: 600;
   span {
-    margin-left: 10px;
+    margin-left: ${({ marginLeft }) => `${marginLeft}`};
   }
 `
 
@@ -22,7 +23,7 @@ export const ContainerIcon = styled.div<{
   border-radius: 8px;
   width: 40px;
   height: 40px;
-  padding: 11px 17px 15px 11px;
+  padding: 9px 17px 15px 9px;
   margin-right: 12px;
   border-radius: ${({ borderRadius }) => `${borderRadius}`};
 
@@ -33,6 +34,6 @@ export const ContainerIcon = styled.div<{
   }
 `
 
-export const ContainerWithIconStyle = styled.div`
-  margin-top: 0px;
+export const ContainerWithIconStyle = styled.div<{ marginBottom?: string }>`
+  margin-bottom: ${({ marginBottom }) => `${marginBottom}`};
 `

@@ -82,8 +82,10 @@ const TabelaDadosAPI = [
 export function SubTelaPredicoes() {
   return (
     <ContainerSubTela>
-      <LinkMenu color={colors.grey900} to="/predicoes">
+      <LinkMenu marginLeft="0px" color={colors.grey900} to="/predicoes">
         <TitleWithIcon
+          marginLeft="10px"
+          fontSize="16px"
           icon={<ArrowBack />}
           title="Predições"
           color={colors.grey900}
@@ -92,17 +94,19 @@ export function SubTelaPredicoes() {
         />
       </LinkMenu>
       <InformacoesClientes />
-      <ContainerTabelasStyle margin="0px">
+      <ContainerTabelasStyle margin="-20px">
         <TabelaProduto
           button=""
           width="44%"
           headers={TitleTabela}
           title={
             <TitleWithIcon
+              marginLeft="10px"
+              fontSize="16px"
               background={colors.cinza200}
               color={colors.grey900}
               icon={<TimeHistory />}
-              title="Clientes"
+              title="Histórico"
             />
           }
         >
@@ -124,10 +128,12 @@ export function SubTelaPredicoes() {
           headers={TitleTabelaItenEsgotado}
           title={
             <TitleWithIcon
+              marginLeft="10px"
+              fontSize="16px"
               background={colors.lightRed}
               color={colors.error}
               icon={<FacialCleanser color={colors.error} />}
-              title="Clientes"
+              title="Produtos esgotando"
             />
           }
         >

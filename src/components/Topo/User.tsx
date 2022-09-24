@@ -1,3 +1,5 @@
+import { UserStyle } from './styles'
+
 type UserProps = {
   name: string
   email: string
@@ -5,9 +7,9 @@ type UserProps = {
 
 export function User({ name, email }: UserProps) {
   return (
-    <div>
+    <UserStyle>
       <p>{name}</p>
       <span> {email}</span>
-    </div>
+    </UserStyle>
   )
 }

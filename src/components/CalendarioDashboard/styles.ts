@@ -1,23 +1,26 @@
 import styled from 'styled-components'
+import { colors } from '../../theme'
 
 export const CalendarioDashboardStyle = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #ffffff;
+  background: ${colors.white};
   border-radius: 8px;
-  width: 170px;
+  width: 175px;
   padding: 8px;
 
   span {
     font-weight: 400;
     font-size: 12px;
-    color: #424242;
+    color: ${colors.grey800};
+    margin: 0 3px;
   }
 
-  p {
+  select {
     font-weight: 600;
-    font-size: 12px;
-    color: #001c98;
+    font-size: 13px;
+    color: ${colors.primary};
+    border: none;
   }
 `

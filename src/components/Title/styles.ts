@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const TitleStyle = styled.h1<{
   tamanho: number
   color: string
-  margin: string
+  margin?: string
   marginLeft: string
 }>`
   font-size: ${({ tamanho }) => `${tamanho}px`};

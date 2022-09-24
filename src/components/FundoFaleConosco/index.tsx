@@ -14,7 +14,7 @@ export function FundoFaleConosco() {
           Precisando de <strong>ajuda ou suporte</strong> em algo?
         </span>
       </div>
-      <ButtonFaleConosco />
+      <ButtonFaleConosco text="Fale conosco" />
     </FaleConoscoStyle>
   )
 }

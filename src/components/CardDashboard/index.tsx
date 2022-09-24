@@ -14,6 +14,9 @@ type CardDashboardProps = {
   backgroundCard: string
   color: string
   colorTitle: string
+  width: string
+  paddingBottom?: string
+  boxShadow?: string
 }
 
 export function CardDashboard({
@@ -27,9 +30,17 @@ export function CardDashboard({
   backgroundCard,
   color,
   colorTitle,
+  width,
+  paddingBottom,
+  boxShadow,
 }: CardDashboardProps) {
   return (
-    <CardDashboardStyle backgroundColor={backgroundCard}>
+    <CardDashboardStyle
+      boxShadow={boxShadow}
+      paddingBottom={paddingBottom}
+      width={width}
+      backgroundColor={backgroundCard}
+    >
       <div>{radialBar}</div>
       <div>
         <TituloCard

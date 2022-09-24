@@ -1,10 +1,15 @@
 import { Checkbox, LebrarStyle } from './styles'
 
-export function Lembrar() {
+type LembrarProps = {
+  text: string
+  fontSize: string
+}
+
+export function Lembrar({ text, fontSize }: LembrarProps) {
   return (
-    <LebrarStyle>
+    <LebrarStyle fontSize={fontSize}>
       <Checkbox type="checkbox" />
-      <span>Lembrar-me</span>
+      <span>{text}</span>
     </LebrarStyle>
   )
 }

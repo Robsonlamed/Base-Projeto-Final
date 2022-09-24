@@ -11,6 +11,9 @@ type TitleIconProps = {
   color: string
   background: string
   borderRadius?: string
+  marginBottom?: string
+  fontSize: string
+  marginLeft: string
 }
 
 export function TitleWithIcon({
@@ -19,10 +22,17 @@ export function TitleWithIcon({
   color,
   background,
   borderRadius,
+  marginBottom,
+  fontSize,
+  marginLeft,
 }: TitleIconProps) {
   return (
-    <ContainerWithIconStyle>
-      <TitleWithIconStyle color={color} tamanho="16px">
+    <ContainerWithIconStyle marginBottom={marginBottom}>
+      <TitleWithIconStyle
+        marginLeft={marginLeft}
+        color={color}
+        fontSize={fontSize}
+      >
         <ContainerIcon borderRadius={borderRadius} backgroundColor={background}>
           {icon}
         </ContainerIcon>

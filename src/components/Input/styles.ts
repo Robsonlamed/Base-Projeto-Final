@@ -36,6 +36,11 @@ export const EyeStyle = styled.div`
   position: absolute;
   right: 20px;
   top: 15px;
+
+  button {
+    background-color: white;
+    border: none;
+  }
 `
 
 export const FilterStyle = styled.div`

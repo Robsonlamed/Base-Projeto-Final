@@ -10,7 +10,7 @@ export const FaleConoscoStyle = styled.div`
   font-weight: 300;
   padding: 0px 20px 16px 14px;
   text-align: center;
-  margin: 248px auto 0 auto;
+  margin: 210px auto 0 auto;
 
   img {
     margin-top: -50px;

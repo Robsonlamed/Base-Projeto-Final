@@ -17,14 +17,14 @@ export const ContainerInformacoesClientes = styled.div`
   padding: 30px 0px 20px 30px;
   border-radius: 20px;
   height: 120px;
-  margin-left: 26px;
   margin-top: 30px;
 `
 
 export const ContainerSubTela = styled.div`
-  width: 100%;
+  width: 84.9vw;
   background-color: ${colors.white};
   /* padding: 0 10px; */
   margin-left: 14vw;
-  margin-top: 120px;
+  margin-top: 100px;
+  padding: 20px;
 `

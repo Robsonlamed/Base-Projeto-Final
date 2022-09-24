@@ -4,6 +4,7 @@ import { TrendingUp } from '../../assets/icons/TrendingUp'
 import { CardDashboard } from '../../components/CardDashboard'
 import { ContainerCardsDashboard } from '../../components/CardDashboard/styles'
 import { ContainerSubTela } from '../../components/CelEmail/styles'
+import { LinkMenu } from '../../components/ItensMenu/styles'
 import { TabelaProduto } from '../../components/TabelaProduto'
 import { Title } from '../../components/Title'
 import { TitleWithIcon } from '../../components/TitleWithIcon'
@@ -47,81 +48,110 @@ const TabelaDadosAPI = [
 
 export function SubTelaProduto() {
   return (
-    <ContainerSubTela>
-      <TitleWithIcon
-        icon={<ArrowBack />}
-        title="Detalhamento"
-        color={colors.grey900}
-        background={colors.cinza200}
-        borderRadius="100px"
-      />
-      <Title
-        texto="Papel Higiênico"
-        tamanho={24}
-        color={colors.primary}
-        marginLeft=""
-      />
-      <ContainerCardsDashboard>
-        <CardDashboard
-          colorTitle={colors.white}
-          color={colors.white}
-          text="Média 120 dias"
-          status=""
-          tipo=""
-          valor={300}
-          porcentagem=""
-          backgroundColor=""
-          backgroundCard={colors.azul3}
-        />
-        <CardDashboard
-          colorTitle={colors.grey900}
+    <div>
+      <ContainerSubTela>
+        <LinkMenu marginLeft="0px" color={colors.grey900} to="/produtos">
+          <TitleWithIcon
+            fontSize="16px"
+            icon={<ArrowBack />}
+            title="Detalhamento"
+            color={colors.grey900}
+            background={colors.cinza200}
+            borderRadius="100px"
+            marginLeft="10px"
+          />
+        </LinkMenu>
+        <Title
+          texto="Papel Higiênico"
+          tamanho={24}
           color={colors.primary}
-          text="Últimos 30 dias"
-          status=""
-          tipo=""
-          valor={222}
-          porcentagem="+26%"
-          backgroundColor={colors.success}
-          backgroundCard={colors.white}
+          marginLeft=""
+          marginBotton="20px"
         />
-        <CardDashboard
-          colorTitle={colors.grey900}
-          color={colors.primary}
-          text="Últimos 60 dias"
-          status=""
-          tipo=""
-          valor={350}
-          porcentagem=""
-          backgroundColor=""
-          backgroundCard={colors.white}
-        />
-        <CardDashboard
-          colorTitle={colors.grey900}
-          color={colors.primary}
-          text="Últimos 90 dias"
-          status=""
-          tipo=""
-          valor={320}
-          porcentagem=""
-          backgroundColor=""
-          backgroundCard={colors.white}
-        />
-        <CardDashboard
-          colorTitle={colors.grey900}
-          color={colors.primary}
-          text="Últimos 120 dias"
-          status=""
-          tipo=""
-          valor={280}
-          porcentagem=""
-          backgroundColor=""
-          backgroundCard={colors.white}
-        />
-      </ContainerCardsDashboard>
+        <ContainerCardsDashboard>
+          <CardDashboard
+            boxShadow="0px 7px 30px
+          rgba(0, 0, 0, 0.1)"
+            colorTitle={colors.white}
+            color={colors.white}
+            text="Média 120 dias"
+            status=""
+            tipo=""
+            valor={300}
+            porcentagem=""
+            backgroundColor=""
+            backgroundCard={colors.primary}
+            width="210px"
+            paddingBottom="40px"
+          />
+          <CardDashboard
+            boxShadow="0px 7px 30px
+                      rgba(0, 0, 0, 0.1)"
+            colorTitle={colors.grey900}
+            color={colors.primary}
+            text="Últimos 30 dias"
+            status=""
+            tipo=""
+            valor={222}
+            porcentagem="+26%"
+            backgroundColor={colors.success}
+            backgroundCard={colors.white}
+            width="210px"
+            paddingBottom="40px"
+          />
+          <CardDashboard
+            boxShadow="0px 7px 30px
+                      rgba(0, 0, 0, 0.1)"
+            colorTitle={colors.grey900}
+            color={colors.primary}
+            text="Últimos 60 dias"
+            status=""
+            tipo=""
+            valor={350}
+            porcentagem=""
+            backgroundColor=""
+            backgroundCard={colors.white}
+            width="210px"
+            paddingBottom="40px"
+          />
+          <CardDashboard
+            boxShadow="0px 7px 30px
+                      rgba(0, 0, 0, 0.1)"
+            colorTitle={colors.grey900}
+            color={colors.primary}
+            text="Últimos 90 dias"
+            status=""
+            tipo=""
+            valor={320}
+            porcentagem=""
+            backgroundColor=""
+            backgroundCard={colors.white}
+            width="210px"
+            paddingBottom="40px"
+          />
+          <CardDashboard
+            boxShadow="0px 7px 30px
+                      rgba(0, 0, 0, 0.1)"
+            colorTitle={colors.grey900}
+            color={colors.primary}
+            text="Últimos 120 dias"
+            status=""
+            tipo=""
+            valor={280}
+            porcentagem=""
+            backgroundColor=""
+            backgroundCard={colors.white}
+            width="210px"
+            paddingBottom="40px"
+          />
+        </ContainerCardsDashboard>
+      </ContainerSubTela>
       <ContainerTabelasStyle margin="14vw">
         <TabelaProduto
           title={
             <TitleWithIcon
+              marginLeft="10px"
+              fontSize="16px"
               background={colors.error}
               color={colors.grey900}
               icon={<TredingDown />}
@@ -144,6 +174,8 @@ export function SubTelaProduto() {
         <TabelaProduto
           title={
             <TitleWithIcon
+              marginLeft="10px"
+              fontSize="16px"
               background={colors.success}
               color={colors.grey900}
               icon={<TrendingUp />}
@@ -164,6 +196,6 @@ export function SubTelaProduto() {
           ))}
         </TabelaProduto>
       </ContainerTabelasStyle>
-    </ContainerSubTela>
+    </div>
   )
 }

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const ButtonFaleConoscoStyle = styled.button`
-  width: 10vw;
+  width: 100%;
   height: 5vh;
   background-color: #001c98;
   border-radius: 100px;

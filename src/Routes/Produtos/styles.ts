@@ -1,8 +1,9 @@
 import styled from 'styled-components'
+import { colors } from '../../theme'
 
 export const ContainerProdutosStyle = styled.div`
-  margin-top: 120px;
-  margin-left: 14vw;
+  margin-top: 110px;
+  margin-left: 13.8vw;
 `
 
 export const Status = styled.div<{ backgroundColor: string; color: string }>`
@@ -17,4 +18,9 @@ export const Status = styled.div<{ backgroundColor: string; color: string }>`
 
 export const SubTelaProdutoStyle = styled.span`
   width: 800px;
+`
+export const SubTelaProdutoButton = styled.button`
+  background-color: ${colors.grey100};
+  border: none;
+  cursor: pointer;
 `

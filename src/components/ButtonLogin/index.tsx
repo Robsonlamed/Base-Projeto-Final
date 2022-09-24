@@ -1,9 +1,16 @@
 import { ButtonLoginStyle } from './styles'
 
-export function ButtonLogin() {
+type ButtonProps = {
+  onClick?: () => void
+}
+
+export function ButtonLogin({ onClick }: ButtonProps) {
   return (
     <div>
-      <ButtonLoginStyle type="submit"> Entrar </ButtonLoginStyle>
+      <ButtonLoginStyle onClick={onClick} type="submit">
+        {' '}
+        Entrar{' '}
+      </ButtonLoginStyle>
     </div>
   )
 }

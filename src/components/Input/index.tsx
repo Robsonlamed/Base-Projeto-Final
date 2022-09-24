@@ -1,7 +1,12 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Eye } from '../../assets/icons/Eye'
 import { EyeOffLine } from '../../assets/icons/EyeOffLine'
+import { EsqueciSenha } from '../../Routes/Login/styles'
+import { AuthLogin } from '../../services/Auth'
 import { colors } from '../../theme'
+import { ButtonLogin } from '../ButtonLogin'
+import { Lembrar } from '../Lembrar'
 import { ContainerInput, EyeStyle, InputStyle, LabelStyle } from './styles'
 
 type InputProps = {
@@ -14,7 +19,16 @@ export function Input({ eye }: InputProps) {
   const [isShowing, setIsShowing] = useState(!eye)
 
   const senha = () => setIsShowing(!isShowing)
+  const navigate = useNavigate()
 
+  const doLogin = async () => {
+    const result = await AuthLogin(email, password)
+    if (result.login) {
+      navigate('/')
+      return
+    }
+    alert(result.message)
+  }
   return (
     <div>
       <form>
@@ -28,7 +42,6 @@ export function Input({ eye }: InputProps) {
             value={email}
           />
           <LabelStyle htmlFor="email">E-mail</LabelStyle>
-          <p>{email}</p>
         </ContainerInput>
         <ContainerInput>
           <InputStyle
@@ -46,8 +59,12 @@ export function Input({ eye }: InputProps) {
             </button>
           </EyeStyle>
         </ContainerInput>
-        <p>{password}</p>
       </form>
+      <EsqueciSenha>
+        <Lembrar text="Lembrar-me" fontSize="12px" />
+        <span>Esqueci minha senha</span>
+      </EsqueciSenha>
+      <ButtonLogin onClick={doLogin} />
     </div>
   )
 }

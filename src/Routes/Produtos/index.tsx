@@ -1,11 +1,14 @@
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Filter } from '../../assets/icons/Filter'
+import { FiltroProduto } from '../../components/FiltroProduto'
+import { FilterStyle } from '../../components/Input/styles'
 import { SerchPredicoes } from '../../components/Search'
 import { TabelaProduto } from '../../components/TabelaProduto'
 import { Title } from '../../components/Title'
 import { ContainerTabelasStyle } from '../../pages/tabelas/styles'
 import { colors } from '../../theme'
-import { ContainerProdutosStyle, Status } from './styles'
+import { ContainerProdutosStyle, Status, SubTelaProdutoButton } from './styles'
 
 const TitleTabela = ['ID', 'Produto', 'Status', 'Percentual']
 
@@ -68,6 +71,9 @@ export function PageProdutos() {
     navigate(url)
   }
 
+  const [openFilter, setOpenFilter] = useState(false)
+  const open = () => setOpenFilter(!openFilter)
+
   return (
     <div>
       <ContainerProdutosStyle>
@@ -82,7 +88,13 @@ export function PageProdutos() {
             title={
               <SerchPredicoes
                 height="0px"
-                icon={<Filter />}
+                icon={
+                  <FilterStyle>
+                    <SubTelaProdutoButton onClick={open} type="button">
+                      <Filter />
+                    </SubTelaProdutoButton>
+                  </FilterStyle>
+                }
                 boxShadow=""
                 paddinLeft="0px"
                 marginBotton="30px"
@@ -119,6 +131,7 @@ export function PageProdutos() {
               </tr>
             ))}
           </TabelaProduto>
+          {openFilter ? <FiltroProduto /> : null}
         </ContainerTabelasStyle>
       </ContainerProdutosStyle>
     </div>

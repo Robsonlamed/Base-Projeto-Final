@@ -6,14 +6,21 @@ type TituloProps = {
   tamanho: number
   color: string
   marginLeft: string
+  marginBotton?: string
 }
 
-export function Title({ texto, tamanho, color, marginLeft }: TituloProps) {
+export function Title({
+  texto,
+  tamanho,
+  color,
+  marginLeft,
+  marginBotton,
+}: TituloProps) {
   return (
     <div>
       <TitleStyle
         marginLeft={marginLeft}
-        margin="0px"
+        margin={marginBotton}
         tamanho={tamanho}
         color={color}
       >
