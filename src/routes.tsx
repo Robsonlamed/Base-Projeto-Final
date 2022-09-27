@@ -1,4 +1,4 @@
-import { ReactNode, useContext } from 'react'
+import { useContext } from 'react'
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import { AuthenticContext, AuthenticProvider } from './Context/AuthenticContext'
 import { Layout } from './Layout/Layout'
@@ -10,7 +10,7 @@ import { PageProdutos } from './Routes/Produtos'
 import { SubTelaProduto } from './Routes/Produtos/subTelaProduto'
 
 type RoutesPrivateProps = {
-  children: ReactNode
+  children: React.ReactNode
 }
 
 export function RoutesPrivate({ children }: RoutesPrivateProps) {
