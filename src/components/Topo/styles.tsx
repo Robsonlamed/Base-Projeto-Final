@@ -10,7 +10,7 @@ export const TopoStyles = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #ffffff;
+  background-color: ${colors.white};
   z-index: 1;
 
   div {
@@ -18,11 +18,11 @@ export const TopoStyles = styled.div`
   }
   p {
     font-size: 16px;
-    color: #212121;
+    color: ${colors.grey900};
   }
   span {
     font-size: 12px;
-    color: #757575;
+    color: ${colors.grey600};
   }
 
   .sanduiche {
@@ -42,7 +42,7 @@ export const Logado = styled.div`
 `
 
 export const IconeUser = styled.div`
-  background-color: ${colors.primary};
+  background-color: ${colors.azul1};
   border-radius: 100%;
   width: 40px;
   height: 40px;
@@ -60,6 +60,6 @@ export const UserStyle = styled.div`
   span {
     font-size: 12px;
     font-weight: 400;
-    color: ${colors.cinza600};
+    color: ${colors.grey600};
   }
 `

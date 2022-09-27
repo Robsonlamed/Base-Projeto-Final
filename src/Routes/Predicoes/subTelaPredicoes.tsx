@@ -89,7 +89,7 @@ export function SubTelaPredicoes() {
           icon={<ArrowBack />}
           title="Predições"
           color={colors.grey900}
-          background={colors.cinza200}
+          background={colors.grey200}
           borderRadius="100px"
         />
       </LinkMenu>
@@ -103,7 +103,7 @@ export function SubTelaPredicoes() {
             <TitleWithIcon
               marginLeft="10px"
               fontSize="16px"
-              background={colors.cinza200}
+              background={colors.grey200}
               color={colors.grey900}
               icon={<TimeHistory />}
               title="Histórico"

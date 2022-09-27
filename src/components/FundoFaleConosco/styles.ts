@@ -1,9 +1,10 @@
 import styled from 'styled-components'
+import { colors } from '../../theme'
 
 export const FaleConoscoStyle = styled.div`
   /* display: flex; */
   align-items: center;
-  background-color: #796ce0;
+  background-color: ${colors.azul2};
   width: 12vw;
   border-radius: 24px;
   font-size: 12px;

@@ -24,7 +24,7 @@ const GraficoDashboard: ApexCharts.ApexOptions = {
         value: {
           offsetY: 5,
           fontSize: '12px',
-          color: '#fff',
+          color: colors.white,
           fontWeight: 'bold',
         },
       },

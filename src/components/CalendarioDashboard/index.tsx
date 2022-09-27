@@ -3,11 +3,12 @@ import { Calendar } from '../../assets/icons/Calendar'
 import { CalendarioDashboardStyle } from './styles'
 
 type CalendarioDashboardProps = {
-  data: string
-  data30: string
-  data60: string
-  data90: string
-  data120: string
+  data: number
+  data30: number
+  data60: number
+  data90: number
+  data120: number
+  // onChange: (event: ChangeEvent<HTMLSelectElement>) => void
 }
 
 export function CalendarioDashboard({
@@ -16,18 +17,19 @@ export function CalendarioDashboard({
   data60,
   data90,
   data120,
-}: CalendarioDashboardProps) {
+}: // onChange,
+CalendarioDashboardProps) {
   return (
     <div>
       <CalendarioDashboardStyle>
         <Calendar />
         <span>Mostrar:</span>
         <select name="" id="">
-          <option value="">{data}</option>
-          <option value="">{data30}</option>
-          <option value="">{data60}</option>
-          <option value="">{data90}</option>
-          <option value="">{data120}</option>
+          <option value={data}>Este mês</option>
+          <option value={data30}>30 dias</option>
+          <option value={data60}>60 dias</option>
+          <option value={data90}>90 dias</option>
+          <option value={data120}>120 dias</option>
         </select>
         {/* <ChevronDown /> */}
       </CalendarioDashboardStyle>

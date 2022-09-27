@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { colors } from '../../theme'
 
 export const MenuStyles = styled.div`
-  background-color: ${colors.primary};
+  background-color: ${colors.azul1};
   color: ${colors.white};
   font-size: 16px;
   width: 6vw;

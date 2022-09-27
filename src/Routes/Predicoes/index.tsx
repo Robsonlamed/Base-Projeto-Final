@@ -64,7 +64,7 @@ export function PagePredicoes() {
                 icon={<UserClient />}
                 title="MC Donalds"
                 color={colors.grey900}
-                background={colors.cinza200}
+                background={colors.grey200}
                 borderRadius="100px"
                 marginBottom="20px"
               />
@@ -95,7 +95,7 @@ export function PagePredicoes() {
                 icon={<UserClient />}
                 title="Smart Fit"
                 color={colors.grey900}
-                background={colors.cinza200}
+                background={colors.grey200}
                 borderRadius="100px"
                 marginBottom="20px"
               />
@@ -126,7 +126,7 @@ export function PagePredicoes() {
                 icon={<UserClient />}
                 title="Hotel Ibis"
                 color={colors.grey900}
-                background={colors.cinza200}
+                background={colors.grey200}
                 borderRadius="100px"
                 marginBottom="20px"
               />
@@ -157,7 +157,7 @@ export function PagePredicoes() {
                 icon={<UserClient />}
                 title="Nobile Hotel"
                 color={colors.grey900}
-                background={colors.cinza200}
+                background={colors.grey200}
                 borderRadius="100px"
                 marginBottom="20px"
               />
@@ -188,7 +188,7 @@ export function PagePredicoes() {
                 icon={<UserClient />}
                 title="Hermes Pardini"
                 color={colors.grey900}
-                background={colors.cinza200}
+                background={colors.grey200}
                 borderRadius="100px"
                 marginBottom="20px"
               />
@@ -219,7 +219,7 @@ export function PagePredicoes() {
                 icon={<UserClient />}
                 title="Ville Forte"
                 color={colors.grey900}
-                background={colors.cinza200}
+                background={colors.grey200}
                 borderRadius="100px"
                 marginBottom="20px"
               />
@@ -250,7 +250,7 @@ export function PagePredicoes() {
                 icon={<UserClient />}
                 title="Apoio Mineiro"
                 color={colors.grey900}
-                background={colors.cinza200}
+                background={colors.grey200}
                 borderRadius="100px"
                 marginBottom="20px"
               />
@@ -281,7 +281,7 @@ export function PagePredicoes() {
                 icon={<UserClient />}
                 title="Hospital Santa Rita"
                 color={colors.grey900}
-                background={colors.cinza200}
+                background={colors.grey200}
                 borderRadius="100px"
                 marginBottom="20px"
               />
@@ -312,7 +312,7 @@ export function PagePredicoes() {
                 icon={<UserClient />}
                 title="MC Donalds"
                 color={colors.grey900}
-                background={colors.cinza200}
+                background={colors.grey200}
                 borderRadius="100px"
                 marginBottom="20px"
               />

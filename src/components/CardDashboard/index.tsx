@@ -9,7 +9,7 @@ type CardDashboardProps = {
   status: string
   text?: string
   valor: number
-  porcentagem: string
+  porcentagem?: number
   backgroundColor: string
   backgroundCard: string
   color: string
@@ -53,7 +53,7 @@ export function CardDashboard({
           color={color}
           backgroundColor={backgroundColor}
           total={valor}
-          porcentagem={porcentagem}
+          porcentagem={porcentagem || 0}
         />
       </div>
     </CardDashboardStyle>

@@ -19,7 +19,7 @@ export const ContainerButtonStatus = styled.div`
   display: flex;
   justify-content: space-between;
   background-color: ${colors.grey50};
-  border: 1px solid ${colors.cinza300};
+  border: 1px solid ${colors.grey300};
   border-radius: 8px;
   width: 200px;
   padding: 7px 7px 6px 7px;

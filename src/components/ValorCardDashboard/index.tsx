@@ -6,7 +6,7 @@ import {
 
 type ValorCardDashboar = {
   total: number
-  porcentagem: string
+  porcentagem: number
   backgroundColor: string
   color: string
 }
@@ -23,7 +23,8 @@ export function ValorCardDashboard({
         <ValorCardDashboardStyle color={color}>{total}</ValorCardDashboardStyle>
       </div>
       <PorcentagemCardDashboardStyle backgroundColor={backgroundColor}>
-        {porcentagem}
+        {porcentagem > 0 && '+'}
+        {`${porcentagem}%`}
       </PorcentagemCardDashboardStyle>
     </ContainerValorCardDashbord>
   )

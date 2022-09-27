@@ -33,7 +33,7 @@ export function SerchPredicoes({
             name=""
             id=""
             placeholder="Pesquise uma palavra-chave"
-            border={colors.cinza300}
+            border={colors.grey300}
           />
           <SearchPredicoesStyle>
             <Search />

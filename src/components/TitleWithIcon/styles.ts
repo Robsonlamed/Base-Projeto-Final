@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { colors } from '../../theme'
 
 export const TitleWithIconStyle = styled.div<{
   color: string
@@ -29,7 +30,7 @@ export const ContainerIcon = styled.div<{
 
   label {
     font-size: 20px;
-    color: #212121;
+    color: ${colors.grey900};
     font-weight: 600;
   }
 `

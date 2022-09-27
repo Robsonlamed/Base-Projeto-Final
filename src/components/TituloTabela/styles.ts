@@ -1,7 +1,8 @@
 import styled from 'styled-components'
+import { colors } from '../../theme'
 
 export const TituloTabelaStyle = styled.div`
-  background-color: #001c98;
+  background-color: ${colors.azul1};
   border-radius: 8px;
   width: 40px;
   height: 40px;
@@ -10,7 +11,7 @@ export const TituloTabelaStyle = styled.div`
 
   label {
     font-size: 20px;
-    color: #212121;
+    color: ${colors.grey900};
     font-weight: 600;
   }
 `

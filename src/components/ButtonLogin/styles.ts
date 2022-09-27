@@ -1,9 +1,10 @@
 import styled from 'styled-components'
+import { colors } from '../../theme'
 
 export const ButtonLoginStyle = styled.button`
   width: 400px;
   height: 56px;
-  background-color: #001c98;
+  background-color: ${colors.azul1};
   border-radius: 16px;
   padding: 12px 64px;
   color: white;

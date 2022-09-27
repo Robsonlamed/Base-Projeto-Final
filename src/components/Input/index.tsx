@@ -34,7 +34,7 @@ export function Input({ eye }: InputProps) {
       <form>
         <ContainerInput>
           <InputStyle
-            border={colors.secondary}
+            border={colors.success}
             id="user"
             // type={text}
             placeholder="Insira seu e-mail"
@@ -45,7 +45,7 @@ export function Input({ eye }: InputProps) {
         </ContainerInput>
         <ContainerInput>
           <InputStyle
-            border={colors.secondary}
+            border={colors.success}
             id="password"
             type={isShowing ? 'text' : 'password'}
             placeholder="Insira sua senha"

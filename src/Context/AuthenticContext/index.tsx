@@ -40,7 +40,7 @@ export function AuthenticProvider({ children }: AuthenticProviderProps) {
       <Title
         texto="Loading..."
         tamanho={24}
-        color={colors.primary}
+        color={colors.azul1}
         marginLeft="30px"
       />
     )

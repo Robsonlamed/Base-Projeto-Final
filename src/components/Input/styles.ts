@@ -23,7 +23,7 @@ export const InputStyle = styled.input<{
 
 export const LabelStyle = styled.label`
   font-size: 14px;
-  color: #00c247;
+  color: ${colors.success};
   position: absolute;
   left: 0;
   background-color: white;
@@ -38,7 +38,7 @@ export const EyeStyle = styled.div`
   top: 15px;
 
   button {
-    background-color: white;
+    background-color: ${colors.white};
     border: none;
   }
 `

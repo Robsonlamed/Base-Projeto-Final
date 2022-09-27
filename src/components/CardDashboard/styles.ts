@@ -20,13 +20,13 @@ export const CardDashboardStyle = styled.div<{
 `
 
 export const DashboardStyle = styled.div`
-  background: ${colors.primary};
+  background: ${colors.azul1};
   border-radius: 24px;
   padding: 30px 30px 30px 30px;
   width: 100%;
 
   h1 {
-    color: #ffffff;
+    color: ${colors.white};
     font-weight: 400;
     font-size: 24px;
     margin-bottom: 30px;
@@ -35,7 +35,7 @@ export const DashboardStyle = styled.div`
 export const ContainerdDashboardStyle = styled.div`
   padding: 22px 22px 0px 22px;
   width: 84.9vw;
-  background: #ffffff;
+  background: ${colors.white};
   margin-top: 90px;
   margin-left: 14vw;
 `

@@ -1,35 +1,30 @@
-import { useState } from 'react'
 import { colors } from '../../theme'
 import { ButtonStatusStyle, ContainerButtonStatus } from './styles'
 
 type ButtonStatusProps = {
   emAlta: boolean
+  trocaStatus: () => void
 }
 
-export function ButtonStatus({ emAlta }: ButtonStatusProps) {
-  const [status, setStatus] = useState(emAlta)
-
-  const press = () => setStatus(!status)
-
+export function ButtonStatus({ emAlta, trocaStatus }: ButtonStatusProps) {
   return (
     <ContainerButtonStatus>
       <ButtonStatusStyle
-        color={status ? `${colors.cinza500}` : `${colors.white}`}
-        backgroundColor={status ? `${colors.white}` : `${colors.secondary}`}
+        color={emAlta ? `${colors.grey500}` : `${colors.white}`}
+        backgroundColor={emAlta ? `${colors.white}` : `${colors.success}`}
         type="submit"
-        onClick={() => {
-          if (status) press()
-        }}
+        onClick={trocaStatus}
+        // {() => {
+        //   if (status) press()
+        // }}
       >
         Em alta
       </ButtonStatusStyle>
       <ButtonStatusStyle
-        color={status ? `${colors.white}` : `${colors.cinza500}`}
-        backgroundColor={status ? `${colors.error}` : `${colors.white}`}
+        color={emAlta ? `${colors.white}` : `${colors.grey500}`}
+        backgroundColor={emAlta ? `${colors.error}` : `${colors.white}`}
         type="submit"
-        onClick={() => {
-          if (!status) press()
-        }}
+        onClick={trocaStatus}
       >
         Em baixa
       </ButtonStatusStyle>

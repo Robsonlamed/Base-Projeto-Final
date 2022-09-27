@@ -13,7 +13,7 @@ export const TabelaProdutoStyle = styled.table`
     color: ${colors.azul4};
     font-weight: 400;
     text-align: center;
-    background-color: ${colors.primary};
+    background-color: ${colors.azul1};
 
     tr {
       th:nth-child(2) {
@@ -71,7 +71,7 @@ export const TabelaProdutoStyle = styled.table`
 `
 
 export const Cabecalho = styled.div`
-  background-color: ${colors.primary};
+  background-color: ${colors.azul1};
   border-radius: 16px 16px 0px 0px;
   width: 100%;
   height: 56px;
@@ -79,7 +79,7 @@ export const Cabecalho = styled.div`
 
 export const ContainerTabela = styled.div<{ width: string }>`
   width: ${({ width }) => `${width}`};
-  background-color: white;
+  background-color: ${colors.white};
   box-shadow: 0px 7px 30px rgba(0, 0, 0, 0.1);
   padding: 32px 32px 32px 32px;
   border-radius: 24px;

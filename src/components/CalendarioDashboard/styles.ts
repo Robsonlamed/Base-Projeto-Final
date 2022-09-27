@@ -20,7 +20,7 @@ export const CalendarioDashboardStyle = styled.div`
   select {
     font-weight: 600;
     font-size: 13px;
-    color: ${colors.primary};
+    color: ${colors.azul1};
     border: none;
   }
 `

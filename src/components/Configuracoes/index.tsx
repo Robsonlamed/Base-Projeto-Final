@@ -11,7 +11,7 @@ export function Configuracoes() {
         marginLeft="0px"
         icon={<SettingTwo />}
         title="Configurações"
-        color={colors.cinza600}
+        color={colors.grey600}
         background=""
         fontSize="13px"
       />
@@ -20,7 +20,7 @@ export function Configuracoes() {
         marginLeft="0px"
         icon={<Logout />}
         title="Sair"
-        color={colors.cinza600}
+        color={colors.grey600}
         background=""
         fontSize="13px"
       />

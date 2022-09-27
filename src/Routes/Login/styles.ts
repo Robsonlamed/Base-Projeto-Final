@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { colors } from '../../theme'
 
 export const LoginStyle = styled.div`
   display: flex;
@@ -13,7 +14,7 @@ export const EsqueciSenha = styled.div`
   display: flex;
   justify-content: space-between;
   span {
-    color: #616161;
+    color: ${colors.grey600};
     font-size: 16px;
     font-weight: 400;
     cursor: pointer;

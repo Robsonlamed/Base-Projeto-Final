@@ -7,7 +7,7 @@ export const FiltroProdutoStyle = styled.div`
 `
 export const FiltroProdutoSpan = styled.span`
   font-size: 13px;
-  color: ${colors.cinza600};
+  color: ${colors.grey600};
   font-weight: 400;
 `
 

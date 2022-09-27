@@ -56,7 +56,7 @@ export function SubTelaProduto() {
             icon={<ArrowBack />}
             title="Detalhamento"
             color={colors.grey900}
-            background={colors.cinza200}
+            background={colors.grey200}
             borderRadius="100px"
             marginLeft="10px"
           />
@@ -64,7 +64,7 @@ export function SubTelaProduto() {
         <Title
           texto="Papel Higiênico"
           tamanho={24}
-          color={colors.primary}
+          color={colors.azul1}
           marginLeft=""
           marginBotton="20px"
         />
@@ -78,9 +78,8 @@ export function SubTelaProduto() {
             status=""
             tipo=""
             valor={300}
-            porcentagem=""
             backgroundColor=""
-            backgroundCard={colors.primary}
+            backgroundCard={colors.azul1}
             width="210px"
             paddingBottom="40px"
           />
@@ -88,12 +87,12 @@ export function SubTelaProduto() {
             boxShadow="0px 7px 30px
                       rgba(0, 0, 0, 0.1)"
             colorTitle={colors.grey900}
-            color={colors.primary}
+            color={colors.azul1}
             text="Últimos 30 dias"
             status=""
             tipo=""
             valor={222}
-            porcentagem="+26%"
+            porcentagem={26}
             backgroundColor={colors.success}
             backgroundCard={colors.white}
             width="210px"
@@ -103,12 +102,11 @@ export function SubTelaProduto() {
             boxShadow="0px 7px 30px
                       rgba(0, 0, 0, 0.1)"
             colorTitle={colors.grey900}
-            color={colors.primary}
+            color={colors.azul1}
             text="Últimos 60 dias"
             status=""
             tipo=""
             valor={350}
-            porcentagem=""
             backgroundColor=""
             backgroundCard={colors.white}
             width="210px"
@@ -118,12 +116,11 @@ export function SubTelaProduto() {
             boxShadow="0px 7px 30px
                       rgba(0, 0, 0, 0.1)"
             colorTitle={colors.grey900}
-            color={colors.primary}
+            color={colors.azul1}
             text="Últimos 90 dias"
             status=""
             tipo=""
             valor={320}
-            porcentagem=""
             backgroundColor=""
             backgroundCard={colors.white}
             width="210px"
@@ -133,12 +130,11 @@ export function SubTelaProduto() {
             boxShadow="0px 7px 30px
                       rgba(0, 0, 0, 0.1)"
             colorTitle={colors.grey900}
-            color={colors.primary}
+            color={colors.azul1}
             text="Últimos 120 dias"
             status=""
             tipo=""
             valor={280}
-            porcentagem=""
             backgroundColor=""
             backgroundCard={colors.white}
             width="210px"

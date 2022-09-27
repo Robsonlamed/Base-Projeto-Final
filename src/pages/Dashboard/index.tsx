@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import { CalendarioDashboard } from '../../components/CalendarioDashboard'
 import { CardDashboard } from '../../components/CardDashboard'
 import {
@@ -6,73 +7,131 @@ import {
   DashboardStyle,
 } from '../../components/CardDashboard/styles'
 import { RadialBar } from '../../components/GraficoDashbord'
+import { Title } from '../../components/Title'
+import {
+  getDashBoardResumo,
+  GetDashBoardResumoProps,
+} from '../../services/GetDashboardResumo'
 import { colors } from '../../theme'
+// import { dateHelper } from '../../utils'
 import { ContainerTituloDashboard } from './styles'
 
-export function DashBoard() {
+type CalendarioProps = {
+  data: number
+  data30: number
+  data60: number
+  data90: number
+  data120: number
+  // onChange: (event: ChangeEvent<HTMLSelectElement>) => void
+}
+
+export function DashBoard({
+  data,
+  data30,
+  data60,
+  data90,
+  data120,
+}: // onChange,
+CalendarioProps) {
+  const [resumo, setResumo] = useState<GetDashBoardResumoProps>()
+  const [loading, setLoading] = useState(true)
+
+  // const [date] = useState(dateHelper.thisMonth)
+
+  useEffect(() => {
+    ;(async () => {
+      try {
+        const result = await getDashBoardResumo('25/09/2022', '10/09/2022')
+        setResumo(result)
+        setLoading(false)
+      } catch (error) {
+        alert((error as any).message)
+      }
+    })()
+  }, [])
+
+  if (loading) {
+    return (
+      <Title
+        texto="Carregando dados"
+        tamanho={24}
+        color={colors.grey900}
+        marginLeft="15px"
+      />
+    )
+  }
   return (
     <ContainerdDashboardStyle>
       <DashboardStyle>
         <ContainerTituloDashboard>
           <h1>Dashboard</h1>
           <CalendarioDashboard
-            data="Esse mês"
-            data30="30 dias"
-            data60="60 dias"
-            data90="90 dias"
-            data120="120 dias"
+            data={data}
+            data30={data30}
+            data60={data60}
+            data90={data90}
+            data120={data120}
+            // onChange={onChange}
           />
         </ContainerTituloDashboard>
         <ContainerCardsDashboard>
           <CardDashboard
             text="Total"
             colorTitle={colors.white}
-            radialBar={<RadialBar series={95} />}
+            radialBar={
+              <RadialBar series={resumo?.percentualTotalProdutosAlta || 0} />
+            }
             tipo="produtos"
             status="em alta"
-            valor={114}
-            porcentagem="81%"
-            backgroundColor="#00c247"
-            backgroundCard={colors.azul3}
+            valor={resumo?.quantidadeProdutosAlta || 0}
+            porcentagem={resumo?.percentualVariacaoProdutosAlta || 0}
+            backgroundColor={colors.success}
+            backgroundCard={colors.azulCard}
             color={colors.white}
             width="250px"
           />
           <CardDashboard
             text="Total"
             colorTitle={colors.white}
-            radialBar={<RadialBar series={50} />}
+            radialBar={
+              <RadialBar series={resumo?.percentualTotalProdutosBaixa || 0} />
+            }
             tipo="produtos"
-            status="em alta"
-            valor={60}
-            porcentagem="-27%"
-            backgroundColor="#FF3333"
-            backgroundCard={colors.azul3}
+            status="em baixa"
+            valor={resumo?.quantidadeProdutosBaixa || 0}
+            porcentagem={resumo?.percentualVariacaoProdutosBaixa || 0}
+            backgroundColor={colors.error}
+            backgroundCard={colors.azulCard}
             color={colors.white}
             width="250px"
           />
           <CardDashboard
             text="Total"
             colorTitle={colors.white}
-            radialBar={<RadialBar series={70} />}
+            radialBar={
+              <RadialBar series={resumo?.percentualTotalClientesAlta || 0} />
+            }
             tipo="produtos"
             status="em alta"
-            valor={504}
-            porcentagem="14%"
-            backgroundColor="#00c247"
-            backgroundCard={colors.azul3}
+            valor={resumo?.quantidadeClientesAlta || 0}
+            porcentagem={resumo?.percentualVariacaoClientesAlta || 0}
+            backgroundColor={colors.success}
+            backgroundCard={colors.azulCard}
             color={colors.white}
             width="250px"
           />
           <CardDashboard
             text="Total"
             colorTitle={colors.white}
-            radialBar={<RadialBar series={10} />}
+            radialBar={
+              <RadialBar series={resumo?.percentualTotalClientesBaixa || 0} />
+            }
             tipo="produtos"
-            status="em alta"
-            valor={112}
-            porcentagem="-21%"
-            backgroundColor="#FF3333"
-            backgroundCard={colors.azul3}
+            status="em baixa"
+            valor={resumo?.quantidadeClientesBaixa || 0}
+            porcentagem={resumo?.percentualVariacaoClientesBaixa || 0}
+            backgroundColor={colors.error}
+            backgroundCard={colors.azulCard}
             color={colors.white}
             width="250px"
           />

@@ -120,7 +120,7 @@ export function PageProdutos() {
                     }
                     backgroundColor={
                       dadosAPI.ultimaCompra === 'Em alta'
-                        ? `${colors.verdeClaro}`
+                        ? `${colors.lightGreen}`
                         : `${colors.lightRed}`
                     }
                   >
