@@ -1,4 +1,4 @@
-import { TituloCardClientes } from '../../components/TitleCardClientes'
+import { TituloCardClientes } from '../TitleCardClientes'
 
 type TituloCardClienteProps = {
   cliente: string

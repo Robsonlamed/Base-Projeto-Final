@@ -20,49 +20,6 @@ import { colors } from '../../theme'
 const TitleTabela = ['ID', 'Produto', 'Percentual', ' ']
 const TitleTabela1 = ['ID', 'Cliente', 'Percentual', ' ']
 
-// const TabelaDadosAPI = [
-//   {
-//     id: '001',
-//     produto: 'Papel Higiênico',
-//     percentual: '+72%',
-//   },
-//   {
-//     id: '002',
-//     produto: 'Sabonete',
-//     percentual: '+24%',
-//   },
-//   {
-//     id: '003',
-//     produto: 'Alcool em gel',
-//     percentual: '+62%',
-//   },
-//   {
-//     id: '004',
-//     produto: 'Detergente',
-//     percentual: '+20%',
-//   },
-//   {
-//     id: '005',
-//     produto: 'Papel Higiênico',
-//     percentual: '+72%',
-//   },
-//   {
-//     id: '006',
-//     produto: 'Sabonete',
-//     percentual: '+24%',
-//   },
-//   {
-//     id: '007',
-//     produto: 'Alcool em gel',
-//     percentual: '+62%',
-//   },
-//   {
-//     id: '008',
-//     produto: 'Detergente',
-//     percentual: '+20%',
-//   },
-// ]
-
 export function PageDashboard() {
   const [emAltaProduto, setEmAltaProduto] = useState(false)
   const [emAltaCliente, setEmAltaCliente] = useState(false)
@@ -170,11 +127,11 @@ export function PageDashboard() {
           {tabelaProduto.map(dadosAPI => (
             <tr
               className="onClick"
-              onClick={() => goToPage('/informacoesprodutos')}
+              onClick={() => goToPage(`/informacoesprodutos/${dadosAPI.id}`)}
             >
               <td className="coluna1">{dadosAPI.id}</td>
               <td className="coluna2">{dadosAPI.nome}</td>
-              <td className="coluna3">{dadosAPI.percentual}</td>
+              <td className="coluna3">{dadosAPI.percentual}%</td>
               <td className="arrow">
                 <ChevronRight />
               </td>
@@ -199,10 +156,15 @@ export function PageDashboard() {
           headers={TitleTabela1}
         >
           {tabelaClientes.map(dadosAPI => (
-            <tr>
+            <tr
+              className="onClick"
+              onClick={() =>
+                goToPage(`/informacoesprodutosclientes/${dadosAPI.id}`)
+              }
+            >
               <td className="coluna1">{dadosAPI.id}</td>
               <td className="coluna2">{dadosAPI.nome}</td>
-              <td className="coluna3">{dadosAPI.percentual}</td>
+              <td className="coluna3">{dadosAPI.percentual}%</td>
               <td className="arrow">
                 <ChevronRight />
               </td>

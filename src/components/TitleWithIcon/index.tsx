@@ -14,6 +14,7 @@ type TitleIconProps = {
   marginBottom?: string
   fontSize: string
   marginLeft: string
+  onClick?: () => void
 }
 
 export function TitleWithIcon({
@@ -25,6 +26,7 @@ export function TitleWithIcon({
   marginBottom,
   fontSize,
   marginLeft,
+  onClick,
 }: TitleIconProps) {
   return (
     <ContainerWithIconStyle marginBottom={marginBottom}>
@@ -32,6 +34,7 @@ export function TitleWithIcon({
         marginLeft={marginLeft}
         color={color}
         fontSize={fontSize}
+        onClick={onClick}
       >
         <ContainerIcon borderRadius={borderRadius} backgroundColor={background}>
           {icon}

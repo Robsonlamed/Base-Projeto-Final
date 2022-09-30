@@ -5,20 +5,25 @@ import { CelEmail } from '../CelEmail'
 import { ContainerInformacoesClientes } from '../CelEmail/styles'
 import { Title } from '../Title'
 
-export function InformacoesClientes() {
+type InformacoesClientesProps = {
+  name: string
+  phone: string
+  email: string
+}
+
+export function InformacoesClientes({
+  name,
+  phone,
+  email,
+}: InformacoesClientesProps) {
   return (
     <ContainerInformacoesClientes>
-      <Title
-        marginLeft=""
-        texto="Hotel Ibis"
-        tamanho={22}
-        color={colors.white}
-      />
+      <Title marginLeft="" texto={name} tamanho={22} color={colors.white} />
       <CelEmail
         iconPhone={<Phone />}
-        phone="(31) 99999-9999"
+        phone={phone}
         iconEmail={<Mail />}
-        email="hotelibis@gmail.com"
+        email={email}
       />
     </ContainerInformacoesClientes>
   )

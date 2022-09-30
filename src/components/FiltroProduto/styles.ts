@@ -20,11 +20,18 @@ export const FiltroProdutoHr = styled.hr`
 export const FiltroProdutoContainer = styled.div`
   position: fixed;
   top: 0;
-  margin-top: 285px;
-  margin-left: 410px;
+  margin-top: 100px;
+  margin-left: 490px;
   width: 200px;
   background-color: ${colors.white};
   padding: 20px;
   border-radius: 20px;
   box-shadow: 0px 7px 30px rgba(0, 0, 0, 0.2);
+`
+export const FiltroProdutoContainerMascara = styled.div`
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
 `

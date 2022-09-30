@@ -8,6 +8,7 @@ import { PagePredicoes } from './Routes/Predicoes'
 import { SubTelaPredicoes } from './Routes/Predicoes/subTelaPredicoes'
 import { PageProdutos } from './Routes/Produtos'
 import { SubTelaProduto } from './Routes/Produtos/subTelaProduto'
+import { SubTelaProdutoClientes } from './Routes/Produtos/subTelaProdutoClientes'
 
 type RoutesPrivateProps = {
   children: React.ReactNode
@@ -50,7 +51,7 @@ export function RoutesProjeto() {
                 <SubTelaPredicoes />
               </RoutesPrivate>
             }
-            path="/informacoesclientes"
+            path="/informacoesclientes/:id"
           />
           <Route
             element={
@@ -58,7 +59,15 @@ export function RoutesProjeto() {
                 <SubTelaProduto />
               </RoutesPrivate>
             }
-            path="/informacoesprodutos"
+            path="/informacoesprodutos/:id"
+          />
+          <Route
+            element={
+              <RoutesPrivate>
+                <SubTelaProdutoClientes />
+              </RoutesPrivate>
+            }
+            path="/informacoesprodutosclientes/:id"
           />
           <Route
             element={

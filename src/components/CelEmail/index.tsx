@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import { CelEmailStyle } from './styles'
+import { CelEmailStyle, ContainerIcon, Icon } from './styles'
 
 type CelEmailProps = {
   iconPhone: ReactNode
@@ -16,10 +16,14 @@ export function CelEmail({
 }: CelEmailProps) {
   return (
     <CelEmailStyle>
-      <div>{iconPhone}</div>
-      <div>{phone}</div>
-      <div>{iconEmail}</div>
-      <div>{email}</div>
+      <ContainerIcon>
+        <Icon>{iconPhone}</Icon>
+        <div>{phone}</div>
+      </ContainerIcon>
+      <ContainerIcon>
+        <Icon>{iconEmail}</Icon>
+        <div>{email}</div>
+      </ContainerIcon>
     </CelEmailStyle>
   )
 }

@@ -6,8 +6,8 @@ export const CelEmailStyle = styled.div`
   justify-content: space-between;
   align-items: flex-start;
   color: ${colors.white};
-  width: 330px;
-  font-size: 14px;
+  width: 400px;
+  font-size: 13px;
   font-weight: 300;
   margin-top: 5px;
 `
@@ -27,4 +27,10 @@ export const ContainerSubTela = styled.div`
   margin-left: 14vw;
   margin-top: 100px;
   padding: 20px;
+`
+export const Icon = styled.div`
+  margin-right: 10px;
+`
+export const ContainerIcon = styled.div`
+  display: flex;
 `

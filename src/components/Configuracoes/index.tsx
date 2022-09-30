@@ -1,10 +1,20 @@
+import { useNavigate } from 'react-router-dom'
 import { Logout } from '../../assets/icons/Logout'
 import { SettingTwo } from '../../assets/icons/SettingTwo'
+import { ApiServiceW3 } from '../../services/config'
 import { colors } from '../../theme'
 import { TitleWithIcon } from '../TitleWithIcon'
 import { ConfiguracoesStyle } from './styles'
 
 export function Configuracoes() {
+  const navigate = useNavigate()
+
+  const logout = () => {
+    localStorage.clear()
+    ApiServiceW3.defaults.headers.common.Authorization = ''
+    navigate(`/login`, { replace: true })
+  }
+
   return (
     <ConfiguracoesStyle>
       <TitleWithIcon
@@ -23,6 +33,7 @@ export function Configuracoes() {
         color={colors.grey600}
         background=""
         fontSize="13px"
+        onClick={logout}
       />
     </ConfiguracoesStyle>
   )

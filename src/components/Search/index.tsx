@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import { ChangeEvent, ReactNode } from 'react'
 import { Search } from '../../assets/icons/Search'
 import { ContainerSearch, SearchPredicoesStyle } from './styles'
 import { colors } from '../../theme'
@@ -10,6 +10,9 @@ type FilterProps = {
   paddinLeft: string
   height: string
   marginBotton: string
+  onChange: (event: ChangeEvent<HTMLInputElement>) => void
+  value: string
+  startSearch: () => void
 }
 
 export function SerchPredicoes({
@@ -18,6 +21,9 @@ export function SerchPredicoes({
   paddinLeft,
   height,
   marginBotton,
+  onChange,
+  value,
+  startSearch,
 }: FilterProps) {
   return (
     <ContainerSearch
@@ -29,13 +35,15 @@ export function SerchPredicoes({
       <ContainerInput>
         <div>
           <InputStyle
+            onChange={onChange}
+            value={value}
             type="text"
             name=""
             id=""
             placeholder="Pesquise uma palavra-chave"
             border={colors.grey300}
           />
-          <SearchPredicoesStyle>
+          <SearchPredicoesStyle onClick={startSearch}>
             <Search />
           </SearchPredicoesStyle>
         </div>

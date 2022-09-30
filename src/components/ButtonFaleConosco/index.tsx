@@ -2,12 +2,16 @@ import { ButtonFaleConoscoStyle } from './styles'
 
 type ButtonFaleConoscoProps = {
   text: string
+  onClick?: () => void
 }
 
-export function ButtonFaleConosco({ text }: ButtonFaleConoscoProps) {
+export function ButtonFaleConosco({ text, onClick }: ButtonFaleConoscoProps) {
   return (
     <div>
-      <ButtonFaleConoscoStyle type="submit"> {text} </ButtonFaleConoscoStyle>
+      <ButtonFaleConoscoStyle onClick={onClick} type="button">
+        {' '}
+        {text}{' '}
+      </ButtonFaleConoscoStyle>
     </div>
   )
 }

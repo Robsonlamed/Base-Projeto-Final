@@ -14,6 +14,8 @@ type InputProps = {
 }
 
 export function Input({ eye }: InputProps) {
+  const [lembrar, setLembrar] = useState(false)
+
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [isShowing, setIsShowing] = useState(!eye)
@@ -61,7 +63,12 @@ export function Input({ eye }: InputProps) {
         </ContainerInput>
       </form>
       <EsqueciSenha>
-        <Lembrar text="Lembrar-me" fontSize="12px" />
+        <Lembrar
+          checked={lembrar}
+          onChange={() => setLembrar(!lembrar)}
+          text="Lembrar-me"
+          fontSize="12px"
+        />
         <span>Esqueci minha senha</span>
       </EsqueciSenha>
       <ButtonLogin onClick={doLogin} />

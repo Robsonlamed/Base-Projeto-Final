@@ -1,4 +1,5 @@
 import { ReactNode } from 'react'
+import { Paginacao } from '../Paginacao'
 import { ContainerStatus, ContainerTabela, TabelaProdutoStyle } from './styles'
 
 type TabelaProdutoProps = {
@@ -7,6 +8,11 @@ type TabelaProdutoProps = {
   width: string
   button: ReactNode
   title: ReactNode
+  totalRegistroNaPagina?: number
+  totalRegistrosNaAPI?: number
+  paginaAtual?: number
+  quantidadeItenPorPagina?: number
+  changePage?: (page: number) => void
 }
 
 export function TabelaProduto({
@@ -15,6 +21,11 @@ export function TabelaProduto({
   width,
   button,
   title,
+  totalRegistroNaPagina,
+  totalRegistrosNaAPI,
+  paginaAtual,
+  quantidadeItenPorPagina,
+  changePage,
 }: TabelaProdutoProps) {
   return (
     <ContainerTabela width={width}>
@@ -47,6 +58,15 @@ export function TabelaProduto({
           {children}
         </tbody>
       </TabelaProdutoStyle>
+      {!!changePage && (
+        <Paginacao
+          totalRegistroNaPagina={totalRegistroNaPagina || 0}
+          totalRegistrosNaAPI={totalRegistrosNaAPI || 0}
+          paginaAtual={paginaAtual || 0}
+          quantidadeItenPorPagina={quantidadeItenPorPagina || 0}
+          changePage={pagina => changePage(pagina)}
+        />
+      )}
     </ContainerTabela>
   )
 }

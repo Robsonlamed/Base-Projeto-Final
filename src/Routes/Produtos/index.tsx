@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Filter } from '../../assets/icons/Filter'
 import { FiltroProduto } from '../../components/FiltroProduto'
@@ -7,72 +7,59 @@ import { SerchPredicoes } from '../../components/Search'
 import { TabelaProduto } from '../../components/TabelaProduto'
 import { Title } from '../../components/Title'
 import { ContainerTabelasStyle } from '../../pages/tabelas/styles'
+import { GetProduto, GetProdutoProps } from '../../services/GetProduto'
 import { colors } from '../../theme'
 import { ContainerProdutosStyle, Status, SubTelaProdutoButton } from './styles'
 
 const TitleTabela = ['ID', 'Produto', 'Status', 'Percentual']
 
-const TabelaDadosAPI = [
-  {
-    id: '001',
-    produto: 'Papel Higiênico',
-    ultimaCompra: 'Em alta',
-    proximaCompra: 'Em alta',
-    quantidade: '+10%',
-  },
-  {
-    id: '002',
-    produto: 'Sabonete',
-    ultimaCompra: 'Em baixa',
-    proximaCompra: '05/10',
-    quantidade: '-12%',
-  },
-  {
-    id: '003',
-    produto: 'Alcool em gel',
-    ultimaCompra: 'Em baixa',
-    proximaCompra: '05/10',
-    quantidade: '-31%',
-  },
-  {
-    id: '004',
-    produto: 'Detergente',
-    ultimaCompra: 'Em alta',
-    proximaCompra: '05/10',
-    quantidade: '+62%',
-  },
-  {
-    id: '005',
-    produto: 'Papel Higiênico',
-    ultimaCompra: 'Em alta',
-    proximaCompra: '05/10',
-    quantidade: '+42%',
-  },
-  {
-    id: '006',
-    produto: 'Sabonete',
-    ultimaCompra: 'Em baixa',
-    proximaCompra: '05/10',
-    quantidade: '-12%',
-  },
-  {
-    id: '007',
-    produto: 'Alcool em gel',
-    ultimaCompra: 'Em baixa',
-    proximaCompra: '05/10',
-    quantidade: '-20%',
-  },
-]
-
 export function PageProdutos() {
+  const [search, setSearch] = useState('')
+
+  const [produtos, setProdutos] = useState<GetProdutoProps>()
+
+  const [loading, setLoading] = useState(true)
+
+  const [openFilter, setOpenFilter] = useState(false)
+
+  const [filtro, setFiltro] = useState<'TODOS' | 'EM_ALTA' | 'EM_BAIXA'>(
+    'TODOS'
+  )
+
+  const [page, setPage] = useState(1)
+
+  const open = () => setOpenFilter(!openFilter)
   const navigate = useNavigate()
 
   const goToPage = (url: string) => {
     navigate(url)
   }
 
-  const [openFilter, setOpenFilter] = useState(false)
-  const open = () => setOpenFilter(!openFilter)
+  const startSearch = async () => {
+    try {
+      const classificacao = filtro === 'TODOS' ? undefined : filtro
+      const result = await GetProduto(search, page, classificacao)
+      setProdutos(result)
+      setLoading(false)
+    } catch (error) {
+      alert((error as any).message)
+    }
+  }
+
+  useEffect(() => {
+    startSearch()
+  }, [page])
+
+  if (loading) {
+    return (
+      <Title
+        texto="Carregando dados"
+        tamanho={24}
+        color={colors.grey900}
+        marginLeft="15px"
+      />
+    )
+  }
 
   return (
     <div>
@@ -85,8 +72,16 @@ export function PageProdutos() {
         />
         <ContainerTabelasStyle margin="0px">
           <TabelaProduto
+            totalRegistroNaPagina={produtos?.numberOfElements || 0}
+            totalRegistrosNaAPI={produtos?.totalElements || 0}
+            paginaAtual={produtos?.number || 0}
+            quantidadeItenPorPagina={produtos?.size || 0}
+            changePage={pagina => setPage(pagina)}
             title={
               <SerchPredicoes
+                startSearch={startSearch}
+                onChange={event => setSearch(event.target.value)}
+                value={search}
                 height="0px"
                 icon={
                   <FilterStyle>
@@ -104,34 +99,48 @@ export function PageProdutos() {
             width="100%"
             headers={TitleTabela}
           >
-            {TabelaDadosAPI.map(dadosAPI => (
-              <tr
-                className="onClick"
-                onClick={() => goToPage('/informacoesprodutos')}
-              >
-                <td className="coluna1">{dadosAPI.id}</td>
-                <td className="coluna2">{dadosAPI.produto}</td>
-                <td>
-                  <Status
-                    color={
-                      dadosAPI.ultimaCompra === 'Em alta'
-                        ? `${colors.success}`
-                        : `${colors.error}`
-                    }
-                    backgroundColor={
-                      dadosAPI.ultimaCompra === 'Em alta'
-                        ? `${colors.lightGreen}`
-                        : `${colors.lightRed}`
-                    }
-                  >
-                    {dadosAPI.ultimaCompra}
-                  </Status>
-                </td>
-                <td>{dadosAPI.quantidade}</td>
-              </tr>
-            ))}
+            {produtos &&
+              produtos.content.map(dadosAPI => (
+                <tr
+                  className="onClick"
+                  onClick={() =>
+                    goToPage(`/informacoesprodutos/${dadosAPI.id}`)
+                  }
+                >
+                  <td className="coluna1">{dadosAPI.id}</td>
+                  <td className="coluna2">{dadosAPI.nome}</td>
+                  <td>
+                    <Status
+                      color={
+                        dadosAPI.classificacao === 'EM_ALTA'
+                          ? `${colors.success}`
+                          : `${colors.error}`
+                      }
+                      backgroundColor={
+                        dadosAPI.classificacao === 'EM_ALTA'
+                          ? `${colors.lightGreen}`
+                          : `${colors.lightRed}`
+                      }
+                    >
+                      {dadosAPI.classificacao}
+                    </Status>
+                  </td>
+                  <td>{dadosAPI.percentual}%</td>
+                </tr>
+              ))}
           </TabelaProduto>
-          {openFilter ? <FiltroProduto /> : null}
+
+          {openFilter ? (
+            <FiltroProduto
+              totalProdutos={produtos?.totalElements}
+              // totalProdutosEmAlta={produtos?.totalElements}
+              // totalProdutosEmBaixa={produtos?.totalElements}
+              onClickAplicar={startSearch}
+              setOpenFiltro={setOpenFilter}
+              filtro={filtro}
+              setFiltro={setFiltro}
+            />
+          ) : null}
         </ContainerTabelasStyle>
       </ContainerProdutosStyle>
     </div>

@@ -12,10 +12,10 @@ import { Title } from '../../components/Title'
 import { TitleWithIcon } from '../../components/TitleWithIcon'
 import { ContainerTabelasStyle } from '../../pages/tabelas/styles'
 import {
-  GetProdutoClientesProps,
-  GetProdutoClientesStatus,
-  GetProdutoResumo,
-  GetProdutoResumoProps,
+  GetProdutoResumoClientes,
+  GetProdutoResumoClientesProps,
+  GetProdutoStatus,
+  GetProdutoStatusProps,
 } from '../../services/GetProduto'
 import { colors } from '../../theme'
 
@@ -54,14 +54,15 @@ const TitleTabela = ['ID', 'Cliente', 'Percentual', 'Quantidade']
 //   },
 // ]
 
-export function SubTelaProduto() {
-  const [clientesEmBaixa, setCLientesEmBaixa] =
-    useState<GetProdutoClientesProps>([])
-  const [clientesEmAlta, setCLientesEmAlta] = useState<GetProdutoClientesProps>(
+export function SubTelaProdutoClientes() {
+  const [produtosEmBaixa, setProdutosEmBaixa] = useState<GetProdutoStatusProps>(
+    []
+  )
+  const [produtosEmAlta, setProdutosEmAlta] = useState<GetProdutoStatusProps>(
     []
   )
 
-  const [resumo, setResumo] = useState<GetProdutoResumoProps>()
+  const [resumo, setResumo] = useState<GetProdutoResumoClientesProps>()
 
   const [loading, setLoading] = useState(true)
 
@@ -70,10 +71,10 @@ export function SubTelaProduto() {
   useEffect(() => {
     ;(async () => {
       try {
-        const resultEmBaixa = await GetProdutoClientesStatus(id!, 'EM_BAIXA')
-        const resultEmAlta = await GetProdutoClientesStatus(id!, 'EM_ALTA')
-        setCLientesEmBaixa(resultEmBaixa)
-        setCLientesEmAlta(resultEmAlta)
+        const resultEmBaixa = await GetProdutoStatus(id!, 'EM_BAIXA')
+        const resultEmAlta = await GetProdutoStatus(id!, 'EM_ALTA')
+        setProdutosEmBaixa(resultEmBaixa)
+        setProdutosEmAlta(resultEmAlta)
         setLoading(false)
       } catch (error) {
         alert((error as any).message)
@@ -84,7 +85,7 @@ export function SubTelaProduto() {
   useEffect(() => {
     ;(async () => {
       try {
-        const resultResumo = await GetProdutoResumo(id!)
+        const resultResumo = await GetProdutoResumoClientes(id!)
         setResumo(resultResumo)
         setLoading(false)
       } catch (error) {
@@ -208,14 +209,14 @@ export function SubTelaProduto() {
               background={colors.error}
               color={colors.grey900}
               icon={<TredingDown />}
-              title="Cliente em baixa"
+              title="Produtos em baixa"
             />
           }
           button=""
           width="49%"
           headers={TitleTabela}
         >
-          {clientesEmBaixa.map(dadosAPI => (
+          {produtosEmBaixa.map(dadosAPI => (
             <tr>
               <td className="coluna1">{dadosAPI.id}</td>
               <td className="coluna2">{dadosAPI.nome}</td>
@@ -232,14 +233,14 @@ export function SubTelaProduto() {
               background={colors.success}
               color={colors.grey900}
               icon={<TrendingUp />}
-              title="Clientes em alta"
+              title="Produtos em alta"
             />
           }
           button=""
           width="49%"
           headers={TitleTabela}
         >
-          {clientesEmAlta.map(dadosAPI => (
+          {produtosEmAlta.map(dadosAPI => (
             <tr>
               <td className="coluna1">{dadosAPI.id}</td>
               <td className="coluna2">{dadosAPI.nome}</td>
