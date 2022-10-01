@@ -4,8 +4,7 @@ import { ArrowBack } from '../../assets/icons/ArrowBack'
 import { TredingDown } from '../../assets/icons/TrendingDown'
 import { TrendingUp } from '../../assets/icons/TrendingUp'
 import { CardDashboard } from '../../components/CardDashboard'
-import { ContainerCardsDashboard } from '../../components/CardDashboard/styles'
-import { ContainerSubTela } from '../../components/CelEmail/styles'
+import { ContainerSubScreen } from '../../components/CelEmail/styles'
 import { LinkMenu } from '../../components/ItensMenu/styles'
 import { TabelaProduto } from '../../components/TabelaProduto'
 import { Title } from '../../components/Title'
@@ -20,39 +19,6 @@ import {
 import { colors } from '../../theme'
 
 const TitleTabela = ['ID', 'Cliente', 'Percentual', 'Quantidade']
-
-// const TabelaDadosAPI = [
-//   {
-//     id: '001',
-//     produto: 'Papel Higiênico',
-//     percentual: '+72%',
-//     quantidade: '16',
-//   },
-//   {
-//     id: '002',
-//     produto: 'Sabonete',
-//     percentual: '+24%',
-//     quantidade: '15',
-//   },
-//   {
-//     id: '003',
-//     produto: 'Alcool em gel',
-//     percentual: '+62%',
-//     quantidade: '12',
-//   },
-//   {
-//     id: '004',
-//     produto: 'Detergente',
-//     percentual: '+20%',
-//     quantidade: '10',
-//   },
-//   {
-//     id: '005',
-//     produto: 'Papel Higiênico',
-//     percentual: '+72%',
-//     quantidade: '08',
-//   },
-// ]
 
 export function SubTelaProdutoClientes() {
   const [produtosEmBaixa, setProdutosEmBaixa] = useState<GetProdutoStatusProps>(
@@ -107,26 +73,30 @@ export function SubTelaProdutoClientes() {
 
   return (
     <div>
-      <ContainerSubTela>
-        <LinkMenu marginLeft="0px" color={colors.grey900} to="/produtos">
-          <TitleWithIcon
-            fontSize="16px"
-            icon={<ArrowBack />}
-            title="Detalhamento"
-            color={colors.grey900}
-            background={colors.grey200}
-            borderRadius="100px"
-            marginLeft="10px"
+      <ContainerSubScreen>
+        <ContainerTabelasStyle>
+          <LinkMenu marginLeft="0px" color={colors.grey900} to="/produtos">
+            <TitleWithIcon
+              fontSize="16px"
+              icon={<ArrowBack />}
+              title="Detalhamento"
+              color={colors.grey900}
+              background={colors.grey200}
+              borderRadius="100px"
+              marginLeft="10px"
+            />
+          </LinkMenu>
+        </ContainerTabelasStyle>
+        <ContainerTabelasStyle>
+          <Title
+            texto={resumo?.nome || ''}
+            tamanho={24}
+            color={colors.azul1}
+            marginLeft=""
+            marginBotton="20px"
           />
-        </LinkMenu>
-        <Title
-          texto={resumo?.nome || ''}
-          tamanho={24}
-          color={colors.azul1}
-          marginLeft=""
-          marginBotton="20px"
-        />
-        <ContainerCardsDashboard>
+        </ContainerTabelasStyle>
+        <ContainerTabelasStyle>
           <CardDashboard
             boxShadow="0px 7px 30px
           rgba(0, 0, 0, 0.1)"
@@ -134,8 +104,8 @@ export function SubTelaProdutoClientes() {
             color={colors.white}
             text="Média 120 dias"
             status=""
-            tipo=""
-            valor={resumo?.media120Dias || 0}
+            type=""
+            value={resumo?.media120Dias || 0}
             backgroundColor=""
             backgroundCard={colors.azul1}
             width="210px"
@@ -148,9 +118,9 @@ export function SubTelaProdutoClientes() {
             color={colors.azul1}
             text="Últimos 30 dias"
             status=""
-            tipo=""
-            valor={resumo?.ultimos30Dias || 0}
-            porcentagem={resumo?.percentualUltimos30Dias}
+            type=""
+            value={resumo?.ultimos30Dias || 0}
+            percentage={resumo?.percentualUltimos30Dias}
             backgroundColor={colors.success}
             backgroundCard={colors.white}
             width="210px"
@@ -163,8 +133,8 @@ export function SubTelaProdutoClientes() {
             color={colors.azul1}
             text="Últimos 60 dias"
             status=""
-            tipo=""
-            valor={resumo?.ultimos60Dias || 0}
+            type=""
+            value={resumo?.ultimos60Dias || 0}
             backgroundColor=""
             backgroundCard={colors.white}
             width="210px"
@@ -177,8 +147,8 @@ export function SubTelaProdutoClientes() {
             color={colors.azul1}
             text="Últimos 90 dias"
             status=""
-            tipo=""
-            valor={resumo?.ultimos90Dias || 0}
+            type=""
+            value={resumo?.ultimos90Dias || 0}
             backgroundColor=""
             backgroundCard={colors.white}
             width="210px"
@@ -191,16 +161,16 @@ export function SubTelaProdutoClientes() {
             color={colors.azul1}
             text="Últimos 120 dias"
             status=""
-            tipo=""
-            valor={resumo?.ultimos120Dias || 0}
+            type=""
+            value={resumo?.ultimos120Dias || 0}
             backgroundColor=""
             backgroundCard={colors.white}
             width="210px"
             paddingBottom="40px"
           />
-        </ContainerCardsDashboard>
-      </ContainerSubTela>
-      <ContainerTabelasStyle margin="14vw">
+        </ContainerTabelasStyle>
+      </ContainerSubScreen>
+      <ContainerTabelasStyle>
         <TabelaProduto
           title={
             <TitleWithIcon

@@ -2,10 +2,10 @@ import { ReactNode } from 'react'
 import { ChevronRight } from '../../assets/icons/ChevronRight'
 import { UserClient } from '../../assets/icons/UserClient'
 import {
-  CardClienteStyle,
-  ContainerCardCliente,
-  IconeChevronCliente,
-} from '../../Routes/Predicoes/styles'
+  CardClientStyle,
+  ContainerCardClient,
+  IconChevronClient,
+} from './styles'
 import { colors } from '../../theme'
 import { LinkMenu } from '../ItensMenu/styles'
 import { TabelaCliente } from '../TabelaClientes'
@@ -13,16 +13,16 @@ import { TitleWithIcon } from '../TitleWithIcon'
 
 type CardPredicaoProps = {
   id: number
-  nome: string
-  tabelaTitulo: string[]
-  tabela: ReactNode
+  name: string
+  tableTitle: string[]
+  table: ReactNode
 }
 
-export function CardPredicao({
+export function CardPrediction({
   id,
-  nome,
-  tabela,
-  tabelaTitulo,
+  name,
+  table,
+  tableTitle,
 }: CardPredicaoProps) {
   return (
     <LinkMenu
@@ -30,24 +30,24 @@ export function CardPredicao({
       color={colors.grey900}
       to={`/informacoesclientes/${id}`}
     >
-      <ContainerCardCliente>
-        <CardClienteStyle>
+      <ContainerCardClient>
+        <CardClientStyle>
           <TitleWithIcon
             marginLeft="10px"
             fontSize="12px"
             icon={<UserClient />}
-            title={nome}
+            title={name}
             color={colors.grey900}
             background={colors.grey200}
             borderRadius="100px"
             marginBottom="20px"
           />
-          <IconeChevronCliente>
+          <IconChevronClient>
             <ChevronRight />
-          </IconeChevronCliente>
-        </CardClienteStyle>
-        <TabelaCliente headers={tabelaTitulo}>{tabela}</TabelaCliente>
-      </ContainerCardCliente>
+          </IconChevronClient>
+        </CardClientStyle>
+        <TabelaCliente headers={tableTitle}>{table}</TabelaCliente>
+      </ContainerCardClient>
     </LinkMenu>
   )
 }

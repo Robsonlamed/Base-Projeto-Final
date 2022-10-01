@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { colors } from '../../theme'
 
-export const CalendarioDashboardStyle = styled.div`
+export const CalendarDashboardStyle = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;

@@ -34,3 +34,15 @@ export function ItensMenu() {
     </>
   )
 }
+
+export function ItensMenuReduzido() {
+  return (
+    <>
+      {Itens.map(iten => (
+        <LinkMenu color={colors.white} to={iten.url}>
+          <Links>{iten.icon}</Links>
+        </LinkMenu>
+      ))}
+    </>
+  )
+}

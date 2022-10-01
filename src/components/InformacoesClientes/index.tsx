@@ -2,8 +2,8 @@ import { Mail } from '../../assets/icons/Mail'
 import { Phone } from '../../assets/icons/Phone'
 import { colors } from '../../theme'
 import { CelEmail } from '../CelEmail'
-import { ContainerInformacoesClientes } from '../CelEmail/styles'
 import { Title } from '../Title'
+import { ContainerInformationClient } from './styles'
 
 type InformacoesClientesProps = {
   name: string
@@ -17,7 +17,7 @@ export function InformacoesClientes({
   email,
 }: InformacoesClientesProps) {
   return (
-    <ContainerInformacoesClientes>
+    <ContainerInformationClient>
       <Title marginLeft="" texto={name} tamanho={22} color={colors.white} />
       <CelEmail
         iconPhone={<Phone />}
@@ -25,6 +25,6 @@ export function InformacoesClientes({
         iconEmail={<Mail />}
         email={email}
       />
-    </ContainerInformacoesClientes>
+    </ContainerInformationClient>
   )
 }

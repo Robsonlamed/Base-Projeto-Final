@@ -4,7 +4,7 @@ import { ArrowBack } from '../../assets/icons/ArrowBack'
 import { CheckOne } from '../../assets/icons/CheckOne'
 import { FacialCleanser } from '../../assets/icons/FacialCleanser'
 import { TimeHistory } from '../../assets/icons/History'
-import { ContainerSubTela } from '../../components/CelEmail/styles'
+import { ContainerSubScreen } from '../../components/CelEmail/styles'
 import { InformacoesClientes } from '../../components/InformacoesClientes'
 import { LinkMenu } from '../../components/ItensMenu/styles'
 import { TabelaProduto } from '../../components/TabelaProduto'
@@ -12,6 +12,7 @@ import { Title } from '../../components/Title'
 import { TitleWithIcon } from '../../components/TitleWithIcon'
 import { ContainerTabelasStyle } from '../../pages/tabelas/styles'
 import {
+  GetPredicoesBaixaProduto,
   GetPredicoesDadosClientes,
   GetPredicoesDadosClientesProps,
   GetPredicoesEsgotando,
@@ -20,6 +21,7 @@ import {
   GetPredicoesHistoricoProps,
 } from '../../services/GetPredicao/getPredicoes'
 import { colors } from '../../theme'
+import { CheckOneStyle } from '../../components/CardPrediction/styles'
 
 const TitleTabela = ['ID', 'Produto', 'Última compra', 'Qtd.', 'Dar baixa']
 const TitleTabelaItenEsgotado = [
@@ -30,65 +32,6 @@ const TitleTabelaItenEsgotado = [
   'Qtd.',
   'Dar baixa',
 ]
-
-// const TabelaDadosAPI = [
-//   {
-//     id: '001',
-//     produto: 'Papel Higiênico',
-//     ultimaCompra: '23/08',
-//     proximaCompra: '05/10',
-//     quantidade: '03',
-//   },
-//   {
-//     id: '002',
-//     produto: 'Sabonete',
-//     ultimaCompra: '23/08',
-//     proximaCompra: '05/10',
-//     quantidade: '03',
-//   },
-//   {
-//     id: '003',
-//     produto: 'Alcool em gel',
-//     ultimaCompra: '23/08',
-//     proximaCompra: '05/10',
-//     quantidade: '03',
-//   },
-//   {
-//     id: '004',
-//     produto: 'Detergente',
-//     ultimaCompra: '23/08',
-//     proximaCompra: '05/10',
-//     quantidade: '03',
-//   },
-//   {
-//     id: '005',
-//     produto: 'Papel Higiênico',
-//     ultimaCompra: '23/08',
-//     proximaCompra: '05/10',
-//     quantidade: '03',
-//   },
-//   {
-//     id: '006',
-//     produto: 'Sabonete',
-//     ultimaCompra: '23/08',
-//     proximaCompra: '05/10',
-//     quantidade: '03',
-//   },
-//   {
-//     id: '007',
-//     produto: 'Alcool em gel',
-//     ultimaCompra: '23/08',
-//     proximaCompra: '05/10',
-//     quantidade: '03',
-//   },
-//   {
-//     id: '008',
-//     produto: 'Detergente',
-//     ultimaCompra: '23/08',
-//     proximaCompra: '05/10',
-//     quantidade: '03',
-//   },
-// ]
 
 export function SubTelaPredicoes() {
   const [historico, setHistorico] = useState<GetPredicoesHistoricoProps>([])
@@ -101,6 +44,13 @@ export function SubTelaPredicoes() {
   const [loading, setLoading] = useState(true)
 
   const { id } = useParams()
+
+  const darBaixa = async (produtoId: number) => {
+    const result = await GetPredicoesBaixaProduto(id!, produtoId)
+    if (result.baixa) {
+      alert('Produto baixado')
+    }
+  }
 
   useEffect(() => {
     ;(async () => {
@@ -150,24 +100,28 @@ export function SubTelaPredicoes() {
   }
 
   return (
-    <ContainerSubTela>
-      <LinkMenu marginLeft="0px" color={colors.grey900} to="/predicoes">
-        <TitleWithIcon
-          marginLeft="10px"
-          fontSize="16px"
-          icon={<ArrowBack />}
-          title="Predições"
-          color={colors.grey900}
-          background={colors.grey200}
-          borderRadius="100px"
+    <ContainerSubScreen>
+      <ContainerTabelasStyle>
+        <LinkMenu marginLeft="0px" color={colors.grey900} to="/predicoes">
+          <TitleWithIcon
+            marginLeft="10px"
+            fontSize="16px"
+            icon={<ArrowBack />}
+            title="Predições"
+            color={colors.grey900}
+            background={colors.grey200}
+            borderRadius="100px"
+          />
+        </LinkMenu>
+      </ContainerTabelasStyle>
+      <ContainerTabelasStyle>
+        <InformacoesClientes
+          name={dadosClientes?.nome || ''}
+          phone={dadosClientes?.telefone || ''}
+          email={dadosClientes?.email || ''}
         />
-      </LinkMenu>
-      <InformacoesClientes
-        name={dadosClientes?.nome || ''}
-        phone={dadosClientes?.telefone || ''}
-        email={dadosClientes?.email || ''}
-      />
-      <ContainerTabelasStyle margin="-20px">
+      </ContainerTabelasStyle>
+      <ContainerTabelasStyle>
         <TabelaProduto
           button=""
           width="45%"
@@ -190,7 +144,12 @@ export function SubTelaPredicoes() {
               <td>{dadosAPI.ultimaCompra}</td>
               <td>{dadosAPI.quantidade}</td>
               <td className="arrow">
-                <CheckOne />
+                <CheckOneStyle
+                  onClick={() => darBaixa(dadosAPI.id)}
+                  type="button"
+                >
+                  <CheckOne />
+                </CheckOneStyle>
               </td>
             </tr>
           ))}
@@ -218,12 +177,17 @@ export function SubTelaPredicoes() {
               <td>{dadosAPI.proximaCompra}</td>
               <td>{dadosAPI.quantidade}</td>
               <td className="arrow">
-                <CheckOne />
+                <CheckOneStyle
+                  onClick={() => darBaixa(dadosAPI.id)}
+                  type="button"
+                >
+                  <CheckOne />
+                </CheckOneStyle>
               </td>
             </tr>
           ))}
         </TabelaProduto>
       </ContainerTabelasStyle>
-    </ContainerSubTela>
+    </ContainerSubScreen>
   )
 }

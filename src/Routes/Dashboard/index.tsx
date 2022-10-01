@@ -15,7 +15,7 @@ import {
   GetDashBoardTabelaProps,
 } from '../../services/GetDashboardResumo/getDashboardTabela'
 import { colors } from '../../theme'
-// import { dateHelper } from '../../utils'
+import { dateHelper } from '../../utils'
 
 const TitleTabela = ['ID', 'Produto', 'Percentual', ' ']
 const TitleTabela1 = ['ID', 'Cliente', 'Percentual', ' ']
@@ -23,9 +23,7 @@ const TitleTabela1 = ['ID', 'Cliente', 'Percentual', ' ']
 export function PageDashboard() {
   const [emAltaProduto, setEmAltaProduto] = useState(false)
   const [emAltaCliente, setEmAltaCliente] = useState(false)
-
-  // const [date, setDate] = useState(dateHelper.thisMonth)
-
+  const [dates, setDates] = useState(dateHelper.thisMonth())
   const statusProdutos = () => setEmAltaProduto(!emAltaProduto)
   const statusClientes = () => setEmAltaCliente(!emAltaCliente)
 
@@ -38,8 +36,8 @@ export function PageDashboard() {
     ;(async () => {
       try {
         const result = await getDashBoardTabelaProduto(
-          '25/09/2022',
-          '10/09/2022',
+          dates.end,
+          dates.start,
           emAltaProduto ? 'EM_BAIXA' : 'EM_ALTA'
         )
         setTabelaProduto(result)
@@ -48,7 +46,7 @@ export function PageDashboard() {
         alert((error as any).message)
       }
     })()
-  }, [emAltaProduto])
+  }, [emAltaProduto, dates])
 
   const [tabelaClientes, setTabelaClientes] = useState<GetDashBoardTabelaProps>(
     []
@@ -58,8 +56,8 @@ export function PageDashboard() {
     ;(async () => {
       try {
         const result = await getDashBoardTabelaCliente(
-          '25/09/2022',
-          '10/09/2022',
+          dates.end,
+          dates.start,
           emAltaCliente ? 'EM_BAIXA' : 'EM_ALTA'
         )
         setTabelaClientes(result)
@@ -68,22 +66,13 @@ export function PageDashboard() {
         alert((error as any).message)
       }
     })()
-  }, [emAltaCliente])
+  }, [emAltaCliente, dates])
 
   const navigate = useNavigate()
 
   const goToPage = (url: string) => {
     navigate(url)
   }
-
-  // const changeDate = (event: ChangeEvent<HTMLSelectElement>) => {
-  //   const { value } = event.currentTarget
-  //   if (value === '0') {
-  //     setDate(dateHelper.thisMonth())
-  //   } else {
-  //     setDate(dateHelper.lastDays(Number(value)))
-  //   }
-  // }
 
   if (loading) {
     return (
@@ -97,16 +86,9 @@ export function PageDashboard() {
   }
   return (
     <div>
-      <DashBoard
-        data={0}
-        data30={30}
-        data60={60}
-        data90={90}
-        data120={120}
-        // onChange={changeDate}
-      />
+      <DashBoard setDate={setDates} date={dates} />
 
-      <ContainerTabelasStyle margin="14vw">
+      <ContainerTabelasStyle>
         <TabelaProduto
           title={
             <TitleWithIcon
@@ -119,7 +101,10 @@ export function PageDashboard() {
             />
           }
           button={
-            <ButtonStatus emAlta={emAltaProduto} trocaStatus={statusProdutos} />
+            <ButtonStatus
+              onHigh={emAltaProduto}
+              changeStatus={statusProdutos}
+            />
           }
           width="49%"
           headers={TitleTabela}
@@ -150,7 +135,10 @@ export function PageDashboard() {
             />
           }
           button={
-            <ButtonStatus emAlta={emAltaCliente} trocaStatus={statusClientes} />
+            <ButtonStatus
+              onHigh={emAltaCliente}
+              changeStatus={statusClientes}
+            />
           }
           width="49%"
           headers={TitleTabela1}

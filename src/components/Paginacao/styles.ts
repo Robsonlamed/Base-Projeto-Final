@@ -24,12 +24,14 @@ export const PaginacaoStylePages = styled.div`
     color: ${colors.white};
     font-weight: 500;
     font-size: 13px;
+    cursor: pointer;
   }
 
   button {
     margin: 0px 8px;
     background-color: ${colors.white};
     border: none;
+    cursor: pointer;
   }
 `
 

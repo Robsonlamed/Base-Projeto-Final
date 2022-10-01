@@ -1,18 +1,18 @@
+import { Link } from 'react-router-dom'
 import logoW3 from '../../assets/images/logoW3.svg'
-import { Wrapper } from '../../assets/Wrapper'
-// import { Wrapper } from '../../assets/Wrapper'
 import { FundoFaleConosco } from '../FundoFaleConosco'
 import { ItensMenu } from '../ItensMenu'
 import { Logo, MenuStyles } from './styles'
 
 export function Menu() {
   return (
-    <Wrapper>
-      <MenuStyles>
+    <MenuStyles width="14vw">
+      <Link to="/">
         <Logo src={logoW3} alt="logo W3" />
-        <ItensMenu />
-        <FundoFaleConosco />
-      </MenuStyles>
-    </Wrapper>
+      </Link>
+
+      <ItensMenu />
+      <FundoFaleConosco />
+    </MenuStyles>
   )
 }

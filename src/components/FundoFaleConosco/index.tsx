@@ -1,5 +1,5 @@
 import maos from '../../assets/images/maos.png'
-import { ButtonFaleConosco } from '../ButtonFaleConosco'
+import { ButtonContactUs } from '../ButtonContactUs'
 import { FaleConoscoStyle } from './styles'
 
 export function FundoFaleConosco() {
@@ -14,7 +14,7 @@ export function FundoFaleConosco() {
           Precisando de <strong>ajuda ou suporte</strong> em algo?
         </span>
       </div>
-      <ButtonFaleConosco text="Fale conosco" />
+      <ButtonContactUs text="Fale conosco" />
     </FaleConoscoStyle>
   )
 }

@@ -1,15 +1,15 @@
 import { ReactNode } from 'react'
 import { ValorCardDashboard } from '../ValorCardDashboard'
 import { CardDashboardStyle } from './styles'
-import { TituloCard } from './titulo'
+import { TituloCard } from './title'
 
 type CardDashboardProps = {
   radialBar?: ReactNode
-  tipo: string
+  type: string
   status: string
   text?: string
-  valor: number
-  porcentagem?: number
+  value: number
+  percentage?: number
   backgroundColor: string
   backgroundCard: string
   color: string
@@ -21,11 +21,11 @@ type CardDashboardProps = {
 
 export function CardDashboard({
   radialBar,
-  tipo,
+  type,
   status,
   text,
-  valor,
-  porcentagem,
+  value,
+  percentage,
   backgroundColor,
   backgroundCard,
   color,
@@ -46,14 +46,14 @@ export function CardDashboard({
         <TituloCard
           color={colorTitle}
           text={text}
-          tipo={tipo}
+          tipo={type}
           status={status}
         />
         <ValorCardDashboard
           color={color}
           backgroundColor={backgroundColor}
-          total={valor}
-          porcentagem={porcentagem || 0}
+          total={value}
+          porcentagem={percentage || 0}
         />
       </div>
     </CardDashboardStyle>

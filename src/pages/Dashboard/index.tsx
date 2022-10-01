@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react'
-import { CalendarioDashboard } from '../../components/CalendarioDashboard'
+import { Dispatch, SetStateAction, useEffect, useState } from 'react'
+import { CalendarDashboard } from '../../components/CalendarDashboard'
 import { CardDashboard } from '../../components/CardDashboard'
 import {
   ContainerCardsDashboard,
@@ -17,22 +17,11 @@ import { colors } from '../../theme'
 import { ContainerTituloDashboard } from './styles'
 
 type CalendarioProps = {
-  data: number
-  data30: number
-  data60: number
-  data90: number
-  data120: number
-  // onChange: (event: ChangeEvent<HTMLSelectElement>) => void
+  date: { end: string; start: string }
+  setDate: Dispatch<SetStateAction<{ end: string; start: string }>>
 }
 
-export function DashBoard({
-  data,
-  data30,
-  data60,
-  data90,
-  data120,
-}: // onChange,
-CalendarioProps) {
+export function DashBoard({ date, setDate }: CalendarioProps) {
   const [resumo, setResumo] = useState<GetDashBoardResumoProps>()
   const [loading, setLoading] = useState(true)
 
@@ -41,14 +30,14 @@ CalendarioProps) {
   useEffect(() => {
     ;(async () => {
       try {
-        const result = await getDashBoardResumo('25/09/2022', '10/09/2022')
+        const result = await getDashBoardResumo(date.end, date.start)
         setResumo(result)
         setLoading(false)
       } catch (error) {
         alert((error as any).message)
       }
     })()
-  }, [])
+  }, [date])
 
   if (loading) {
     return (
@@ -65,14 +54,7 @@ CalendarioProps) {
       <DashboardStyle>
         <ContainerTituloDashboard>
           <h1>Dashboard</h1>
-          <CalendarioDashboard
-            data={data}
-            data30={data30}
-            data60={data60}
-            data90={data90}
-            data120={data120}
-            // onChange={onChange}
-          />
+          <CalendarDashboard setDate={setDate} />
         </ContainerTituloDashboard>
         <ContainerCardsDashboard>
           <CardDashboard
@@ -81,10 +63,10 @@ CalendarioProps) {
             radialBar={
               <RadialBar series={resumo?.percentualTotalProdutosAlta || 0} />
             }
-            tipo="produtos"
+            type="produtos"
             status="em alta"
-            valor={resumo?.quantidadeProdutosAlta || 0}
-            porcentagem={resumo?.percentualVariacaoProdutosAlta || 0}
+            value={resumo?.quantidadeProdutosAlta || 0}
+            percentage={resumo?.percentualVariacaoProdutosAlta || 0}
             backgroundColor={colors.success}
             backgroundCard={colors.azulCard}
             color={colors.white}
@@ -96,10 +78,10 @@ CalendarioProps) {
             radialBar={
               <RadialBar series={resumo?.percentualTotalProdutosBaixa || 0} />
             }
-            tipo="produtos"
+            type="produtos"
             status="em baixa"
-            valor={resumo?.quantidadeProdutosBaixa || 0}
-            porcentagem={resumo?.percentualVariacaoProdutosBaixa || 0}
+            value={resumo?.quantidadeProdutosBaixa || 0}
+            percentage={resumo?.percentualVariacaoProdutosBaixa || 0}
             backgroundColor={colors.error}
             backgroundCard={colors.azulCard}
             color={colors.white}
@@ -111,10 +93,10 @@ CalendarioProps) {
             radialBar={
               <RadialBar series={resumo?.percentualTotalClientesAlta || 0} />
             }
-            tipo="produtos"
+            type="produtos"
             status="em alta"
-            valor={resumo?.quantidadeClientesAlta || 0}
-            porcentagem={resumo?.percentualVariacaoClientesAlta || 0}
+            value={resumo?.quantidadeClientesAlta || 0}
+            percentage={resumo?.percentualVariacaoClientesAlta || 0}
             backgroundColor={colors.success}
             backgroundCard={colors.azulCard}
             color={colors.white}
@@ -126,10 +108,10 @@ CalendarioProps) {
             radialBar={
               <RadialBar series={resumo?.percentualTotalClientesBaixa || 0} />
             }
-            tipo="produtos"
+            type="produtos"
             status="em baixa"
-            valor={resumo?.quantidadeClientesBaixa || 0}
-            porcentagem={resumo?.percentualVariacaoClientesBaixa || 0}
+            value={resumo?.quantidadeClientesBaixa || 0}
+            percentage={resumo?.percentualVariacaoClientesBaixa || 0}
             backgroundColor={colors.error}
             backgroundCard={colors.azulCard}
             color={colors.white}

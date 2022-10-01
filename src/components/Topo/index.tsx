@@ -4,7 +4,7 @@ import { IconeMenu } from '../../assets/icons/Menu'
 import { UserStyle } from '../../assets/icons/User'
 import { GetDadosLogado, GetDadosLogadoProps } from '../../services/GetLogado'
 import { colors } from '../../theme'
-import { Configuracoes } from '../Configuracoes'
+import { Settings } from '../Settings'
 import { Title } from '../Title'
 // import { Menu } from '../Menu'
 // import { MenuReduzido } from '../MenuReduzido'
@@ -13,9 +13,10 @@ import { User } from './User'
 
 type IconeMenuProps = {
   openMenu: () => void
+  width: string
 }
 
-export function Topo({ openMenu }: IconeMenuProps) {
+export function Topo({ openMenu, width }: IconeMenuProps) {
   const [openConfig, setOpenConfig] = useState(false)
   const open = () => setOpenConfig(!openConfig)
 
@@ -47,7 +48,7 @@ export function Topo({ openMenu }: IconeMenuProps) {
 
   return (
     <div>
-      <TopoStyles>
+      <TopoStyles width={width}>
         <div className="sanduiche">
           <button onClick={openMenu} type="button">
             <IconeMenu />
@@ -66,7 +67,7 @@ export function Topo({ openMenu }: IconeMenuProps) {
           </button>
         </Logado>
       </TopoStyles>
-      {openConfig ? <Configuracoes /> : null}
+      {openConfig ? <Settings /> : null}
     </div>
   )
 }

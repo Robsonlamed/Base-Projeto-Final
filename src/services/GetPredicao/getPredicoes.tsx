@@ -163,3 +163,37 @@ export const GetPredicoesDadosClientes = async (
   }
   throw new Error('Página em manutenção')
 }
+
+export type GetPredicoesBaixaProps = {
+  email: string
+  nome: string
+  telefone: string
+}
+
+export const GetPredicoesBaixaProduto = async (
+  id: string,
+  produtoId: number
+) => {
+  try {
+    const result = await ApiServiceW3.post(`/predicao/${id}/baixa`, {
+      produtoId,
+    })
+
+    if (result.status === 200) {
+      return { baixa: true }
+    }
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      if (error.response?.status === 401) {
+        throw new Error('Operação não autorizada')
+      }
+      if (error.response?.status === 403) {
+        throw new Error('Usuário não tem permissão de acesso')
+      }
+      if (error.response?.status === 404) {
+        throw new Error('Página não encontrada')
+      }
+    }
+  }
+  throw new Error('Página em manutenção')
+}

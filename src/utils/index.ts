@@ -1,20 +1,22 @@
 class DateHelper {
-  private now: Date
+  private now: Date = new Date()
 
-  constructor() {
+  init() {
     this.now = new Date()
   }
 
   private getMonth() {
-    return this.now.getMonth() + 1
+    return this.now.getMonth()
   }
 
-  private getYear() {
+  private getFullYear() {
     return this.now.getFullYear()
   }
 
   private getLastDay() {
-    return new Date(this.getYear(), this.getMonth()).getDate()
+    const [year, month] = this.getYearAndMonth()
+
+    return new Date(year, month + 1, 0).getDate()
   }
 
   // eslint-disable-next-line class-methods-use-this
@@ -22,21 +24,30 @@ class DateHelper {
     return date.toLocaleDateString('pt-br')
   }
 
+  private getYearAndMonth = () => {
+    return [this.getFullYear(), this.getMonth()]
+  }
+
   public thisMonth() {
+    this.init()
+
+    const [year, month] = this.getYearAndMonth()
+
     return {
-      start: this.toDateBr(new Date(this.getYear(), this.getMonth(), 1)),
-      end: this.toDateBr(
-        new Date(this.getYear(), this.getMonth(), this.getLastDay())
-      ),
+      start: this.toDateBr(new Date(year, month, 1)),
+      end: this.toDateBr(this.now),
+      // end2: this.toDateBr(new Date(year, month, this.getLastDay()))
     }
   }
 
   public lastDays(days: number) {
+    this.init()
+
     const { now } = this
 
     return {
       end: this.toDateBr(now),
-      start: this.toDateBr(new Date(now.setDate(days * -1))),
+      start: this.toDateBr(new Date(now.setDate(now.getDate() - days))),
     }
   }
 }

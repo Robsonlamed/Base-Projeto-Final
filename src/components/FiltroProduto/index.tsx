@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction } from 'react'
 import { colors } from '../../theme'
-import { ButtonFaleConosco } from '../ButtonFaleConosco'
+import { ButtonContactUs } from '../ButtonContactUs'
 import { Lembrar } from '../Lembrar'
 import { SubTitle } from '../SubTitle'
 import {
@@ -79,7 +79,7 @@ export function FiltroProduto({
           <FiltroProdutoSpan>{totalProdutosEmBaixa}</FiltroProdutoSpan>
         </FiltroProdutoStyle>
 
-        <ButtonFaleConosco
+        <ButtonContactUs
           onClick={() => {
             onClickAplicar()
             setOpenFiltro(false)

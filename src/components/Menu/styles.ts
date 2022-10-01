@@ -1,14 +1,13 @@
 import styled from 'styled-components'
 import { colors } from '../../theme'
 
-export const MenuStyles = styled.div`
+export const MenuStyles = styled.div<{ width: string }>`
   background-color: ${colors.azul1};
   color: ${colors.white};
-  width: 14vw;
-  justify-content: center;
+  width: ${({ width }) => `${width}`};
+  height: 100vh;
   position: fixed;
   top: 0;
-  height: 100vh;
 `
 
 export const Logo = styled.img`

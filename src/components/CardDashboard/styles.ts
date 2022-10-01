@@ -34,10 +34,8 @@ export const DashboardStyle = styled.div`
 `
 export const ContainerdDashboardStyle = styled.div`
   padding: 22px 22px 0px 22px;
-  width: 84.9vw;
+  width: 100%;
   background: ${colors.white};
-  margin-top: 90px;
-  margin-left: 14vw;
 `
 export const ContainerCardsDashboard = styled.div`
   display: flex;

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { colors } from '../../theme'
 
-export const ButtonFaleConoscoStyle = styled.button`
+export const ButtonContactUsStyle = styled.button`
   width: 100%;
   height: 5vh;
   background-color: ${colors.azul1};

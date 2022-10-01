@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 import { colors } from '../../theme'
 
-export const TopoStyles = styled.div`
+export const TopoStyles = styled.div<{ width: string }>`
   position: fixed;
   padding: 0 22px;
   right: 0;
-  width: 84.8vw;
+  width: ${({ width }) => `${width}`};
   height: 90px;
   display: flex;
   justify-content: space-between;

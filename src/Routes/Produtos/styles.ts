@@ -3,7 +3,6 @@ import { colors } from '../../theme'
 
 export const ContainerProdutosStyle = styled.div`
   margin-top: 110px;
-  margin-left: 13.8vw;
 `
 
 export const Status = styled.div<{ backgroundColor: string; color: string }>`

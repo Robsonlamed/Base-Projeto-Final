@@ -4,9 +4,9 @@ import { SettingTwo } from '../../assets/icons/SettingTwo'
 import { ApiServiceW3 } from '../../services/config'
 import { colors } from '../../theme'
 import { TitleWithIcon } from '../TitleWithIcon'
-import { ConfiguracoesStyle } from './styles'
+import { SettingsStyle } from './styles'
 
-export function Configuracoes() {
+export function Settings() {
   const navigate = useNavigate()
 
   const logout = () => {
@@ -16,7 +16,7 @@ export function Configuracoes() {
   }
 
   return (
-    <ConfiguracoesStyle>
+    <SettingsStyle>
       <TitleWithIcon
         marginLeft="0px"
         icon={<SettingTwo />}
@@ -35,6 +35,6 @@ export function Configuracoes() {
         fontSize="13px"
         onClick={logout}
       />
-    </ConfiguracoesStyle>
+    </SettingsStyle>
   )
 }

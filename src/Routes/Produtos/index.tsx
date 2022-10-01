@@ -70,7 +70,7 @@ export function PageProdutos() {
           tamanho={24}
           color={colors.grey900}
         />
-        <ContainerTabelasStyle margin="0px">
+        <ContainerTabelasStyle>
           <TabelaProduto
             totalRegistroNaPagina={produtos?.numberOfElements || 0}
             totalRegistrosNaAPI={produtos?.totalElements || 0}

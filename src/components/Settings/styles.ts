@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { colors } from '../../theme'
 
-export const ConfiguracoesStyle = styled.div`
+export const SettingsStyle = styled.div`
   position: fixed;
   top: 0;
   right: 0;

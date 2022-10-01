@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { ContainerdDashboardStyle } from '../../components/CardDashboard/styles'
-import { CardPredicao } from '../../components/CardPredicoes'
+import { CardPrediction } from '../../components/CardPrediction'
 import { SerchPredicoes } from '../../components/Search'
 import { Title } from '../../components/Title'
 import {
@@ -8,7 +8,7 @@ import {
   GetPredicoesCardProps,
 } from '../../services/GetPredicao/getPredicoes'
 import { colors } from '../../theme'
-import { ContainerCardsPredicoes } from './styles'
+import { ContainerCardsPrediction } from '../../components/CardPrediction/styles'
 
 const tabelaTitulo = ['Produto', 'Próx. compra']
 
@@ -65,13 +65,13 @@ export function PagePredicoes() {
           marginBotton=""
         />
       </ContainerdDashboardStyle>
-      <ContainerCardsPredicoes>
+      <ContainerCardsPrediction>
         {cardPredicao?.content.map(dadosAPI => (
-          <CardPredicao
+          <CardPrediction
             id={dadosAPI.id}
-            nome={dadosAPI.nome}
-            tabelaTitulo={tabelaTitulo}
-            tabela={dadosAPI.produtos.map(dadosAPIProdutos => (
+            name={dadosAPI.nome}
+            tableTitle={tabelaTitulo}
+            table={dadosAPI.produtos.map(dadosAPIProdutos => (
               <tr>
                 <td className="coluna2">{dadosAPIProdutos.nome}</td>
                 <td className="coluna3">{dadosAPIProdutos.proximaCompra}</td>
@@ -79,7 +79,7 @@ export function PagePredicoes() {
             ))}
           />
         ))}
-      </ContainerCardsPredicoes>
+      </ContainerCardsPrediction>
     </div>
   )
 }

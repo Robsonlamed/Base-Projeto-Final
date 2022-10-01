@@ -4,8 +4,8 @@ import styled from 'styled-components'
 export const LinkMenu = styled(Link)<{ color: string; marginLeft?: string }>`
   cursor: pointer;
   display: flex;
-  justify-content: left;
-  margin: 8px 30px 42px 16px;
+  justify-content: center;
+  margin: 20px 30px 42px 16px;
   text-decoration: none;
   font-weight: 400;
   font-size: 13px;
