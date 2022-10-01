@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import logoW3 from '../../assets/images/logoW3.svg'
-import { FundoFaleConosco } from '../FundoFaleConosco'
+import { BackgroundContactUs } from '../BackgroundContactUs'
 import { ItensMenu } from '../ItensMenu'
 import { Logo, MenuStyles } from './styles'
 
@@ -12,7 +12,7 @@ export function Menu() {
       </Link>
 
       <ItensMenu />
-      <FundoFaleConosco />
+      <BackgroundContactUs />
     </MenuStyles>
   )
 }

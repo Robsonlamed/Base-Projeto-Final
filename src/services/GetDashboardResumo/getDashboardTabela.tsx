@@ -1,17 +1,17 @@
 import axios from 'axios'
 import { ApiServiceW3 } from '../config'
 
-export type GetDashBoardTabelaProps = {
+export type GetDashBoardTableProps = {
   id: number
   nome: string
   percentual: number
 }[]
 
-export const getDashBoardTabelaProduto = async (
+export const GetDashBoardTableProduct = async (
   dataInicio: string,
   dataFim: string,
   classificacao: 'EM_ALTA' | 'EM_BAIXA'
-): Promise<GetDashBoardTabelaProps> => {
+): Promise<GetDashBoardTableProps> => {
   try {
     const result = await ApiServiceW3.get('/dashboard/produtos', {
       params: {
@@ -40,11 +40,11 @@ export const getDashBoardTabelaProduto = async (
   throw new Error('Página em manutenção')
 }
 
-export const getDashBoardTabelaCliente = async (
+export const GetDashBoardTableClient = async (
   dataInicio: string,
   dataFim: string,
   classificacao: 'EM_BAIXA' | 'EM_ALTA'
-): Promise<GetDashBoardTabelaProps> => {
+): Promise<GetDashBoardTableProps> => {
   try {
     const result = await ApiServiceW3.get('/dashboard/clientes', {
       params: {

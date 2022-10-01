@@ -25,8 +25,8 @@ export function AuthenticProvider({ children }: AuthenticProviderProps) {
     const token = localStorage.getItem('token')
 
     if (token) {
-      const converter = JSON.parse(token)
-      ApiServiceW3.defaults.headers.common.Authorization = `${converter.type} ${converter.token}`
+      const convert = JSON.parse(token)
+      ApiServiceW3.defaults.headers.common.Authorization = `${convert.type} ${convert.token}`
       setAuthentic(true)
     } else {
       setAuthentic(false)
@@ -38,8 +38,8 @@ export function AuthenticProvider({ children }: AuthenticProviderProps) {
   if (loading) {
     return (
       <Title
-        texto="Loading..."
-        tamanho={24}
+        text="Loading..."
+        size={24}
         color={colors.azul1}
         marginLeft="30px"
       />

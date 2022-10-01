@@ -9,12 +9,12 @@ import {
 import { RadialBar } from '../../components/GraficoDashbord'
 import { Title } from '../../components/Title'
 import {
-  getDashBoardResumo,
-  GetDashBoardResumoProps,
+  GetDashBoardSummary,
+  GetDashBoardSummaryProps,
 } from '../../services/GetDashboardResumo'
 import { colors } from '../../theme'
+import { ContainerTitleDashboard } from './styles'
 // import { dateHelper } from '../../utils'
-import { ContainerTituloDashboard } from './styles'
 
 type CalendarioProps = {
   date: { end: string; start: string }
@@ -22,7 +22,7 @@ type CalendarioProps = {
 }
 
 export function DashBoard({ date, setDate }: CalendarioProps) {
-  const [resumo, setResumo] = useState<GetDashBoardResumoProps>()
+  const [summary, setSummary] = useState<GetDashBoardSummaryProps>()
   const [loading, setLoading] = useState(true)
 
   // const [date] = useState(dateHelper.thisMonth)
@@ -30,8 +30,8 @@ export function DashBoard({ date, setDate }: CalendarioProps) {
   useEffect(() => {
     ;(async () => {
       try {
-        const result = await getDashBoardResumo(date.end, date.start)
-        setResumo(result)
+        const result = await GetDashBoardSummary(date.end, date.start)
+        setSummary(result)
         setLoading(false)
       } catch (error) {
         alert((error as any).message)
@@ -42,8 +42,8 @@ export function DashBoard({ date, setDate }: CalendarioProps) {
   if (loading) {
     return (
       <Title
-        texto="Carregando dados"
-        tamanho={24}
+        text="Carregando dados"
+        size={24}
         color={colors.grey900}
         marginLeft="15px"
       />
@@ -52,21 +52,21 @@ export function DashBoard({ date, setDate }: CalendarioProps) {
   return (
     <ContainerdDashboardStyle>
       <DashboardStyle>
-        <ContainerTituloDashboard>
+        <ContainerTitleDashboard>
           <h1>Dashboard</h1>
           <CalendarDashboard setDate={setDate} />
-        </ContainerTituloDashboard>
+        </ContainerTitleDashboard>
         <ContainerCardsDashboard>
           <CardDashboard
             text="Total"
             colorTitle={colors.white}
             radialBar={
-              <RadialBar series={resumo?.percentualTotalProdutosAlta || 0} />
+              <RadialBar series={summary?.percentualTotalProdutosAlta || 0} />
             }
             type="produtos"
             status="em alta"
-            value={resumo?.quantidadeProdutosAlta || 0}
-            percentage={resumo?.percentualVariacaoProdutosAlta || 0}
+            value={summary?.quantidadeProdutosAlta || 0}
+            percentage={summary?.percentualVariacaoProdutosAlta || 0}
             backgroundColor={colors.success}
             backgroundCard={colors.azulCard}
             color={colors.white}
@@ -76,12 +76,12 @@ export function DashBoard({ date, setDate }: CalendarioProps) {
             text="Total"
             colorTitle={colors.white}
             radialBar={
-              <RadialBar series={resumo?.percentualTotalProdutosBaixa || 0} />
+              <RadialBar series={summary?.percentualTotalProdutosBaixa || 0} />
             }
             type="produtos"
             status="em baixa"
-            value={resumo?.quantidadeProdutosBaixa || 0}
-            percentage={resumo?.percentualVariacaoProdutosBaixa || 0}
+            value={summary?.quantidadeProdutosBaixa || 0}
+            percentage={summary?.percentualVariacaoProdutosBaixa || 0}
             backgroundColor={colors.error}
             backgroundCard={colors.azulCard}
             color={colors.white}
@@ -91,12 +91,12 @@ export function DashBoard({ date, setDate }: CalendarioProps) {
             text="Total"
             colorTitle={colors.white}
             radialBar={
-              <RadialBar series={resumo?.percentualTotalClientesAlta || 0} />
+              <RadialBar series={summary?.percentualTotalClientesAlta || 0} />
             }
             type="produtos"
             status="em alta"
-            value={resumo?.quantidadeClientesAlta || 0}
-            percentage={resumo?.percentualVariacaoClientesAlta || 0}
+            value={summary?.quantidadeClientesAlta || 0}
+            percentage={summary?.percentualVariacaoClientesAlta || 0}
             backgroundColor={colors.success}
             backgroundCard={colors.azulCard}
             color={colors.white}
@@ -106,12 +106,12 @@ export function DashBoard({ date, setDate }: CalendarioProps) {
             text="Total"
             colorTitle={colors.white}
             radialBar={
-              <RadialBar series={resumo?.percentualTotalClientesBaixa || 0} />
+              <RadialBar series={summary?.percentualTotalClientesBaixa || 0} />
             }
             type="produtos"
             status="em baixa"
-            value={resumo?.quantidadeClientesBaixa || 0}
-            percentage={resumo?.percentualVariacaoClientesBaixa || 0}
+            value={summary?.quantidadeClientesBaixa || 0}
+            percentage={summary?.percentualVariacaoClientesBaixa || 0}
             backgroundColor={colors.error}
             backgroundCard={colors.azulCard}
             color={colors.white}

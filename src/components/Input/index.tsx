@@ -2,11 +2,11 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Eye } from '../../assets/icons/Eye'
 import { EyeOffLine } from '../../assets/icons/EyeOffLine'
-import { EsqueciSenha } from '../../Routes/Login/styles'
+import { ForgotPassword } from '../../Routes/Login/styles'
 import { AuthLogin } from '../../services/Auth'
 import { colors } from '../../theme'
 import { ButtonLogin } from '../ButtonLogin'
-import { Lembrar } from '../Lembrar'
+import { Checked } from '../Checked'
 import { ContainerInput, EyeStyle, InputStyle, LabelStyle } from './styles'
 
 type InputProps = {
@@ -14,13 +14,13 @@ type InputProps = {
 }
 
 export function Input({ eye }: InputProps) {
-  const [lembrar, setLembrar] = useState(false)
+  const [remember, setRemember] = useState(false)
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [isShowing, setIsShowing] = useState(!eye)
 
-  const senha = () => setIsShowing(!isShowing)
+  const isPassword = () => setIsShowing(!isShowing)
   const navigate = useNavigate()
 
   const doLogin = async () => {
@@ -56,21 +56,21 @@ export function Input({ eye }: InputProps) {
           />
           <LabelStyle htmlFor="senha">Senha</LabelStyle>
           <EyeStyle>
-            <button type="button" onClick={senha}>
+            <button type="button" onClick={isPassword}>
               {isShowing ? <Eye /> : <EyeOffLine />}
             </button>
           </EyeStyle>
         </ContainerInput>
       </form>
-      <EsqueciSenha>
-        <Lembrar
-          checked={lembrar}
-          onChange={() => setLembrar(!lembrar)}
+      <ForgotPassword>
+        <Checked
+          checked={remember}
+          onChange={() => setRemember(!remember)}
           text="Lembrar-me"
           fontSize="12px"
         />
         <span>Esqueci minha senha</span>
-      </EsqueciSenha>
+      </ForgotPassword>
       <ButtonLogin onClick={doLogin} />
     </div>
   )

@@ -1,13 +1,13 @@
 import axios from 'axios'
 import { ApiServiceW3 } from '../config'
 
-export type GetDadosLogadoProps = {
+export type GetDataLoggedProps = {
   email: string
   id: number
   nome: string
 }
 
-export const GetDadosLogado = async (): Promise<GetDadosLogadoProps> => {
+export const GetDataLogged = async (): Promise<GetDataLoggedProps> => {
   try {
     const result = await ApiServiceW3.get('/usuario/me')
 

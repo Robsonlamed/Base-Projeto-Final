@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { colors } from '../../theme'
 
-export const SearchPredicoesStyle = styled.div`
+export const SearchPredictionStyle = styled.div`
   position: absolute;
   right: 20px;
   top: 15px;

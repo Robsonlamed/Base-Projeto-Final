@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { colors } from '../../theme'
 
-export const ContainerProdutosStyle = styled.div`
+export const ContainerProductStyle = styled.div`
   margin-top: 110px;
 `
 
@@ -15,7 +15,7 @@ export const Status = styled.div<{ backgroundColor: string; color: string }>`
   margin: 0 auto;
 `
 
-export const SubTelaProdutoStyle = styled.span`
+export const SubScreenProductStyle = styled.span`
   width: 800px;
 `
 export const SubTelaProdutoButton = styled.button`

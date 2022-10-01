@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { ApiServiceW3 } from '../config'
 
-export type GetDashBoardResumoProps = {
+export type GetDashBoardSummaryProps = {
   percentualTotalClientesAlta: number
   percentualTotalClientesBaixa: number
   percentualTotalProdutosAlta: number
@@ -16,10 +16,10 @@ export type GetDashBoardResumoProps = {
   quantidadeProdutosBaixa: number
 }
 
-export const getDashBoardResumo = async (
+export const GetDashBoardSummary = async (
   dataInicio: string,
   dataFim: string
-): Promise<GetDashBoardResumoProps> => {
+): Promise<GetDashBoardSummaryProps> => {
   try {
     const result = await ApiServiceW3.get('/dashboard/resumo', {
       params: {

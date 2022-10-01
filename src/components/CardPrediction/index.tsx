@@ -7,9 +7,9 @@ import {
   IconChevronClient,
 } from './styles'
 import { colors } from '../../theme'
-import { LinkMenu } from '../ItensMenu/styles'
-import { TabelaCliente } from '../TabelaClientes'
+import { TableClientPrediction } from '../TableClient'
 import { TitleWithIcon } from '../TitleWithIcon'
+import { LinkMenu } from '../ItensMenu/styles'
 
 type CardPredicaoProps = {
   id: number
@@ -46,7 +46,9 @@ export function CardPrediction({
             <ChevronRight />
           </IconChevronClient>
         </CardClientStyle>
-        <TabelaCliente headers={tableTitle}>{table}</TabelaCliente>
+        <TableClientPrediction headers={tableTitle}>
+          {table}
+        </TableClientPrediction>
       </ContainerCardClient>
     </LinkMenu>
   )

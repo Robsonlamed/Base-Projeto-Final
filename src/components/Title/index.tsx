@@ -1,30 +1,30 @@
 // função nao utilizada
 import { TitleStyle } from './styles'
 
-type TituloProps = {
-  texto: string
-  tamanho: number
+type TitleProps = {
+  text: string
+  size: number
   color: string
   marginLeft: string
   marginBotton?: string
 }
 
 export function Title({
-  texto,
-  tamanho,
+  text,
+  size,
   color,
   marginLeft,
   marginBotton,
-}: TituloProps) {
+}: TitleProps) {
   return (
     <div>
       <TitleStyle
         marginLeft={marginLeft}
         margin={marginBotton}
-        tamanho={tamanho}
+        tamanho={size}
         color={color}
       >
-        {texto}
+        {text}
       </TitleStyle>
     </div>
   )

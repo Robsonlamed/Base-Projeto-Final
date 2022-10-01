@@ -1,28 +1,28 @@
 import { useEffect, useState } from 'react'
 import { ContainerdDashboardStyle } from '../../components/CardDashboard/styles'
 import { CardPrediction } from '../../components/CardPrediction'
-import { SerchPredicoes } from '../../components/Search'
+import { SearchPrediction } from '../../components/Search'
 import { Title } from '../../components/Title'
 import {
-  GetPredicoesCard,
-  GetPredicoesCardProps,
+  GetPreditionCard,
+  GetPreditionCardProps,
 } from '../../services/GetPredicao/getPredicoes'
 import { colors } from '../../theme'
 import { ContainerCardsPrediction } from '../../components/CardPrediction/styles'
 
-const tabelaTitulo = ['Produto', 'Próx. compra']
+const tableTitulo = ['Produto', 'Próx. compra']
 
 export function PagePredicoes() {
   const [search, setSearch] = useState('')
 
-  const [cardPredicao, setCardPredicao] = useState<GetPredicoesCardProps>()
+  const [cardPrediction, setCardPrediction] = useState<GetPreditionCardProps>()
 
   const [loading, setLoading] = useState(true)
 
   const startSearch = async () => {
     try {
-      const result = await GetPredicoesCard(search)
-      setCardPredicao(result)
+      const result = await GetPreditionCard(search)
+      setCardPrediction(result)
       setLoading(false)
     } catch (error) {
       alert((error as any).message)
@@ -36,8 +36,8 @@ export function PagePredicoes() {
   if (loading) {
     return (
       <Title
-        texto="Carregando dados"
-        tamanho={24}
+        text="Carregando dados"
+        size={24}
         color={colors.grey900}
         marginLeft="15px"
       />
@@ -49,12 +49,12 @@ export function PagePredicoes() {
       <ContainerdDashboardStyle>
         <Title
           marginLeft="10px"
-          texto="Predições"
-          tamanho={24}
+          text="Predições"
+          size={24}
           color={colors.grey900}
           marginBotton="30px"
         />
-        <SerchPredicoes
+        <SearchPrediction
           startSearch={startSearch}
           onChange={event => setSearch(event.target.value)}
           value={search}
@@ -66,11 +66,11 @@ export function PagePredicoes() {
         />
       </ContainerdDashboardStyle>
       <ContainerCardsPrediction>
-        {cardPredicao?.content.map(dadosAPI => (
+        {cardPrediction?.content.map(dadosAPI => (
           <CardPrediction
             id={dadosAPI.id}
             name={dadosAPI.nome}
-            tableTitle={tabelaTitulo}
+            tableTitle={tableTitulo}
             table={dadosAPI.produtos.map(dadosAPIProdutos => (
               <tr>
                 <td className="coluna2">{dadosAPIProdutos.nome}</td>

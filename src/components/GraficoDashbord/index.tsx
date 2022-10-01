@@ -1,11 +1,11 @@
 import Chart from 'react-apexcharts'
 import { colors } from '../../theme'
 
-type GraficoDashboardProps = {
+type GraphicDashboardProps = {
   series: number
 }
 
-const GraficoDashboard: ApexCharts.ApexOptions = {
+const GraphicDashboard: ApexCharts.ApexOptions = {
   fill: { colors: [colors.azul2] },
   grid: { padding: { top: -8, left: 0, right: 0, bottom: 0 } },
   chart: {
@@ -32,13 +32,13 @@ const GraficoDashboard: ApexCharts.ApexOptions = {
   },
 }
 
-export function RadialBar({ series }: GraficoDashboardProps) {
+export function RadialBar({ series }: GraphicDashboardProps) {
   return (
     <Chart
       series={[series]}
       width={60}
       height={60}
-      options={GraficoDashboard}
+      options={GraphicDashboard}
       type="radialBar"
     />
   )

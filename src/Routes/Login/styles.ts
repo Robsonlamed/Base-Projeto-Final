@@ -5,12 +5,12 @@ export const LoginStyle = styled.div`
   display: flex;
   align-items: center;
 `
-export const ConteudoLogin = styled.div`
+export const ContentLogin = styled.div`
   display: block;
   margin: 0 auto;
 `
 
-export const EsqueciSenha = styled.div`
+export const ForgotPassword = styled.div`
   display: flex;
   justify-content: space-between;
   span {

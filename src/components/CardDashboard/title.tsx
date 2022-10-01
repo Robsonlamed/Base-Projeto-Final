@@ -1,4 +1,4 @@
-import { TituloCardDashboard } from '../TituloCardDashboard'
+import { TitleCardDashboard } from '../TituloCardDashboard'
 
 type TituloCardProps = {
   tipo: string
@@ -9,10 +9,10 @@ type TituloCardProps = {
 
 export function TituloCard({ tipo, status, text, color }: TituloCardProps) {
   return (
-    <TituloCardDashboard color={color}>
+    <TitleCardDashboard color={color}>
       <span>
         {text} <strong>{tipo}</strong> {status}
       </span>
-    </TituloCardDashboard>
+    </TitleCardDashboard>
   )
 }

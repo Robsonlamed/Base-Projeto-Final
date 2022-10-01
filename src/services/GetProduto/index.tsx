@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { ApiServiceW3 } from '../config'
 
-export type GetProdutoProps = {
+export type GetProductProps = {
   content: {
     classificacao: 'EM_ALTA' | 'EM_BAIXA'
     id: number
@@ -36,11 +36,11 @@ export type GetProdutoProps = {
   totalPages: number
 }
 
-export const GetProduto = async (
+export const GetProduct = async (
   query: string,
   page: number,
   classificacao?: 'EM_ALTA' | 'EM_BAIXA'
-): Promise<GetProdutoProps> => {
+): Promise<GetProductProps> => {
   try {
     const result = await ApiServiceW3.get('/produto', {
       params: {
@@ -70,17 +70,17 @@ export const GetProduto = async (
   throw new Error('Página em manutenção')
 }
 
-export type GetProdutoClientesProps = {
+export type GetProductClientProps = {
   quantidade: number
   id: number
   nome: string
   percentual: number
 }[]
 
-export const GetProdutoClientesStatus = async (
+export const GetProductClientStatus = async (
   id: string,
   classificacao: 'EM_ALTA' | 'EM_BAIXA'
-): Promise<GetProdutoClientesProps> => {
+): Promise<GetProductClientProps> => {
   try {
     const result = await ApiServiceW3.get(`/produto/${id}/clientes`, {
       params: {
@@ -107,7 +107,7 @@ export const GetProdutoClientesStatus = async (
   throw new Error('Página em manutenção')
 }
 
-export type GetProdutoResumoProps = {
+export type GetProductSummaryProps = {
   media120Dias: number
   nome: string
   percentualUltimos30Dias: number
@@ -117,9 +117,9 @@ export type GetProdutoResumoProps = {
   ultimos90Dias: number
 }
 
-export const GetProdutoResumo = async (
+export const GetProductSummary = async (
   id: string
-): Promise<GetProdutoResumoProps> => {
+): Promise<GetProductSummaryProps> => {
   try {
     const result = await ApiServiceW3.get(`/produto/${id}/resumo`)
 
@@ -142,17 +142,17 @@ export const GetProdutoResumo = async (
   throw new Error('Página em manutenção')
 }
 
-export type GetProdutoStatusProps = {
+export type GetProductStatusProps = {
   quantidade: number
   id: number
   nome: string
   percentual: number
 }[]
 
-export const GetProdutoStatus = async (
+export const GetProductStatus = async (
   id: string,
   classificacao: 'EM_ALTA' | 'EM_BAIXA'
-): Promise<GetProdutoClientesProps> => {
+): Promise<GetProductStatusProps> => {
   try {
     const result = await ApiServiceW3.get(`/cliente/${id}/produtos`, {
       params: {
@@ -179,7 +179,7 @@ export const GetProdutoStatus = async (
   throw new Error('Página em manutenção')
 }
 
-export type GetProdutoResumoClientesProps = {
+export type GetProductSummaryClientProps = {
   media120Dias: number
   nome: string
   percentualUltimos30Dias: number
@@ -189,9 +189,9 @@ export type GetProdutoResumoClientesProps = {
   ultimos90Dias: number
 }
 
-export const GetProdutoResumoClientes = async (
+export const GetProductSummaryClient = async (
   id: string
-): Promise<GetProdutoResumoClientesProps> => {
+): Promise<GetProductSummaryClientProps> => {
   try {
     const result = await ApiServiceW3.get(`/cliente/${id}/resumo`)
 

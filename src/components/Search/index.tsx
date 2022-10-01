@@ -1,6 +1,6 @@
 import { ChangeEvent, ReactNode } from 'react'
 import { Search } from '../../assets/icons/Search'
-import { ContainerSearch, SearchPredicoesStyle } from './styles'
+import { ContainerSearch, SearchPredictionStyle } from './styles'
 import { colors } from '../../theme'
 import { ContainerInput, InputStyle } from '../Input/styles'
 
@@ -15,7 +15,7 @@ type FilterProps = {
   startSearch: () => void
 }
 
-export function SerchPredicoes({
+export function SearchPrediction({
   icon,
   boxShadow,
   paddinLeft,
@@ -43,9 +43,9 @@ export function SerchPredicoes({
             placeholder="Pesquise uma palavra-chave"
             border={colors.grey300}
           />
-          <SearchPredicoesStyle onClick={startSearch}>
+          <SearchPredictionStyle onClick={startSearch}>
             <Search />
-          </SearchPredicoesStyle>
+          </SearchPredictionStyle>
         </div>
         {icon}
       </ContainerInput>

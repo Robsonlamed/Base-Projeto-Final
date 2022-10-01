@@ -1,28 +1,28 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Filter } from '../../assets/icons/Filter'
-import { FiltroProduto } from '../../components/FiltroProduto'
+import { FiltroProduto } from '../../components/FilterProduct'
 import { FilterStyle } from '../../components/Input/styles'
-import { SerchPredicoes } from '../../components/Search'
-import { TabelaProduto } from '../../components/TabelaProduto'
+import { SearchPrediction } from '../../components/Search'
+import { TableProduct } from '../../components/TableProduct'
 import { Title } from '../../components/Title'
-import { ContainerTabelasStyle } from '../../pages/tabelas/styles'
-import { GetProduto, GetProdutoProps } from '../../services/GetProduto'
+import { ContainerTableStyle } from '../../pages/Dashboard/styles'
+import { GetProduct, GetProductProps } from '../../services/GetProduto'
 import { colors } from '../../theme'
-import { ContainerProdutosStyle, Status, SubTelaProdutoButton } from './styles'
+import { ContainerProductStyle, Status, SubTelaProdutoButton } from './styles'
 
 const TitleTabela = ['ID', 'Produto', 'Status', 'Percentual']
 
-export function PageProdutos() {
+export function PageProduct() {
   const [search, setSearch] = useState('')
 
-  const [produtos, setProdutos] = useState<GetProdutoProps>()
+  const [product, setProduct] = useState<GetProductProps>()
 
   const [loading, setLoading] = useState(true)
 
   const [openFilter, setOpenFilter] = useState(false)
 
-  const [filtro, setFiltro] = useState<'TODOS' | 'EM_ALTA' | 'EM_BAIXA'>(
+  const [filter, setFilter] = useState<'TODOS' | 'EM_ALTA' | 'EM_BAIXA'>(
     'TODOS'
   )
 
@@ -37,9 +37,9 @@ export function PageProdutos() {
 
   const startSearch = async () => {
     try {
-      const classificacao = filtro === 'TODOS' ? undefined : filtro
-      const result = await GetProduto(search, page, classificacao)
-      setProdutos(result)
+      const classificacao = filter === 'TODOS' ? undefined : filter
+      const result = await GetProduct(search, page, classificacao)
+      setProduct(result)
       setLoading(false)
     } catch (error) {
       alert((error as any).message)
@@ -53,8 +53,8 @@ export function PageProdutos() {
   if (loading) {
     return (
       <Title
-        texto="Carregando dados"
-        tamanho={24}
+        text="Carregando dados"
+        size={24}
         color={colors.grey900}
         marginLeft="15px"
       />
@@ -63,22 +63,22 @@ export function PageProdutos() {
 
   return (
     <div>
-      <ContainerProdutosStyle>
+      <ContainerProductStyle>
         <Title
           marginLeft="28px"
-          texto="Produtos"
-          tamanho={24}
+          text="Produtos"
+          size={24}
           color={colors.grey900}
         />
-        <ContainerTabelasStyle>
-          <TabelaProduto
-            totalRegistroNaPagina={produtos?.numberOfElements || 0}
-            totalRegistrosNaAPI={produtos?.totalElements || 0}
-            paginaAtual={produtos?.number || 0}
-            quantidadeItenPorPagina={produtos?.size || 0}
+        <ContainerTableStyle>
+          <TableProduct
+            totalPagesListed={product?.numberOfElements || 0}
+            totalPagesListedInAPI={product?.totalElements || 0}
+            currentPage={product?.number || 0}
+            numberItenPage={product?.size || 0}
             changePage={pagina => setPage(pagina)}
             title={
-              <SerchPredicoes
+              <SearchPrediction
                 startSearch={startSearch}
                 onChange={event => setSearch(event.target.value)}
                 value={search}
@@ -99,8 +99,8 @@ export function PageProdutos() {
             width="100%"
             headers={TitleTabela}
           >
-            {produtos &&
-              produtos.content.map(dadosAPI => (
+            {product &&
+              product.content.map(dadosAPI => (
                 <tr
                   className="onClick"
                   onClick={() =>
@@ -128,21 +128,21 @@ export function PageProdutos() {
                   <td>{dadosAPI.percentual}%</td>
                 </tr>
               ))}
-          </TabelaProduto>
+          </TableProduct>
 
           {openFilter ? (
             <FiltroProduto
-              totalProdutos={produtos?.totalElements}
+              totalProduct={product?.totalElements}
               // totalProdutosEmAlta={produtos?.totalElements}
               // totalProdutosEmBaixa={produtos?.totalElements}
-              onClickAplicar={startSearch}
-              setOpenFiltro={setOpenFilter}
-              filtro={filtro}
-              setFiltro={setFiltro}
+              onClickToApply={startSearch}
+              setOpenFilter={setOpenFilter}
+              filter={filter}
+              setFilter={setFilter}
             />
           ) : null}
-        </ContainerTabelasStyle>
-      </ContainerProdutosStyle>
+        </ContainerTableStyle>
+      </ContainerProductStyle>
     </div>
   )
 }

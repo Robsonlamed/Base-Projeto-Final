@@ -1,19 +1,19 @@
 import { ReactNode } from 'react'
-import { TituloCardDashboardStyle } from './styles'
+import { TitleCardDashboardStyle } from './styles'
 
-type TituloCardDashboardProps = {
+type TitleCardDashboardProps = {
   children: ReactNode
   color: string
 }
 
-export function TituloCardDashboard({
+export function TitleCardDashboard({
   children,
   color,
-}: TituloCardDashboardProps) {
+}: TitleCardDashboardProps) {
   return (
-    <TituloCardDashboardStyle color={color}>
+    <TitleCardDashboardStyle color={color}>
       {' '}
       {children}{' '}
-    </TituloCardDashboardStyle>
+    </TitleCardDashboardStyle>
   )
 }

@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { ApiServiceW3 } from '../config'
 
-export type GetPredicoesCardProps = {
+export type GetPreditionCardProps = {
   content: {
     id: number
     nome: string
@@ -39,9 +39,9 @@ export type GetPredicoesCardProps = {
   totalPages: number
 }
 
-export const GetPredicoesCard = async (
+export const GetPreditionCard = async (
   query: string
-): Promise<GetPredicoesCardProps> => {
+): Promise<GetPreditionCardProps> => {
   try {
     const result = await ApiServiceW3.get('/predicao', {
       params: {
@@ -68,16 +68,16 @@ export const GetPredicoesCard = async (
   throw new Error('Página em manutenção')
 }
 
-export type GetPredicoesHistoricoProps = {
+export type GetPreditionHistoricProps = {
   id: number
   nome: string
   quantidade: number
   ultimaCompra: string
 }[]
 
-export const GetPredicoesHistorico = async (
+export const GetPreditionHistoric = async (
   id: string
-): Promise<GetPredicoesHistoricoProps> => {
+): Promise<GetPreditionHistoricProps> => {
   try {
     const result = await ApiServiceW3.get(`/predicao/${id}/historico`)
 
@@ -100,7 +100,7 @@ export const GetPredicoesHistorico = async (
   throw new Error('Página em manutenção')
 }
 
-export type GetPredicoesEsgotandoProps = {
+export type GetPredictionEndingProps = {
   id: number
   nome: string
   quantidade: number
@@ -108,9 +108,9 @@ export type GetPredicoesEsgotandoProps = {
   proximaCompra: string
 }[]
 
-export const GetPredicoesEsgotando = async (
+export const GetPreditionEnding = async (
   id: string
-): Promise<GetPredicoesEsgotandoProps> => {
+): Promise<GetPredictionEndingProps> => {
   try {
     const result = await ApiServiceW3.get(`/predicao/${id}/esgotando`)
 
@@ -133,15 +133,15 @@ export const GetPredicoesEsgotando = async (
   throw new Error('Página em manutenção')
 }
 
-export type GetPredicoesDadosClientesProps = {
+export type GetPredictionDataClientProps = {
   email: string
   nome: string
   telefone: string
 }
 
-export const GetPredicoesDadosClientes = async (
+export const GetPreditionDataClient = async (
   id: string
-): Promise<GetPredicoesDadosClientesProps> => {
+): Promise<GetPredictionDataClientProps> => {
   try {
     const result = await ApiServiceW3.get(`/cliente/${id}`)
 
@@ -170,10 +170,7 @@ export type GetPredicoesBaixaProps = {
   telefone: string
 }
 
-export const GetPredicoesBaixaProduto = async (
-  id: string,
-  produtoId: number
-) => {
+export const GetPreditionProductLow = async (id: string, produtoId: number) => {
   try {
     const result = await ApiServiceW3.post(`/predicao/${id}/baixa`, {
       produtoId,

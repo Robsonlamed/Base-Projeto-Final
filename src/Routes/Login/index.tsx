@@ -1,14 +1,14 @@
-import { FundoLogin } from '../../components/FundoLogin'
+import { BackgroundLogin } from '../../components/BackgroundLogin'
 import { Input } from '../../components/Input'
 import { SubTitleStyle } from '../../components/SubTitle/styles'
 import { TitleStyle } from '../../components/Title/styles'
 import { colors } from '../../theme'
-import { ConteudoLogin, LoginStyle } from './styles'
+import { ContentLogin, LoginStyle } from './styles'
 
 export function PageLogin() {
   return (
     <LoginStyle>
-      <ConteudoLogin>
+      <ContentLogin>
         <SubTitleStyle fontWeight={400} tamanho={20} color={colors.grey800}>
           Seja bem vindo!
         </SubTitleStyle>
@@ -22,9 +22,9 @@ export function PageLogin() {
           Realize seu login{' '}
         </TitleStyle>
         <Input eye={false} />
-      </ConteudoLogin>
+      </ContentLogin>
       <div>
-        <FundoLogin />
+        <BackgroundLogin />
       </div>
     </LoginStyle>
   )

@@ -1,22 +1,17 @@
 import { SubTitleStyle } from './styles'
 
-type SubTituloProps = {
-  texto: string
-  tamanho: number
+type SubTitleProps = {
+  text: string
+  size: number
   color: string
   fontWeight: number
 }
 
-export function SubTitle({
-  texto,
-  tamanho,
-  color,
-  fontWeight,
-}: SubTituloProps) {
+export function SubTitle({ text, size, color, fontWeight }: SubTitleProps) {
   return (
     <div>
-      <SubTitleStyle fontWeight={fontWeight} tamanho={tamanho} color={color}>
-        {texto}
+      <SubTitleStyle fontWeight={fontWeight} tamanho={size} color={color}>
+        {text}
       </SubTitleStyle>
     </div>
   )

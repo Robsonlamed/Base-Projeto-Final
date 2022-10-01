@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import { ValorCardDashboard } from '../ValorCardDashboard'
+import { ValueCardDashboard } from '../ValueCardDashboard'
 import { CardDashboardStyle } from './styles'
 import { TituloCard } from './title'
 
@@ -49,11 +49,11 @@ export function CardDashboard({
           tipo={type}
           status={status}
         />
-        <ValorCardDashboard
+        <ValueCardDashboard
           color={color}
           backgroundColor={backgroundColor}
           total={value}
-          porcentagem={percentage || 0}
+          percentagem={percentage || 0}
         />
       </div>
     </CardDashboardStyle>

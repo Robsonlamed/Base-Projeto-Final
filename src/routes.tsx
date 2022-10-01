@@ -5,10 +5,10 @@ import { Layout } from './Layout/Layout'
 import { PageDashboard } from './Routes/Dashboard'
 import { PageLogin } from './Routes/Login'
 import { PagePredicoes } from './Routes/Predicoes'
-import { SubTelaPredicoes } from './Routes/Predicoes/subTelaPredicoes'
-import { PageProdutos } from './Routes/Produtos'
-import { SubTelaProduto } from './Routes/Produtos/subTelaProduto'
-import { SubTelaProdutoClientes } from './Routes/Produtos/subTelaProdutoClientes'
+import { SubScreenPrediction } from './Routes/Predicoes/subScreenPrediction'
+import { PageProduct } from './Routes/Produtos'
+import { SubScreenProduct } from './Routes/Produtos/subScreenProduct'
+import { SubScreenProductClient } from './Routes/Produtos/subScreenProductClient'
 
 type RoutesPrivateProps = {
   children: React.ReactNode
@@ -48,7 +48,7 @@ export function RoutesProjeto() {
           <Route
             element={
               <RoutesPrivate>
-                <SubTelaPredicoes />
+                <SubScreenPrediction />
               </RoutesPrivate>
             }
             path="/informacoesclientes/:id"
@@ -56,7 +56,7 @@ export function RoutesProjeto() {
           <Route
             element={
               <RoutesPrivate>
-                <SubTelaProduto />
+                <SubScreenProduct />
               </RoutesPrivate>
             }
             path="/informacoesprodutos/:id"
@@ -64,7 +64,7 @@ export function RoutesProjeto() {
           <Route
             element={
               <RoutesPrivate>
-                <SubTelaProdutoClientes />
+                <SubScreenProductClient />
               </RoutesPrivate>
             }
             path="/informacoesprodutosclientes/:id"
@@ -72,7 +72,7 @@ export function RoutesProjeto() {
           <Route
             element={
               <RoutesPrivate>
-                <PageProdutos />
+                <PageProduct />
               </RoutesPrivate>
             }
             path="/produtos"

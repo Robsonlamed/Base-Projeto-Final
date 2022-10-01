@@ -4,15 +4,15 @@ import { ChevronRight } from '../../assets/icons/ChevronRight'
 import { EveryUser } from '../../assets/icons/EveryUser'
 import { FacialCleanser } from '../../assets/icons/FacialCleanser'
 import { ButtonStatus } from '../../components/ButtonStatus'
-import { TabelaProduto } from '../../components/TabelaProduto'
+import { TableProduct } from '../../components/TableProduct'
 import { Title } from '../../components/Title'
 import { TitleWithIcon } from '../../components/TitleWithIcon'
 import { DashBoard } from '../../pages/Dashboard'
-import { ContainerTabelasStyle } from '../../pages/tabelas/styles'
+import { ContainerTableStyle } from '../../pages/Dashboard/styles'
 import {
-  getDashBoardTabelaCliente,
-  getDashBoardTabelaProduto,
-  GetDashBoardTabelaProps,
+  GetDashBoardTableClient,
+  GetDashBoardTableProduct,
+  GetDashBoardTableProps,
 } from '../../services/GetDashboardResumo/getDashboardTabela'
 import { colors } from '../../theme'
 import { dateHelper } from '../../utils'
@@ -21,52 +21,48 @@ const TitleTabela = ['ID', 'Produto', 'Percentual', ' ']
 const TitleTabela1 = ['ID', 'Cliente', 'Percentual', ' ']
 
 export function PageDashboard() {
-  const [emAltaProduto, setEmAltaProduto] = useState(false)
-  const [emAltaCliente, setEmAltaCliente] = useState(false)
+  const [onHighProduct, setOnHighProduct] = useState(false)
+  const [onHighClient, setOnHighClient] = useState(false)
   const [dates, setDates] = useState(dateHelper.thisMonth())
-  const statusProdutos = () => setEmAltaProduto(!emAltaProduto)
-  const statusClientes = () => setEmAltaCliente(!emAltaCliente)
+  const statusProduct = () => setOnHighProduct(!onHighProduct)
+  const statusClient = () => setOnHighClient(!onHighClient)
 
-  const [tabelaProduto, setTabelaProduto] = useState<GetDashBoardTabelaProps>(
-    []
-  )
+  const [tableProduct, settableProduct] = useState<GetDashBoardTableProps>([])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     ;(async () => {
       try {
-        const result = await getDashBoardTabelaProduto(
+        const result = await GetDashBoardTableProduct(
           dates.end,
           dates.start,
-          emAltaProduto ? 'EM_BAIXA' : 'EM_ALTA'
+          onHighProduct ? 'EM_BAIXA' : 'EM_ALTA'
         )
-        setTabelaProduto(result)
+        settableProduct(result)
         setLoading(false)
       } catch (error) {
         alert((error as any).message)
       }
     })()
-  }, [emAltaProduto, dates])
+  }, [onHighProduct, dates])
 
-  const [tabelaClientes, setTabelaClientes] = useState<GetDashBoardTabelaProps>(
-    []
-  )
+  const [tableClient, setTableClient] = useState<GetDashBoardTableProps>([])
 
   useEffect(() => {
     ;(async () => {
       try {
-        const result = await getDashBoardTabelaCliente(
+        const result = await GetDashBoardTableClient(
           dates.end,
           dates.start,
-          emAltaCliente ? 'EM_BAIXA' : 'EM_ALTA'
+          onHighClient ? 'EM_BAIXA' : 'EM_ALTA'
         )
-        setTabelaClientes(result)
+        setTableClient(result)
         setLoading(false)
       } catch (error) {
         alert((error as any).message)
       }
     })()
-  }, [emAltaCliente, dates])
+  }, [onHighClient, dates])
 
   const navigate = useNavigate()
 
@@ -77,8 +73,8 @@ export function PageDashboard() {
   if (loading) {
     return (
       <Title
-        texto="Carregando dados"
-        tamanho={24}
+        text="Carregando dados"
+        size={24}
         color={colors.grey900}
         marginLeft="15px"
       />
@@ -88,8 +84,8 @@ export function PageDashboard() {
     <div>
       <DashBoard setDate={setDates} date={dates} />
 
-      <ContainerTabelasStyle>
-        <TabelaProduto
+      <ContainerTableStyle>
+        <TableProduct
           title={
             <TitleWithIcon
               marginLeft="10px"
@@ -101,15 +97,12 @@ export function PageDashboard() {
             />
           }
           button={
-            <ButtonStatus
-              onHigh={emAltaProduto}
-              changeStatus={statusProdutos}
-            />
+            <ButtonStatus onHigh={onHighProduct} changeStatus={statusProduct} />
           }
           width="49%"
           headers={TitleTabela}
         >
-          {tabelaProduto.map(dadosAPI => (
+          {tableProduct.map(dadosAPI => (
             <tr
               className="onClick"
               onClick={() => goToPage(`/informacoesprodutos/${dadosAPI.id}`)}
@@ -122,8 +115,8 @@ export function PageDashboard() {
               </td>
             </tr>
           ))}
-        </TabelaProduto>
-        <TabelaProduto
+        </TableProduct>
+        <TableProduct
           title={
             <TitleWithIcon
               marginLeft="10px"
@@ -135,15 +128,12 @@ export function PageDashboard() {
             />
           }
           button={
-            <ButtonStatus
-              onHigh={emAltaCliente}
-              changeStatus={statusClientes}
-            />
+            <ButtonStatus onHigh={onHighClient} changeStatus={statusClient} />
           }
           width="49%"
           headers={TitleTabela1}
         >
-          {tabelaClientes.map(dadosAPI => (
+          {tableClient.map(dadosAPI => (
             <tr
               className="onClick"
               onClick={() =>
@@ -158,8 +148,8 @@ export function PageDashboard() {
               </td>
             </tr>
           ))}
-        </TabelaProduto>
-      </ContainerTabelasStyle>
+        </TableProduct>
+      </ContainerTableStyle>
     </div>
   )
 }
