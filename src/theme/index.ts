@@ -47,4 +47,7 @@ export const colors = {
   // red
   error: '#FF3333',
   lightRed: '#FFE1E1',
+
+  // black
+  black: '#000000',
 }

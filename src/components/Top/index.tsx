@@ -3,7 +3,6 @@ import { ChevronDown } from '../../assets/icons/ChevronDown'
 import { IconMenu } from '../../assets/icons/Menu'
 import { UserStyle } from '../../assets/icons/User'
 import { GetDataLogged, GetDataLoggedProps } from '../../services/GetLogado'
-import { colors } from '../../theme'
 import { Settings } from '../Settings'
 import { Title } from '../Title'
 import { IconUser, Logged, TopStyles } from './styles'
@@ -34,14 +33,7 @@ export function Top({ openMenu, width }: IconMenuProps) {
   }, [])
 
   if (loading) {
-    return (
-      <Title
-        text="Carregando dados"
-        size={24}
-        color={colors.grey900}
-        marginLeft="15px"
-      />
-    )
+    return <Title text="" size={0} color="" marginLeft="" />
   }
 
   return (

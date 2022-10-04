@@ -7,14 +7,14 @@ import {
   DashboardStyle,
 } from '../../components/CardDashboard/styles'
 import { RadialBar } from '../../components/GraficoDashbord'
-import { Title } from '../../components/Title'
+import { Logo } from '../../components/Menu/styles'
 import {
   GetDashBoardSummary,
   GetDashBoardSummaryProps,
 } from '../../services/GetDashboardResumo'
 import { colors } from '../../theme'
 import { ContainerTitleDashboard } from './styles'
-// import { dateHelper } from '../../utils'
+import load from '../../assets/images/load.svg'
 
 type CalendarioProps = {
   date: { end: string; start: string }
@@ -41,11 +41,12 @@ export function DashBoard({ date, setDate }: CalendarioProps) {
 
   if (loading) {
     return (
-      <Title
-        text="Carregando dados"
-        size={24}
-        color={colors.grey900}
-        marginLeft="15px"
+      <Logo
+        marginLeft="500px"
+        width="200px"
+        height="200px"
+        src={load}
+        alt="load"
       />
     )
   }

@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
+import { colors } from '../theme'
 
 export const GlobalStyle = createGlobalStyle`
   *{
@@ -9,5 +10,6 @@ export const GlobalStyle = createGlobalStyle`
 
   body, html, input, select, button {
     font-family: 'Poppins', sans-serif;
+    /* background-color: ${colors.black}; */
   }
 `

@@ -10,9 +10,14 @@ export const MenuStyles = styled.div<{ width: string }>`
   top: 0;
 `
 
-export const Logo = styled.img`
+export const Logo = styled.img<{
+  width: string
+  height: string
+  marginLeft?: string
+}>`
   margin: 35px;
-  width: 126px;
-  height: 28px;
+  margin-left: ${({ marginLeft }) => `${marginLeft}`};
+  width: ${({ width }) => `${width}`};
+  height: ${({ height }) => `${height}`};
   cursor: pointer;
 `

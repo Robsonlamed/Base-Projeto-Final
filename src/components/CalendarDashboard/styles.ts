@@ -22,5 +22,11 @@ export const CalendarDashboardStyle = styled.div`
     font-size: 13px;
     color: ${colors.azul1};
     border: none;
+    cursor: pointer;
+  }
+
+  option {
+    font-size: 15px;
+    font-weight: 600;
   }
 `

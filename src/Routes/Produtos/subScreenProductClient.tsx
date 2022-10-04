@@ -6,10 +6,13 @@ import { TrendingUp } from '../../assets/icons/TrendingUp'
 import { CardDashboard } from '../../components/CardDashboard'
 import { ContainerSubScreen } from '../../components/CelEmail/styles'
 import { LinkMenu } from '../../components/ItensMenu/styles'
+import { Logo } from '../../components/Menu/styles'
 import { TableProduct } from '../../components/TableProduct'
 import { Title } from '../../components/Title'
 import { TitleWithIcon } from '../../components/TitleWithIcon'
 import { ContainerTableStyle } from '../../pages/Dashboard/styles'
+import load from '../../assets/images/load.svg'
+
 import {
   GetProductStatus,
   GetProductStatusProps,
@@ -58,11 +61,12 @@ export function SubScreenProductClient() {
 
   if (loading) {
     return (
-      <Title
-        text="Carregando dados"
-        size={24}
-        color={colors.grey900}
-        marginLeft="15px"
+      <Logo
+        marginLeft="500px"
+        width="200px"
+        height="200px"
+        src={load}
+        alt="load"
       />
     )
   }
@@ -183,7 +187,7 @@ export function SubScreenProductClient() {
           headers={TitleTable}
         >
           {productLow.map(dadosAPI => (
-            <tr>
+            <tr key={dadosAPI.id}>
               <td className="coluna1">{dadosAPI.id}</td>
               <td className="coluna2">{dadosAPI.nome}</td>
               <td className="coluna3">{dadosAPI.percentual}%</td>

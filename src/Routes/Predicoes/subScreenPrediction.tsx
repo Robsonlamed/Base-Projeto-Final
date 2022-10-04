@@ -6,7 +6,6 @@ import { FacialCleanser } from '../../assets/icons/FacialCleanser'
 import { TimeHistory } from '../../assets/icons/History'
 import { ContainerSubScreen } from '../../components/CelEmail/styles'
 import { InformationClient } from '../../components/InformationClient'
-import { Title } from '../../components/Title'
 import { TitleWithIcon } from '../../components/TitleWithIcon'
 import {
   GetPredictionDataClientProps,
@@ -17,11 +16,14 @@ import {
   GetPreditionHistoricProps,
   GetPreditionProductLow,
 } from '../../services/GetPredicao/getPredicoes'
+import load from '../../assets/images/load.svg'
+
 import { colors } from '../../theme'
 import { CheckOneStyle } from '../../components/CardPrediction/styles'
 import { LinkMenu } from '../../components/ItensMenu/styles'
 import { TableProduct } from '../../components/TableProduct'
 import { ContainerTableStyle } from '../../pages/Dashboard/styles'
+import { Logo } from '../../components/Menu/styles'
 
 const TitleTable = ['ID', 'Produto', 'Última compra', 'Qtd.', 'Dar baixa']
 const TitleTableItenEnding = [
@@ -89,11 +91,12 @@ export function SubScreenPrediction() {
 
   if (loading) {
     return (
-      <Title
-        text="Carregando dados"
-        size={24}
-        color={colors.grey900}
-        marginLeft="15px"
+      <Logo
+        marginLeft="500px"
+        width="200px"
+        height="200px"
+        src={load}
+        alt="load"
       />
     )
   }
@@ -137,7 +140,7 @@ export function SubScreenPrediction() {
           }
         >
           {historic.map(dadosAPI => (
-            <tr>
+            <tr key={dadosAPI.id}>
               <td className="coluna1">{dadosAPI.id}</td>
               <td className="coluna2">{dadosAPI.nome}</td>
               <td>{dadosAPI.ultimaCompra}</td>

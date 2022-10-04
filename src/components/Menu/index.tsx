@@ -8,7 +8,7 @@ export function Menu() {
   return (
     <MenuStyles width="14vw">
       <Link to="/">
-        <Logo src={logoW3} alt="logo W3" />
+        <Logo width="126" height="28" src={logoW3} alt="logo W3" />
       </Link>
 
       <ItensMenu />

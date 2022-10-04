@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { Filter } from '../../assets/icons/Filter'
 import { FiltroProduto } from '../../components/FilterProduct'
 import { FilterStyle } from '../../components/Input/styles'
+import { Logo } from '../../components/Menu/styles'
 import { SearchPrediction } from '../../components/Search'
 import { TableProduct } from '../../components/TableProduct'
 import { Title } from '../../components/Title'
@@ -10,6 +11,7 @@ import { ContainerTableStyle } from '../../pages/Dashboard/styles'
 import { GetProduct, GetProductProps } from '../../services/GetProduto'
 import { colors } from '../../theme'
 import { ContainerProductStyle, Status, SubTelaProdutoButton } from './styles'
+import load from '../../assets/images/load.svg'
 
 const TitleTabela = ['ID', 'Produto', 'Status', 'Percentual']
 
@@ -52,11 +54,12 @@ export function PageProduct() {
 
   if (loading) {
     return (
-      <Title
-        text="Carregando dados"
-        size={24}
-        color={colors.grey900}
-        marginLeft="15px"
+      <Logo
+        marginLeft="500px"
+        width="200px"
+        height="200px"
+        src={load}
+        alt="load"
       />
     )
   }
@@ -102,6 +105,7 @@ export function PageProduct() {
             {product &&
               product.content.map(dadosAPI => (
                 <tr
+                  key={dadosAPI.id}
                   className="onClick"
                   onClick={() =>
                     goToPage(`/informacoesprodutos/${dadosAPI.id}`)

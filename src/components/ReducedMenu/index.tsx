@@ -9,7 +9,7 @@ export function ReduceMenu() {
     <Wrapper>
       <MenuStyles>
         <Link to="/">
-          <Logo src={logo} alt="logo W3" />
+          <Logo width="126" height="28" src={logo} alt="logo W3" />
         </Link>
 
         <ItensMenuReduzido />

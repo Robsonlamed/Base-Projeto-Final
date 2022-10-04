@@ -4,8 +4,9 @@ import { ChevronRight } from '../../assets/icons/ChevronRight'
 import { EveryUser } from '../../assets/icons/EveryUser'
 import { FacialCleanser } from '../../assets/icons/FacialCleanser'
 import { ButtonStatus } from '../../components/ButtonStatus'
+import { Logo } from '../../components/Menu/styles'
 import { TableProduct } from '../../components/TableProduct'
-import { Title } from '../../components/Title'
+import load from '../../assets/images/load.svg'
 import { TitleWithIcon } from '../../components/TitleWithIcon'
 import { DashBoard } from '../../pages/Dashboard'
 import { ContainerTableStyle } from '../../pages/Dashboard/styles'
@@ -72,14 +73,16 @@ export function PageDashboard() {
 
   if (loading) {
     return (
-      <Title
-        text="Carregando dados"
-        size={24}
-        color={colors.grey900}
-        marginLeft="15px"
+      <Logo
+        marginLeft="500px"
+        width="200px"
+        height="200px"
+        src={load}
+        alt="load"
       />
     )
   }
+
   return (
     <div>
       <DashBoard setDate={setDates} date={dates} />
@@ -104,6 +107,7 @@ export function PageDashboard() {
         >
           {tableProduct.map(dadosAPI => (
             <tr
+              key={dadosAPI.id}
               className="onClick"
               onClick={() => goToPage(`/informacoesprodutos/${dadosAPI.id}`)}
             >

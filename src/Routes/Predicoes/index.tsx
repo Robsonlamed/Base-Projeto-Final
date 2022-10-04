@@ -3,12 +3,15 @@ import { ContainerdDashboardStyle } from '../../components/CardDashboard/styles'
 import { CardPrediction } from '../../components/CardPrediction'
 import { SearchPrediction } from '../../components/Search'
 import { Title } from '../../components/Title'
+import load from '../../assets/images/load.svg'
+
 import {
   GetPreditionCard,
   GetPreditionCardProps,
 } from '../../services/GetPredicao/getPredicoes'
 import { colors } from '../../theme'
 import { ContainerCardsPrediction } from '../../components/CardPrediction/styles'
+import { Logo } from '../../components/Menu/styles'
 
 const tableTitulo = ['Produto', 'Próx. compra']
 
@@ -35,11 +38,12 @@ export function PagePredicoes() {
 
   if (loading) {
     return (
-      <Title
-        text="Carregando dados"
-        size={24}
-        color={colors.grey900}
-        marginLeft="15px"
+      <Logo
+        marginLeft="500px"
+        width="200px"
+        height="200px"
+        src={load}
+        alt="load"
       />
     )
   }
@@ -68,6 +72,7 @@ export function PagePredicoes() {
       <ContainerCardsPrediction>
         {cardPrediction?.content.map(dadosAPI => (
           <CardPrediction
+            key={dadosAPI.id}
             id={dadosAPI.id}
             name={dadosAPI.nome}
             tableTitle={tableTitulo}

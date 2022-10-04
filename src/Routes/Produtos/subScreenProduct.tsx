@@ -10,6 +10,8 @@ import { TableProduct } from '../../components/TableProduct'
 import { Title } from '../../components/Title'
 import { TitleWithIcon } from '../../components/TitleWithIcon'
 import { ContainerTableStyle } from '../../pages/Dashboard/styles'
+import load from '../../assets/images/load.svg'
+
 import {
   GetProductClientProps,
   GetProductClientStatus,
@@ -17,6 +19,7 @@ import {
   GetProductSummaryProps,
 } from '../../services/GetProduto'
 import { colors } from '../../theme'
+import { Logo } from '../../components/Menu/styles'
 
 const TitleTable = ['ID', 'Cliente', 'Percentual', 'Quantidade']
 
@@ -60,11 +63,12 @@ export function SubScreenProduct() {
 
   if (loading) {
     return (
-      <Title
-        text="Carregando dados"
-        size={24}
-        color={colors.grey900}
-        marginLeft="15px"
+      <Logo
+        marginLeft="500px"
+        width="200px"
+        height="200px"
+        src={load}
+        alt="load"
       />
     )
   }
