@@ -4,7 +4,7 @@ import { ContainerPagesStyle } from '../components/ContainerPages/ContainerPages
 import { Menu } from '../components/Menu'
 import { ReduceMenu } from '../components/ReducedMenu'
 import { Top } from '../components/Top'
-import { PageStyle } from '../Routes/PageStyle/stylex'
+import { PageStyle } from '../Routes/PageStyle/styles'
 
 type LayoutProps = {
   children: ReactNode

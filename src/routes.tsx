@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import { AuthenticContext, AuthenticProvider } from './Context/AuthenticContext'
-import { Layout } from './Layout/Layout'
+import { Layout } from './Layout'
 import { PageDashboard } from './Routes/Dashboard'
 import { PageLogin } from './Routes/Login'
 import { PagePredicoes } from './Routes/Predicoes'
@@ -23,7 +23,7 @@ export function RoutesPrivate({ children }: RoutesPrivateProps) {
   return <Layout> {children} </Layout>
 }
 
-export function RoutesProjeto() {
+export function RoutesProject() {
   return (
     <BrowserRouter>
       <AuthenticProvider>

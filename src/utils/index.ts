@@ -36,7 +36,6 @@ class DateHelper {
     return {
       start: this.toDateBr(new Date(year, month, 1)),
       end: this.toDateBr(this.now),
-      // end2: this.toDateBr(new Date(year, month, this.getLastDay()))
     }
   }
 
