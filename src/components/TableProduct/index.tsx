@@ -37,7 +37,7 @@ export function TableProduct({
         <thead>
           <tr>
             {headers.map(titulo => (
-              <th>{titulo}</th>
+              <th key={titulo}>{titulo}</th>
             ))}
           </tr>
         </thead>

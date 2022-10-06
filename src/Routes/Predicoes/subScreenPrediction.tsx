@@ -172,7 +172,7 @@ export function SubScreenPrediction() {
           }
         >
           {ending.map(dadosAPI => (
-            <tr>
+            <tr key={dadosAPI.id}>
               <td className="coluna1">{dadosAPI.id}</td>
               <td className="coluna2">{dadosAPI.nome}</td>
               <td className="coluna3">{dadosAPI.ultimaCompra}</td>

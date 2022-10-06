@@ -211,7 +211,7 @@ export function SubScreenProductClient() {
           headers={TitleTable}
         >
           {productOnHigh.map(dadosAPI => (
-            <tr>
+            <tr key={dadosAPI.id}>
               <td className="coluna1">{dadosAPI.id}</td>
               <td className="coluna2">{dadosAPI.nome}</td>
               <td className="coluna3">{dadosAPI.percentual}%</td>

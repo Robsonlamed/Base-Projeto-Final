@@ -189,7 +189,7 @@ export function SubScreenProduct() {
           headers={TitleTable}
         >
           {clientLow.map(dadosAPI => (
-            <tr>
+            <tr key={dadosAPI.id}>
               <td className="coluna1">{dadosAPI.id}</td>
               <td className="coluna2">{dadosAPI.nome}</td>
               <td className="coluna3">{dadosAPI.percentual}%</td>
@@ -213,7 +213,7 @@ export function SubScreenProduct() {
           headers={TitleTable}
         >
           {clientesOnHigh.map(dadosAPI => (
-            <tr>
+            <tr key={dadosAPI.id}>
               <td className="coluna1">{dadosAPI.id}</td>
               <td className="coluna2">{dadosAPI.nome}</td>
               <td className="coluna3">{dadosAPI.percentual}%</td>

@@ -139,6 +139,7 @@ export function PageDashboard() {
         >
           {tableClient.map(dadosAPI => (
             <tr
+              key={dadosAPI.id}
               className="onClick"
               onClick={() =>
                 goToPage(`/informacoesprodutosclientes/${dadosAPI.id}`)
