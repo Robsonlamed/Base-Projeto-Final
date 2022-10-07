@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+// import { useNavigate } from 'react-router-dom'
 import { Eye } from '../../assets/icons/Eye'
 import { EyeOffLine } from '../../assets/icons/EyeOffLine'
 import { ForgotPassword } from '../../Routes/Login/styles'
@@ -21,12 +21,12 @@ export function Input({ eye }: InputProps) {
   const [isShowing, setIsShowing] = useState(!eye)
 
   const isPassword = () => setIsShowing(!isShowing)
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
 
   const doLogin = async () => {
     const result = await AuthLogin(email, password)
     if (result.login) {
-      navigate('/')
+      window.location.href = '/'
       return
     }
     alert(result.message)
