@@ -25,11 +25,20 @@ const Itens = [
   },
 ]
 
-export function ItensMenu() {
+type ItensMenuProps = {
+  marginLeft: string
+}
+
+export function ItensMenu({ marginLeft }: ItensMenuProps) {
   return (
     <>
       {Itens.map(iten => (
-        <LinkMenu key={iten.id} color={colors.white} to={iten.url}>
+        <LinkMenu
+          marginLeft={marginLeft}
+          key={iten.id}
+          color={colors.white}
+          to={iten.url}
+        >
           {iten.icon}
           <Links>{iten.text}</Links>
         </LinkMenu>
@@ -38,11 +47,11 @@ export function ItensMenu() {
   )
 }
 
-export function ItensMenuReduzido() {
+export function ItensMenuReduzido({ marginLeft }: ItensMenuProps) {
   return (
     <>
       {Itens.map(iten => (
-        <LinkMenu color={colors.white} to={iten.url}>
+        <LinkMenu marginLeft={marginLeft} color={colors.white} to={iten.url}>
           <Links>{iten.icon}</Links>
         </LinkMenu>
       ))}

@@ -14,9 +14,11 @@ export const Logo = styled.img<{
   width: string
   height: string
   marginLeft?: string
+  marginBottom?: string
 }>`
   margin: 35px;
   margin-left: ${({ marginLeft }) => `${marginLeft}`};
+  margin-bottom: ${({ marginBottom }) => `${marginBottom}`};
   width: ${({ width }) => `${width}`};
   height: ${({ height }) => `${height}`};
   cursor: pointer;

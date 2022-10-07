@@ -26,7 +26,7 @@ export const CalendarDashboardStyle = styled.div`
   }
 
   option {
-    font-size: 15px;
-    font-weight: 600;
+    font-size: 13px;
+    font-weight: 400;
   }
 `

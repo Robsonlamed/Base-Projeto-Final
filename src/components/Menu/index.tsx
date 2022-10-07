@@ -11,7 +11,7 @@ export function Menu() {
         <Logo width="126" height="28" src={logoW3} alt="logo W3" />
       </Link>
 
-      <ItensMenu />
+      <ItensMenu marginLeft="20px" />
       <BackgroundContactUs />
     </MenuStyles>
   )
