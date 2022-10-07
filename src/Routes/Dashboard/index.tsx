@@ -25,11 +25,13 @@ export function PageDashboard() {
   const [onHighProduct, setOnHighProduct] = useState(false)
   const [onHighClient, setOnHighClient] = useState(false)
   const [dates, setDates] = useState(dateHelper.thisMonth())
-  const statusProduct = () => setOnHighProduct(!onHighProduct)
-  const statusClient = () => setOnHighClient(!onHighClient)
 
   const [tableProduct, settableProduct] = useState<GetDashBoardTableProps>([])
+  const [tableClient, setTableClient] = useState<GetDashBoardTableProps>([])
   const [loading, setLoading] = useState(true)
+
+  const statusProduct = () => setOnHighProduct(!onHighProduct)
+  const statusClient = () => setOnHighClient(!onHighClient)
 
   useEffect(() => {
     ;(async () => {
@@ -46,8 +48,6 @@ export function PageDashboard() {
       }
     })()
   }, [onHighProduct, dates])
-
-  const [tableClient, setTableClient] = useState<GetDashBoardTableProps>([])
 
   useEffect(() => {
     ;(async () => {
