@@ -1,7 +1,7 @@
 import { ReactNode, useEffect, useState, createContext } from 'react'
-import { Title } from '../../components/Title'
+import { Logo } from '../../components/Menu/styles'
 import { ApiServiceW3 } from '../../services/config'
-import { colors } from '../../theme'
+import load from '../../assets/images/load.svg'
 
 type ContextType = {
   authentic: boolean
@@ -37,14 +37,16 @@ export function AuthenticProvider({ children }: AuthenticProviderProps) {
 
   if (loading) {
     return (
-      <Title
-        text="Loading..."
-        size={24}
-        color={colors.azul1}
-        marginLeft="30px"
+      <Logo
+        marginLeft="500px"
+        width="200px"
+        height="200px"
+        src={load}
+        alt="load"
       />
     )
   }
+
   return (
     <AuthenticContext.Provider value={{ authentic, loading }}>
       {children}

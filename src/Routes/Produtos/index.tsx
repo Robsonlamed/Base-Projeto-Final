@@ -83,7 +83,7 @@ export function PageProduct() {
             title={
               <SearchPrediction
                 startSearch={startSearch}
-                onChange={event => setSearch(event.target.value)}
+                onChange={event => setSearch(event.currentTarget.value)}
                 value={search}
                 height="0px"
                 icon={
@@ -129,7 +129,7 @@ export function PageProduct() {
                       {dadosAPI.classificacao}
                     </Status>
                   </td>
-                  <td>{dadosAPI.percentual}%</td>
+                  <td>{String(dadosAPI.percentual).replace('.', ',')}%</td>
                 </tr>
               ))}
           </TableProduct>
@@ -137,8 +137,6 @@ export function PageProduct() {
           {openFilter ? (
             <FiltroProduto
               totalProduct={product?.totalElements}
-              // totalProdutosEmAlta={produtos?.totalElements}
-              // totalProdutosEmBaixa={produtos?.totalElements}
               onClickToApply={startSearch}
               setOpenFilter={setOpenFilter}
               filter={filter}

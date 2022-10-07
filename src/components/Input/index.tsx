@@ -18,10 +18,9 @@ export function Input({ eye }: InputProps) {
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [isShowing, setIsShowing] = useState(!eye)
+  const [isShowing, setIsShowing] = useState(eye)
 
   const isPassword = () => setIsShowing(!isShowing)
-  // const navigate = useNavigate()
 
   const doLogin = async () => {
     const result = await AuthLogin(email, password)

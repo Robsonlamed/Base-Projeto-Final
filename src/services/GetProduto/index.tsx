@@ -46,7 +46,7 @@ export const GetProduct = async (
       params: {
         query,
         classificacao,
-        page,
+        page: page - 1,
         size: 7,
       },
     })

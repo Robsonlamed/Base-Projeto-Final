@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-export const LinkMenu = styled(Link)<{ color: string; marginLeft: string }>`
+export const LinkMenu = styled(Link)<{ color: string; marginLeft?: string }>`
   cursor: pointer;
   display: flex;
   justify-content: start;

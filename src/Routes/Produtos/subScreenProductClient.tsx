@@ -190,7 +190,9 @@ export function SubScreenProductClient() {
             <tr key={dadosAPI.id}>
               <td className="coluna1">{dadosAPI.id}</td>
               <td className="coluna2">{dadosAPI.nome}</td>
-              <td className="coluna3">{dadosAPI.percentual}%</td>
+              <td className="coluna3">
+                {String(dadosAPI.percentual).replace('.', ',')}%
+              </td>
               <td>{dadosAPI.quantidade}</td>
             </tr>
           ))}
@@ -214,7 +216,9 @@ export function SubScreenProductClient() {
             <tr key={dadosAPI.id}>
               <td className="coluna1">{dadosAPI.id}</td>
               <td className="coluna2">{dadosAPI.nome}</td>
-              <td className="coluna3">{dadosAPI.percentual}%</td>
+              <td className="coluna3">
+                {String(dadosAPI.percentual).replace('.', ',')}%
+              </td>
               <td>{dadosAPI.quantidade}</td>
             </tr>
           ))}

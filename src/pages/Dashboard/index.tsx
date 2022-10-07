@@ -94,7 +94,7 @@ export function DashBoard({ date, setDate }: CalendarioProps) {
             radialBar={
               <RadialBar series={summary?.percentualTotalClientesAlta || 0} />
             }
-            type="clientes"
+            type="produtos"
             status="em alta"
             value={summary?.quantidadeClientesAlta || 0}
             percentage={summary?.percentualVariacaoClientesAlta || 0}
@@ -109,7 +109,7 @@ export function DashBoard({ date, setDate }: CalendarioProps) {
             radialBar={
               <RadialBar series={summary?.percentualTotalClientesBaixa || 0} />
             }
-            type="clientes"
+            type="produtos"
             status="em baixa"
             value={summary?.quantidadeClientesBaixa || 0}
             percentage={summary?.percentualVariacaoClientesBaixa || 0}

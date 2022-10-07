@@ -20,7 +20,9 @@ export function ValueCardDashboard({
   return (
     <ContainerValueCardDashboard>
       <div>
-        <ValueCardDashboardStyle color={color}>{total}</ValueCardDashboardStyle>
+        <ValueCardDashboardStyle color={color}>
+          {total?.toLocaleString('pt-BR')}
+        </ValueCardDashboardStyle>
       </div>
       {!!percentagem && (
         <PercentagemCardDashboardStyle backgroundColor={backgroundColor}>

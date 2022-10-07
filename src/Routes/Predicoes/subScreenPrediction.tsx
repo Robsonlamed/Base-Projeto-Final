@@ -46,35 +46,40 @@ export function SubScreenPrediction() {
 
   const { id } = useParams()
 
+  const getPreditionHistoric = async () => {
+    const result = await GetPreditionHistoric(id!)
+    setHistoric(result)
+    setLoading(false)
+  }
+
+  useEffect(() => {
+    getPreditionHistoric()
+  }, [])
+
   const dismiss = async (produtoId: number) => {
     const result = await GetPreditionProductLow(id!, produtoId)
     if (result.baixa) {
+      getPreditionHistoric()
+      alert('Produto baixado')
+    }
+  }
+
+  const getPreditionEnding = async () => {
+    const result = await GetPreditionEnding(id!)
+    setEnding(result)
+    setLoading(false)
+  }
+
+  const dismissEnding = async (produtoId: number) => {
+    const result = await GetPreditionProductLow(id!, produtoId)
+    if (result.baixa) {
+      getPreditionEnding()
       alert('Produto baixado')
     }
   }
 
   useEffect(() => {
-    ;(async () => {
-      try {
-        const result = await GetPreditionHistoric(id!)
-        setHistoric(result)
-        setLoading(false)
-      } catch (error) {
-        alert((error as any).message)
-      }
-    })()
-  }, [])
-
-  useEffect(() => {
-    ;(async () => {
-      try {
-        const result = await GetPreditionEnding(id!)
-        setEnding(result)
-        setLoading(false)
-      } catch (error) {
-        alert((error as any).message)
-      }
-    })()
+    getPreditionEnding()
   }, [])
 
   useEffect(() => {
@@ -180,7 +185,7 @@ export function SubScreenPrediction() {
               <td>{dadosAPI.quantidade}</td>
               <td className="arrow">
                 <CheckOneStyle
-                  onClick={() => dismiss(dadosAPI.id)}
+                  onClick={() => dismissEnding(dadosAPI.id)}
                   type="button"
                 >
                   <CheckOne />

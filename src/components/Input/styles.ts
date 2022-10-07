@@ -38,7 +38,7 @@ export const EyeStyle = styled.div`
   top: 15px;
 
   button {
-    background-color: ${colors.white};
+    background-color: rgb(255, 255, 255, 0.1);
     border: none;
   }
 `
