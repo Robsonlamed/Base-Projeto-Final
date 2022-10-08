@@ -21,7 +21,7 @@ import {
 } from '../../services/GetProduto'
 import { colors } from '../../theme'
 
-const TitleTable = ['ID', 'Cliente', 'Percentual', 'Quantidade']
+const TitleTable = ['ID', 'Produto', 'Percentual', 'Quantidade']
 
 export function SubScreenProductClient() {
   const [productLow, setProductLow] = useState<GetProductStatusProps>([])
