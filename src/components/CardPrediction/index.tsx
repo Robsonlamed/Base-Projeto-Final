@@ -7,7 +7,7 @@ import {
   IconChevronClient,
 } from './styles'
 import { colors } from '../../theme'
-import { TableClientPrediction } from '../TableClient'
+import { TableClientPrediction } from '../TableClientPredition'
 import { TitleWithIcon } from '../TitleWithIcon'
 import { LinkMenu } from '../ItensMenu/styles'
 

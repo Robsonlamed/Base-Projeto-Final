@@ -15,7 +15,7 @@ export const TableClientPredictionStyle = styled.table`
   }
 
   tbody {
-    font-size: 10px;
+    font-size: 11px;
     color: ${colors.grey800};
     font-weight: 400;
     text-align: center;

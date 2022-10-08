@@ -13,6 +13,7 @@ export const Status = styled.div<{ backgroundColor: string; color: string }>`
   padding-top: 6px;
   color: ${({ color }) => `${color}`};
   margin: 0 auto;
+  font-weight: 500;
 `
 
 export const SubScreenProductStyle = styled.span`

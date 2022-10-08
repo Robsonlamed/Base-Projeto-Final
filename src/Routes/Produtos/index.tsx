@@ -126,7 +126,9 @@ export function PageProduct() {
                           : `${colors.lightRed}`
                       }
                     >
-                      {dadosAPI.classificacao}
+                      {dadosAPI.classificacao === 'EM_ALTA'
+                        ? 'Em alta'
+                        : 'Em baixa'}
                     </Status>
                   </td>
                   <td>{String(dadosAPI.percentual).replace('.', ',')}%</td>
