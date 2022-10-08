@@ -21,7 +21,7 @@ import {
 import { colors } from '../../theme'
 import { Logo } from '../../components/Menu/styles'
 
-const TitleTable = ['ID', 'Cliente', 'Percentual', 'Quantidade']
+const TitleTable = ['ID', 'Produto', 'Percentual', 'Quantidade']
 
 export function SubScreenProduct() {
   const [clientLow, setClientLow] = useState<GetProductClientProps>([])
