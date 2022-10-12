@@ -26,6 +26,11 @@ export const TableProductStyle = styled.table`
         padding-right: 20px;
       }
     }
+    tr {
+      th:nth-child(4) {
+        padding-right: 20px;
+      }
+    }
 
     tr {
       th:nth-child(6) {
