@@ -7,7 +7,7 @@ import { Logo, MenuStyles } from './styles'
 export function Menu() {
   return (
     <MenuStyles width="14vw">
-      <Link to="/">
+      <Link to="/dashboard">
         <Logo width="126" height="28" src={logoW3} alt="logo W3" />
       </Link>
 

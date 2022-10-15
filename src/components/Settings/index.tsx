@@ -12,7 +12,7 @@ export function Settings() {
   const logout = () => {
     localStorage.clear()
     ApiServiceW3.defaults.headers.common.Authorization = ''
-    navigate(`/login`, { replace: true })
+    navigate(`/`, { replace: true })
   }
 
   return (

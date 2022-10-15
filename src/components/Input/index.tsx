@@ -25,7 +25,7 @@ export function Input({ eye }: InputProps) {
   const doLogin = async () => {
     const result = await AuthLogin(email, password)
     if (result.login) {
-      window.location.href = '/'
+      window.location.href = '/dashboard'
       return
     }
     alert(result.message)

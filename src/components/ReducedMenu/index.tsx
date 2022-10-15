@@ -9,7 +9,7 @@ export function ReduceMenu() {
   return (
     <Wrapper>
       <MenuStyles>
-        <Link to="/">
+        <Link to="/dashboard">
           <Logo
             marginLeft="-22px"
             width="126"

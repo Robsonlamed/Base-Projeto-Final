@@ -17,7 +17,7 @@ type RoutesPrivateProps = {
 export function RoutesPrivate({ children }: RoutesPrivateProps) {
   const { authentic } = useContext(AuthenticContext)
   if (!authentic) {
-    return <Navigate to="/login" />
+    return <Navigate to="/" />
   }
 
   return <Layout> {children} </Layout>
@@ -28,14 +28,14 @@ export function RoutesProject() {
     <BrowserRouter>
       <AuthenticProvider>
         <Routes>
-          <Route element={<PageLogin />} path="/login" />
+          <Route element={<PageLogin />} path="/" />
           <Route
             element={
               <RoutesPrivate>
                 <PageDashboard />
               </RoutesPrivate>
             }
-            path="/"
+            path="/dashboard"
           />
           <Route
             element={

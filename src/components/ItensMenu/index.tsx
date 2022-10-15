@@ -9,7 +9,7 @@ const Itens = [
     id: 1,
     icon: <PieTwo />,
     text: 'Dashboard',
-    url: '/',
+    url: '/dashboard',
   },
   {
     id: 2,
